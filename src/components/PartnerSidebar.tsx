@@ -183,9 +183,9 @@ export default function PartnerSidebar({
   const renderCollapsedContent = (
     <div 
       style={segoeStyle}
-      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-[64px]"
+      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-[64px] overflow-hidden"
     >
-      <div className="flex-1 overflow-y-auto px-2 py-3 space-y-1 no-scrollbar">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-2 py-3 space-y-1 custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             {gIdx > 0 && <div className="w-8 h-px bg-slate-200 mx-auto my-2" />}
@@ -282,10 +282,10 @@ export default function PartnerSidebar({
   const renderExpandedContent = (
     <div 
       style={segoeStyle}
-      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-full"
+      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-full overflow-hidden"
     >
       {/* Navigation List - Font 14px, 40px item row height */}
-      <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4 no-scrollbar">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-3 py-3 space-y-4 custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-0.5">
             <div className="px-3 pt-1 pb-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
@@ -421,7 +421,7 @@ export default function PartnerSidebar({
       {/* Main Sidebar Wrapper */}
       {!isCompletelyHidden && (
         <aside 
-          className={`shrink-0 transition-all duration-200 h-[calc(100vh-3.5rem)] sticky top-14 z-30 hidden md:block ${
+          className={`shrink-0 transition-all duration-200 h-full max-h-full select-none z-30 hidden md:block overflow-hidden ${
             isCollapsed ? 'w-[64px]' : 'w-64'
           }`}
         >

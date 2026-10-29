@@ -83,15 +83,15 @@ export default function AdminRevenuePage() {
   const partnerDisbursals = totalGrossRevenue - netPlatformMargin - statutoryGovtPassThrough;
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col font-sans text-slate-900">
+    <div className="h-screen max-h-screen overflow-hidden bg-slate-100 flex flex-col font-sans text-slate-900">
       {/* Top Navbar */}
       <AdminNavbar currentTitle="Revenue & Pricing" />
 
       {/* Main Body Workspace */}
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         <AdminSidebar activeItem="pricing" />
 
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain custom-scrollbar">
           {/* Action Header */}
           <div className="bg-white border-b border-slate-200 px-6 py-5">
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">

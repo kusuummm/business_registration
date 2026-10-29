@@ -322,15 +322,15 @@ export default function AdminSettingsPage() {
   ];
 
   return (
-    <div style={segoeStyle} className="min-h-screen bg-slate-100 flex flex-col text-slate-900">
+    <div style={segoeStyle} className="h-screen max-h-screen overflow-hidden bg-slate-100 flex flex-col text-slate-900">
       {/* Top Navbar */}
       <AdminNavbar currentTitle="Platform Settings & Governance" />
 
       {/* Main Workspace Layout */}
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         <AdminSidebar activeItem="settings" />
 
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain custom-scrollbar">
           {/* Action Header Banner */}
           <div className="bg-white border-b border-slate-200 px-6 py-5">
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">

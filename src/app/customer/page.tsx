@@ -99,7 +99,7 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
   };
 
   return (
-    <div style={segoeStyle} className="min-h-screen bg-slate-100 flex flex-col text-slate-900">
+    <div style={segoeStyle} className="h-screen max-h-screen overflow-hidden bg-slate-100 flex flex-col text-slate-900">
       {/* Top Navbar */}
       <CustomerNavbar 
         currentTitle="My Filings & Status" 
@@ -108,10 +108,10 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
       />
 
       {/* Main Workspace with Sidebar */}
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         <CustomerSidebar activeItem="orders" />
 
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain custom-scrollbar">
           {/* Executive KPI Summary Bar */}
           <div className="bg-white border-b border-slate-200 px-6 py-4">
             <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">

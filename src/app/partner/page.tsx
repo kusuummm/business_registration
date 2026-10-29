@@ -306,7 +306,7 @@ export default function PartnerPortalPage() {
   };
 
   return (
-    <div style={segoeStyle} className="min-h-screen bg-[#F8FAFC] flex flex-col text-slate-900">
+    <div style={segoeStyle} className="h-screen max-h-screen overflow-hidden bg-[#F8FAFC] flex flex-col text-slate-900">
       {/* Top Navigation Bar with Refresh, Shortcuts & Context Breadcrumb */}
       <PartnerNavbar
         currentTitle={
@@ -321,7 +321,7 @@ export default function PartnerPortalPage() {
       />
 
       {/* Main Body Workspace: Sidebar on left below navbar, Content on right */}
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         {/* Partner Sidebar (Segoe UI font style, matching Admin exactly) */}
         <PartnerSidebar
           activeItem={activeTab}
@@ -329,8 +329,8 @@ export default function PartnerPortalPage() {
           filingsCount={assignedOrders.length}
         />
 
-        {/* Main Content Workspace to the right of sidebar */}
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto bg-[#F8FAFC]">
+        {/* Main Content Workspace to the right of sidebar (independent scroll) */}
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain bg-[#F8FAFC] custom-scrollbar">
           {/* Executive Overview Header (Unified Architecture Matching Admin) */}
           <section className="bg-white border-b border-slate-200 px-4 sm:px-6 py-5 shadow-xs">
             <div className="max-w-7xl mx-auto">

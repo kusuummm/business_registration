@@ -207,10 +207,10 @@ export default function AdminSidebar({
   const renderCollapsedContent = (
     <div 
       style={segoeStyle}
-      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-[64px]"
+      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-[64px] overflow-hidden"
     >
       {/* Navigation Icons (No counts) */}
-      <div className="flex-1 overflow-y-auto px-2 py-3 space-y-1 no-scrollbar">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-2 py-3 space-y-1 custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             {gIdx > 0 && <div className="w-8 h-px bg-slate-200 mx-auto my-2" />}
@@ -295,10 +295,10 @@ export default function AdminSidebar({
   const renderExpandedContent = (
     <div 
       style={segoeStyle}
-      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-full"
+      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-full overflow-hidden"
     >
       {/* Navigation List - Font 14px, 40px item row height */}
-      <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4 no-scrollbar">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-3 py-3 space-y-4 custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-0.5">
             <div className="px-3 pt-1 pb-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
@@ -401,7 +401,7 @@ export default function AdminSidebar({
     <>
       {/* DESKTOP SIDEBAR: Placed directly below the Top Navbar on the left */}
       <aside 
-        className={`hidden md:block shrink-0 sticky top-14 h-[calc(100vh-3.5rem)] z-30 select-none bg-white ${
+        className={`hidden md:block shrink-0 h-full max-h-full z-30 select-none bg-white overflow-hidden ${
           isCompletelyHidden 
             ? 'w-0 overflow-hidden border-none' 
             : isCollapsed 

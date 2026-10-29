@@ -903,7 +903,7 @@ export default function AdminDashboardPage() {
   const pendingEscrowBatches = pendingPayoutsList.length;
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col font-sans text-slate-900">
+    <div className="h-screen max-h-screen overflow-hidden bg-slate-100 flex flex-col font-sans text-slate-900">
       {/* Top Navbar: Spans 100% full width across top of screen */}
       <AdminNavbar
         currentTitle={
@@ -922,7 +922,7 @@ export default function AdminDashboardPage() {
       />
 
       {/* Main Body Workspace: Sidebar on left below navbar, Content on right */}
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         {/* Enterprise Admin Sidebar (Placed below top navbar on the left) */}
         <AdminSidebar
           activeItem={activeTab}
@@ -933,8 +933,8 @@ export default function AdminDashboardPage() {
           onSignOut={handleSignOut}
         />
 
-        {/* Main Content Workspace (To the right of sidebar, below top navbar) */}
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        {/* Main Content Workspace (To the right of sidebar, below top navbar - independent scroll) */}
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain custom-scrollbar">
 
         {/* Executive Overview Header */}
         <section className="bg-white border-b border-slate-200 px-6 py-5">

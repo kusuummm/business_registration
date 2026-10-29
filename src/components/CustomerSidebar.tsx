@@ -213,10 +213,10 @@ export default function CustomerSidebar({
   const renderCollapsedContent = (
     <div 
       style={segoeStyle}
-      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-16"
+      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-16 overflow-hidden"
     >
       {/* Navigation Icons Column */}
-      <div className="flex-1 overflow-y-auto py-3 space-y-4 no-scrollbar">
+      <div className="flex-1 overflow-y-auto overscroll-contain py-3 space-y-4 custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             {group.items.map((item) => {
@@ -298,10 +298,10 @@ export default function CustomerSidebar({
   const renderExpandedContent = (
     <div 
       style={segoeStyle}
-      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-full"
+      className="flex flex-col h-full bg-white text-slate-800 border-r border-slate-200 select-none shadow-xs w-full overflow-hidden"
     >
       {/* Navigation List - Font 14px, 40px item row height */}
-      <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4 no-scrollbar">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-3 py-3 space-y-4 custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-0.5">
             <div className="px-3 pt-1 pb-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
@@ -401,7 +401,7 @@ export default function CustomerSidebar({
   return (
     <aside 
       style={segoeStyle}
-      className={`relative shrink-0 select-none transition-all duration-300 z-30 flex ${
+      className={`relative shrink-0 select-none transition-all duration-300 z-30 flex h-full max-h-full overflow-hidden ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
     >

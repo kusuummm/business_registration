@@ -155,20 +155,20 @@ END:VCALENDAR`;
   };
 
   return (
-    <div style={segoeStyle} className="min-h-screen bg-slate-100 flex flex-col text-slate-900">
+    <div style={segoeStyle} className="h-screen max-h-screen overflow-hidden bg-slate-100 flex flex-col text-slate-900">
       <CustomerNavbar currentTitle="Compliance Calendar & Health" />
 
       {statusNotice && (
-        <div className="bg-emerald-600 text-white text-xs font-semibold py-2.5 px-4 text-center flex items-center justify-center gap-2 animate-fadeIn shadow-xs sticky top-14 z-40">
+        <div className="bg-emerald-600 text-white text-xs font-semibold py-2.5 px-4 text-center flex items-center justify-center gap-2 animate-fadeIn shadow-xs shrink-0">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span>{statusNotice}</span>
         </div>
       )}
 
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         <CustomerSidebar activeItem="compliance" />
 
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain custom-scrollbar">
           <main className="max-w-6xl mx-auto w-full py-6 px-4 sm:px-6 space-y-6">
             {/* Header & Quick Action */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">

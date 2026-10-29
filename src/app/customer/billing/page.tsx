@@ -95,13 +95,13 @@ Status: ${inv.status.toUpperCase()}
   };
 
   return (
-    <div style={segoeStyle} className="min-h-screen bg-slate-100 flex flex-col text-slate-900">
+    <div style={segoeStyle} className="h-screen max-h-screen overflow-hidden bg-slate-100 flex flex-col text-slate-900">
       <CustomerNavbar currentTitle="Tax Invoices & Receipts" />
 
-      <div className="flex-1 flex flex-row min-w-0">
+      <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
         <CustomerSidebar activeItem="billing" />
 
-        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto overscroll-contain custom-scrollbar">
           <main className="max-w-6xl mx-auto w-full py-6 px-4 sm:px-6 space-y-6">
             <div>
               <h1 className="text-lg font-bold text-slate-900 tracking-tight">Tax Invoices & Payment Receipts</h1>
