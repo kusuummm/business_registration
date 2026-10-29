@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Crisp corporate styling */
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+/* Ensure all links and buttons always show pointer hand cursor */
+a, button, [role="button"], select {
+  cursor: pointer;
+}
+
+/* Clean scrollbar suppression utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

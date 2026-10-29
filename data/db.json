@@ -1,0 +1,572 @@
+{
+  "services": [
+    {
+      "id": "srv-pvt-ltd",
+      "slug": "private-limited-company",
+      "name": "Private Limited Company Registration",
+      "category": "incorporation",
+      "categoryName": "Company & LLP Incorporation",
+      "shortDesc": "The gold standard corporate structure for tech startups, scalable businesses, and fundraising.",
+      "fullDesc": "Incorporate your Private Limited company under the Companies Act, 2013 with complete SPICe+ Part A & B filings, DSC Class-3 tokens, MOA/AOA drafting, Certificate of Incorporation (COI), PAN, TAN, and EPFO/ESIC bank account opening.",
+      "baseFee": 2499,
+      "govFee": 1000,
+      "caFee": 1500,
+      "dscFee": 1200,
+      "gstRate": 0.18,
+      "slaDays": "4-6 Working Days",
+      "isActive": true,
+      "badge": "Most Popular",
+      "inclusions": [
+        "SPICe+ Part A Name Reservation (2 choices)",
+        "2 Class-3 Digital Signature Certificates (DSC USB Tokens)",
+        "Drafting of Memorandum (MOA) and Articles of Association (AOA)",
+        "Govt ROC SPICe+ Part B Incorporation Filing",
+        "Certificate of Incorporation (COI) with CIN number",
+        "Corporate PAN and TAN allotment",
+        "Zero-balance Current Bank Account opening assistance",
+        "PF, ESI and Professional Tax registration numbers"
+      ],
+      "exclusions": [
+        "Authorized Capital above ₹15 Lakhs (Statutory MCA ROC fee applies)",
+        "Foreign Director apostille/embassy legalization charges",
+        "Physical office commercial lease registration"
+      ],
+      "requiredDocuments": [
+        "PAN Card copy of all Directors & Shareholders",
+        "Identity Proof (Aadhaar Card, Passport, or Voter ID)",
+        "Address Proof (Bank statement or Electricity bill < 60 days)",
+        "Registered Office proof (Electricity / Water / Gas bill < 60 days)",
+        "No Objection Certificate (NOC) from Property Owner",
+        "Passport size photographs of all directors"
+      ],
+      "faqs": [
+        {
+          "q": "What is the minimum capital required to register a Private Limited company?",
+          "a": "There is zero minimum paid-up capital requirement under the Companies Act. You can start with as little as ₹1,000 or the standard ₹1,00,000 authorized capital."
+        },
+        {
+          "q": "Can a residential address be used as the registered office?",
+          "a": "Yes, Indian corporate law allows your residential or rented home to be registered as the official corporate office as long as you provide a utility bill and landlord NOC."
+        },
+        {
+          "q": "Why does BharatFilings separate Government Stamp Duty from the professional fee?",
+          "a": "State stamp duty varies between ₹860 (Delhi) to ₹10,000 (Punjab). We practice radical transparency so you only pay the exact statutory government fee with zero markups or GST on sovereign taxes."
+        }
+      ]
+    },
+    {
+      "id": "srv-opc",
+      "slug": "one-person-company",
+      "name": "One Person Company (OPC)",
+      "category": "incorporation",
+      "categoryName": "Company & LLP Incorporation",
+      "shortDesc": "Corporate status for solo founders with 100% control and limited liability protection.",
+      "fullDesc": "Start your single-founder enterprise with all corporate privileges. Enjoy limited liability, separate legal entity status, and seamless conversion into a Private Limited company as your business expands.",
+      "baseFee": 2199,
+      "govFee": 1000,
+      "caFee": 1200,
+      "dscFee": 600,
+      "gstRate": 0.18,
+      "slaDays": "4-5 Working Days",
+      "isActive": true,
+      "badge": "Solo Founder",
+      "inclusions": [
+        "Name Reservation on MCA CRC Portal",
+        "1 Class-3 Digital Signature Certificate (DSC)",
+        "Nominee Consent Drafting (INC-3 form)",
+        "MOA and AOA drafting for single director",
+        "COI, PAN, TAN and Bank Account assistance"
+      ],
+      "exclusions": [
+        "Foreign national as sole member (Only Indian resident allowed for OPC)"
+      ],
+      "requiredDocuments": [
+        "PAN Card and Aadhaar Card of Sole Director and Nominee",
+        "Bank statement or utility bill of Director (< 60 days old)",
+        "Registered office utility bill and NOC"
+      ],
+      "faqs": [
+        {
+          "q": "Can an OPC have employees?",
+          "a": "Yes, an OPC can employ unlimited staff and contractors; only ownership is held by 1 director."
+        }
+      ]
+    },
+    {
+      "id": "srv-llp",
+      "slug": "limited-liability-partnership",
+      "name": "Limited Liability Partnership (LLP)",
+      "category": "incorporation",
+      "categoryName": "Company & LLP Incorporation",
+      "shortDesc": "Ideal for consulting practices, law firms, and bootstrapped businesses with zero audit mandate up to 40L turnover.",
+      "fullDesc": "Combine the operational flexibility of a traditional partnership with limited liability protection. No mandatory statutory audit required unless turnover exceeds ₹40 Lakhs or capital contribution exceeds ₹25 Lakhs.",
+      "baseFee": 1999,
+      "govFee": 1500,
+      "caFee": 1000,
+      "dscFee": 1200,
+      "gstRate": 0.18,
+      "slaDays": "5-7 Working Days",
+      "isActive": true,
+      "badge": "Low Compliance",
+      "inclusions": [
+        "RUN-LLP Name Approval filing",
+        "2 Designated Partner DSC Class-3 tokens",
+        "FiLLiP Incorporation Form filing on MCA V3",
+        "LLP Agreement drafting & Form 3 filing",
+        "Certificate of Incorporation, PAN & TAN"
+      ],
+      "exclusions": [
+        "State Stamp Duty on LLP Agreement (varies by capital)"
+      ],
+      "requiredDocuments": [
+        "PAN Card and Aadhaar of at least 2 Partners",
+        "Address proof of partners and registered office premises"
+      ],
+      "faqs": [
+        {
+          "q": "Is audit mandatory for LLP every year?",
+          "a": "No. LLPs are exempt from statutory audit if annual turnover is below ₹40 Lakhs and capital contribution is below ₹25 Lakhs."
+        }
+      ]
+    },
+    {
+      "id": "srv-gst-reg",
+      "slug": "gst-registration",
+      "name": "New GST Registration",
+      "category": "tax_registrations",
+      "categoryName": "GST, PAN, MSME & IEC",
+      "shortDesc": "Mandatory Goods & Services Tax identification number (GSTIN) with Aadhaar authentication.",
+      "fullDesc": "Get your 15-digit GSTIN within 3 to 7 working days. Comprehensive filing covering business activity HSN/SAC codes, state jurisdiction, bank account addition, and biometric/Aadhaar OTP authentication.",
+      "baseFee": 999,
+      "govFee": 0,
+      "caFee": 500,
+      "dscFee": 0,
+      "gstRate": 0.18,
+      "slaDays": "3-5 Working Days",
+      "isActive": true,
+      "badge": "Essential",
+      "inclusions": [
+        "Jurisdiction & HSN/SAC classification analysis",
+        "GST REG-01 application filing on GSTN Portal",
+        "Aadhaar e-KYC OTP authentication coordination",
+        "Clarification drafting if tax officer issues REG-03 query",
+        "Final GST Certificate (REG-06) download"
+      ],
+      "exclusions": [
+        "Physical premises verification if flagged by department"
+      ],
+      "requiredDocuments": [
+        "PAN Card of Business / Proprietor / Partners",
+        "Aadhaar Card with linked mobile number",
+        "Premises proof (Electricity bill + Rent Agreement/NOC)",
+        "Cancelled cheque or bank account statement"
+      ],
+      "faqs": [
+        {
+          "q": "When is GST registration mandatory?",
+          "a": "Mandatory if turnover exceeds ₹40 Lakhs (goods) or ₹20 Lakhs (services), or for any interstate sales and e-commerce selling."
+        }
+      ]
+    },
+    {
+      "id": "srv-trademark",
+      "slug": "trademark-registration",
+      "name": "Trademark (TM) Application Filing",
+      "category": "ipr_licensing",
+      "categoryName": "Trademark, IP & Licenses",
+      "shortDesc": "Protect your brand name, logo, and slogan under the Trade Marks Act, 1999.",
+      "fullDesc": "Secure national intellectual property rights over your brand name, logo, or tagline. Includes deep phonetic search across Class 1 to 45, TM-A application filing with IP India, and issuance of immediate ™ symbol usage rights.",
+      "baseFee": 1499,
+      "govFee": 4500,
+      "caFee": 1000,
+      "dscFee": 0,
+      "gstRate": 0.18,
+      "slaDays": "24 Hours Filing (TM Symbol)",
+      "isActive": true,
+      "badge": "Brand Protection",
+      "inclusions": [
+        "Comprehensive Public Trademark Search in NICE Classification",
+        "Form TM-A drafting and filing on IP India portal",
+        "Immediate legal right to use ™ symbol",
+        "Power of Attorney drafting (Form 48)",
+        "Filing receipt and application number"
+      ],
+      "exclusions": [
+        "Hearing representation or examination reply (if objected)"
+      ],
+      "requiredDocuments": [
+        "Brand Name / Logo artwork in high resolution",
+        "Identity & Address proof of applicant",
+        "Udyam Registration Certificate (for 50% govt fee concession)",
+        "Signed Power of Attorney"
+      ],
+      "faqs": [
+        {
+          "q": "How fast can I start using the ™ mark?",
+          "a": "Within 24 hours of filing Form TM-A, you receive official acknowledgement and can legally use the ™ symbol."
+        }
+      ]
+    },
+    {
+      "id": "srv-udyam",
+      "slug": "udyam-msme-registration",
+      "name": "Udyam MSME Registration",
+      "category": "tax_registrations",
+      "categoryName": "GST, PAN, MSME & IEC",
+      "shortDesc": "Official MSME recognition for government subsidies, collateral-free bank loans & 50% trademark fee discount.",
+      "fullDesc": "Obtain lifetime valid Udyam Registration Certificate from the Ministry of MSME. Unlocks priority sector bank lending, 45-day payment protection under MSMED Act, and international trade fair subsidies.",
+      "baseFee": 499,
+      "govFee": 0,
+      "caFee": 200,
+      "dscFee": 0,
+      "gstRate": 0.18,
+      "slaDays": "24 Hours",
+      "isActive": true,
+      "inclusions": [
+        "NIC Code mapping for business activities",
+        "Direct filing on official Udyam Portal",
+        "Instant Udyam Registration Certificate with QR Code"
+      ],
+      "exclusions": [],
+      "requiredDocuments": [
+        "Aadhaar Number of Entrepreneur linked with mobile",
+        "PAN Card of Business / Proprietor",
+        "Bank Account details (Account No. & IFSC)"
+      ],
+      "faqs": [
+        {
+          "q": "Does Udyam registration have an expiry date?",
+          "a": "No, Udyam certificate has lifetime validity with zero renewal fee."
+        }
+      ]
+    },
+    {
+      "id": "srv-annual-filing",
+      "slug": "annual-roc-filing-compliance",
+      "name": "Annual ROC Compliance & Financials",
+      "category": "annual_compliance",
+      "categoryName": "Annual ROC Compliance",
+      "shortDesc": "Mandatory annual MCA filing: AOC-4 (Financials), MGT-7 (Annual Return) & DIR-3 KYC.",
+      "fullDesc": "Fulfill all statutory compliance mandates under the Companies Act, 2013 to avoid ₹100/day penal MCA late fees. Handled end-to-end by practicing Company Secretaries and Chartered Accountants.",
+      "baseFee": 3999,
+      "govFee": 1200,
+      "caFee": 2000,
+      "dscFee": 0,
+      "gstRate": 0.18,
+      "slaDays": "7-10 Working Days",
+      "isActive": true,
+      "badge": "Mandatory",
+      "inclusions": [
+        "Preparation of Balance Sheet and Profit & Loss accounts",
+        "Filing of Form AOC-4 (Financial Statements)",
+        "Filing of Form MGT-7 / MGT-7A (Annual Return)",
+        "Director DIR-3 KYC Web/e-Form filing",
+        "Statutory Secretarial registers maintenance"
+      ],
+      "exclusions": [
+        "Statutory Audit fees if done by third-party CA firm"
+      ],
+      "requiredDocuments": [
+        "Bank statements for entire financial year",
+        "Purchase and Sale invoices / Ledger summaries",
+        "Valid DSC tokens of at least 1 Director"
+      ],
+      "faqs": [
+        {
+          "q": "What is the penalty for not filing annual returns?",
+          "a": "The MCA levies a statutory penalty of ₹100 per day per form with no upper cap until filed, risking director disqualification."
+        }
+      ]
+    },
+    {
+      "id": "srv-dsc-token",
+      "slug": "class-3-digital-signature",
+      "name": "Class-3 Digital Signature Certificate (DSC)",
+      "category": "digital_signatures",
+      "categoryName": "DSC & Digital Signatures",
+      "shortDesc": "CCA certified Class-3 cryptographic USB hardware token with 2-year validity.",
+      "fullDesc": "Get a FIPS-certified USB cryptographic token (ProxKey or ePass2003) loaded with CCA-approved Class-3 Signing Certificate. Mandatory for MCA V3, Income Tax, GST, EPFO, and e-Tendering portals.",
+      "baseFee": 899,
+      "govFee": 0,
+      "caFee": 200,
+      "dscFee": 600,
+      "gstRate": 0.18,
+      "slaDays": "4 Hours (Video KYC)",
+      "isActive": true,
+      "inclusions": [
+        "Class-3 Signing Certificate with 2-Year Validity",
+        "FIPS-Compliant USB Cryptographic Hardware Token",
+        "2-Minute paperless Video KYC link",
+        "Token courier delivery across India"
+      ],
+      "exclusions": [],
+      "requiredDocuments": [
+        "PAN Card & Aadhaar Card of applicant",
+        "Mobile number linked to Aadhaar"
+      ],
+      "faqs": [
+        {
+          "q": "Can I sign documents from my mobile phone with this DSC?",
+          "a": "The cryptographic token is a USB hardware key designed for laptops/desktops with Windows/Mac drivers for maximum security."
+        }
+      ]
+    },
+    {
+      "id": "srv-fssai",
+      "slug": "fssai-food-license",
+      "name": "FSSAI Food Business License & Registration",
+      "category": "ipr_licensing",
+      "categoryName": "Trademark, IP & Licenses",
+      "shortDesc": "Mandatory 14-digit food safety license for restaurants, cloud kitchens, manufacturers & D2C food brands.",
+      "fullDesc": "Obtain your 14-digit FSSAI Registration or State License under the Food Safety and Standards Act, 2006. Mandatory for all food businesses, cloud kitchens, caterers, e-commerce food vendors (Zomato/Swiggy), and grocery retailers.",
+      "baseFee": 1499,
+      "govFee": 100,
+      "caFee": 500,
+      "dscFee": 0,
+      "gstRate": 0.18,
+      "slaDays": "3-5 Working Days",
+      "isActive": true,
+      "badge": "Food Safety",
+      "inclusions": [
+        "Eligibility analysis (Basic Registration vs State License)",
+        "Form A / Form B application preparation on FoSCoS portal",
+        "Food category mapping and hygiene affidavit drafting",
+        "FoSCoS government filing and scrutiny clearance",
+        "14-digit FSSAI Certificate download"
+      ],
+      "exclusions": [
+        "Medical fitness certificate of food handlers (to be self-procured)",
+        "State license government fee for turnover > ₹12 Lakhs"
+      ],
+      "requiredDocuments": [
+        "Passport photo of food business operator (FBO)",
+        "Government ID proof (PAN / Aadhaar / Voter ID)",
+        "Premises address proof (Electricity bill + Rent Agreement/NOC)",
+        "List of food products / menu items"
+      ],
+      "faqs": [
+        {
+          "q": "Is FSSAI mandatory for selling food on Swiggy or Zomato?",
+          "a": "Yes, both Swiggy and Zomato strictly require an active 14-digit FSSAI license before approving restaurant onboarding."
+        }
+      ]
+    },
+    {
+      "id": "srv-iec",
+      "slug": "import-export-code-iec",
+      "name": "Import Export Code (IEC) Registration",
+      "category": "tax_registrations",
+      "categoryName": "GST, PAN, MSME & IEC",
+      "shortDesc": "10-digit DGFT trade identifier for importing goods or exporting services/products globally.",
+      "fullDesc": "Obtain lifetime valid Import Export Code (IEC) issued by the Directorate General of Foreign Trade (DGFT), Ministry of Commerce. Mandatory for international bank remittances, customs clearance, and global cross-border trade.",
+      "baseFee": 1299,
+      "govFee": 500,
+      "caFee": 400,
+      "dscFee": 0,
+      "gstRate": 0.18,
+      "slaDays": "24-48 Hours",
+      "isActive": true,
+      "badge": "Global Trade",
+      "inclusions": [
+        "DGFT Portal profile creation & e-KYC authentication",
+        "ANF-2A application filing with Ministry of Commerce",
+        "Linking of Bank Account with AD Code / PFMS",
+        "Electronic Import Export Code (e-IEC) issuance with QR Code"
+      ],
+      "exclusions": [],
+      "requiredDocuments": [
+        "PAN Card of Business entity or Proprietor",
+        "Aadhaar Card of authorized signatory",
+        "Cancelled cheque or bank certificate showing Account No. & IFSC",
+        "Registered premises address proof"
+      ],
+      "faqs": [
+        {
+          "q": "Does an IEC require annual renewal fees?",
+          "a": "No, the IEC license is valid for a lifetime with zero renewal fees. DGFT only requires a free annual online detail confirmation between April-June."
+        }
+      ]
+    }
+  ],
+  "orders": [],
+  "callbacks": [],
+  "tickets": [],
+  "partners": [],
+  "payouts": [],
+  "settings": {
+    "companyLegalName": "Corporate LegalTech Services Private Limited",
+    "cin": "U74999MH2026PTC394821",
+    "gstin": "27AAACB2026P1Z5",
+    "pan": "AAACB2026P",
+    "tan": "MUMB19482C",
+    "registeredAddress": "Floor 14, Maker Chambers V, Nariman Point, Mumbai, Maharashtra - 400021",
+    "supportPhone": "+91 8000 123 456",
+    "supportEmail": "support@complianceportal.in",
+    "whatsappSupportNumber": "+91 98200 12345",
+    "invoicePrefix": "INV-2026-MCA-",
+    "financialYear": "2026-27",
+    "timezone": "Asia/Kolkata (IST)",
+    "currency": "INR (₹)",
+    "mandatoryAdminVerification": true,
+    "autoAssignCounsel": true,
+    "maxUtilityBillAgeDays": 60,
+    "digilockerAutoValidation": true,
+    "flagRegulatedNames": true,
+    "preventDuplicateKyc": true,
+    "mcaGatewayEndpoint": "https://mca.gov.in/mcafiling/v3/api",
+    "mcaEnvironment": "production",
+    "mcaPollingIntervalMinutes": 5,
+    "esignProvider": "Protean (NSDL)",
+    "digilockerClientId": "dl_live_bharatfilings_b2b",
+    "digilockerClientSecret": "••••••••••••••••••••••••",
+    "razorpayKeyId": "rzp_live_sec_89201948201",
+    "razorpayKeySecret": "••••••••••••••••••••••••",
+    "autoDisburseOnCoi": true,
+    "escrowHoldbackHours": 0,
+    "minSettlementAmount": 1000,
+    "whatsappNotificationsEnabled": true,
+    "whatsappApiToken": "••••••••••••••••••••••••",
+    "smsNotificationsEnabled": true,
+    "smsSenderId": "BHRTFL",
+    "emailSmtpHost": "smtp.sendgrid.net",
+    "emailSmtpPort": 587,
+    "emailSenderAddress": "filings@complianceportal.in",
+    "slackWebhookUrl": "",
+    "retentionDays": 365,
+    "twoFactorAuth": true,
+    "dataLocalisationIndiaOnly": true,
+    "sessionTimeoutMinutes": 30,
+    "maintenanceMode": false,
+    "maintenanceNotice": "The corporate filing desk is currently undergoing scheduled Ministry ROC synchronization. All ongoing filings are safe."
+  },
+  "passwordRequests": [
+    {
+      "id": "PR-1004",
+      "customerName": "Rahul Sharma",
+      "customerEmail": "client@example.com",
+      "customerMobile": "9876543210",
+      "companyName": "TechNova Solutions Pvt Ltd",
+      "reason": "Dynamic Routine Rotation Test",
+      "urgency": "Urgent",
+      "status": "Completed",
+      "createdAt": "2026-10-28T11:42:30.023Z",
+      "updatedAt": "2026-10-28T11:42:30.341Z",
+      "generatedPassword": "Nova#2026!Sec",
+      "adminNotes": "Verified with MCA signatory registry.",
+      "emailDispatched": true,
+      "emailDispatchDetails": {
+        "to": "client@example.com",
+        "from": "admin@bharatfilings.com",
+        "sentAt": "2026-10-28T11:42:30.341Z",
+        "subject": "[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated (PR-1004)",
+        "loginUrl": "http://localhost:3000/login",
+        "plainPassword": "Nova#2026!Sec",
+        "bodySnippet": "Dear Rahul Sharma,\n\nPursuant to your statutory password update request (PR-1004), the Platform Security Administrator has re-authenticated your identity and generated new secure access credentials for TechNova Solutions Pvt Ltd.\n\n==============================================================\nBHARATFILINGS STATUTORY CREDENTIAL DISPATCH\nMinistry of Corporate Affairs (MCA V3) Direct Access\n==============================================================\n\n• Universal Sign-In URL: http://localhost:3000/login\n• Primary Login Identifier: client@example.com\n• Registered Director Mobile: 9876543210\n• Newly Assigned Password: Nova#2026!Sec\n\nSecurity & Compliance Protocol:\n1. Use your newly assigned password at the Unified Sign-In Portal.\n2. Under Digital Personal Data Protection (DPDP) Act 2023, do not share these credentials.\n3. If this reset was not authorized by you or a co-director, immediately notify security@bharatfilings.com or call 1800-889-2244.\n\nIssued By:\nMaster Security Administrator (admin@bharatfilings.com)\nBharatFilings Corporate Compliance Division"
+      }
+    },
+    {
+      "id": "PR-1003",
+      "customerName": "Rohan Mehra",
+      "customerEmail": "rohan.mehra@alphacorp.in",
+      "customerMobile": "9811223344",
+      "companyName": "Alpha Corp Solutions Pvt Ltd",
+      "reason": "Suspected Credential Leak",
+      "urgency": "Urgent",
+      "status": "Completed",
+      "createdAt": "2026-10-28T11:12:55.180Z",
+      "updatedAt": "2026-10-28T11:12:55.270Z",
+      "generatedPassword": "Alpha@2026_Secure",
+      "adminNotes": "Identity verified with MCA signatory records.",
+      "emailDispatched": true,
+      "emailDispatchDetails": {
+        "to": "rohan.mehra@alphacorp.in",
+        "from": "admin@bharatfilings.com",
+        "sentAt": "2026-10-28T11:12:55.270Z",
+        "subject": "[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated (PR-1003)",
+        "loginUrl": "http://localhost:3000/login",
+        "plainPassword": "Alpha@2026_Secure",
+        "bodySnippet": "Dear Rohan Mehra,\n\nPursuant to your statutory password update request (PR-1003), the Platform Security Administrator has re-authenticated your identity and generated new secure access credentials for Alpha Corp Solutions Pvt Ltd.\n\n==============================================================\nBHARATFILINGS STATUTORY CREDENTIAL DISPATCH\nMinistry of Corporate Affairs (MCA V3) Direct Access\n==============================================================\n\n• Universal Sign-In URL: http://localhost:3000/login\n• Primary Login Identifier: rohan.mehra@alphacorp.in\n• Registered Director Mobile: 9811223344\n• Newly Assigned Password: Alpha@2026_Secure\n\nSecurity & Compliance Protocol:\n1. Use your newly assigned password at the Unified Sign-In Portal.\n2. Under Digital Personal Data Protection (DPDP) Act 2023, do not share these credentials.\n3. If this reset was not authorized by you or a co-director, immediately notify security@bharatfilings.com or call 1800-889-2244.\n\nIssued By:\nMaster Security Administrator (admin@bharatfilings.com)\nBharatFilings Corporate Compliance Division"
+      }
+    },
+    {
+      "id": "PR-1001",
+      "customerName": "Rahul Sharma",
+      "customerEmail": "rahul.sharma@technova.in",
+      "customerMobile": "9876543210",
+      "companyName": "TechNova Solutions Pvt Ltd",
+      "reason": "Routine Security Rotation",
+      "urgency": "Normal",
+      "status": "Pending Admin Review",
+      "createdAt": "2026-10-27T14:30:00.000Z",
+      "updatedAt": "2026-10-27T14:30:00.000Z"
+    },
+    {
+      "id": "PR-1002",
+      "customerName": "Ananya Verma",
+      "customerEmail": "ananya@greenleafagro.com",
+      "customerMobile": "9820012849",
+      "companyName": "GreenLeaf Agro Private Limited",
+      "reason": "Forgot Previous Password",
+      "urgency": "Urgent",
+      "status": "Pending Admin Review",
+      "createdAt": "2026-10-28T09:15:00.000Z",
+      "updatedAt": "2026-10-28T09:15:00.000Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "CUST-101",
+      "name": "Rahul Sharma",
+      "email": "client@example.com",
+      "mobile": "9876543210",
+      "companyName": "TechNova Solutions Pvt Ltd",
+      "password": "Nova#2026!Sec",
+      "passwordLastChangedAt": "October 28, 2026",
+      "receivedEmails": [
+        {
+          "id": "MAIL-1793187750479",
+          "from": "admin@bharatfilings.com",
+          "to": "client@example.com",
+          "subject": "[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated (PR-1004)",
+          "sentAt": "2026-10-28T11:42:30.341Z",
+          "bodySnippet": "Dear Rahul Sharma,\n\nPursuant to your statutory password update request (PR-1004), the Platform Security Administrator has re-authenticated your identity and generated new secure access credentials for TechNova Solutions Pvt Ltd.\n\n==============================================================\nBHARATFILINGS STATUTORY CREDENTIAL DISPATCH\nMinistry of Corporate Affairs (MCA V3) Direct Access\n==============================================================\n\n• Universal Sign-In URL: http://localhost:3000/login\n• Primary Login Identifier: client@example.com\n• Registered Director Mobile: 9876543210\n• Newly Assigned Password: Nova#2026!Sec\n\nSecurity & Compliance Protocol:\n1. Use your newly assigned password at the Unified Sign-In Portal.\n2. Under Digital Personal Data Protection (DPDP) Act 2023, do not share these credentials.\n3. If this reset was not authorized by you or a co-director, immediately notify security@bharatfilings.com or call 1800-889-2244.\n\nIssued By:\nMaster Security Administrator (admin@bharatfilings.com)\nBharatFilings Corporate Compliance Division",
+          "loginUrl": "http://localhost:3000/login",
+          "plainPassword": "Nova#2026!Sec",
+          "read": false
+        }
+      ]
+    },
+    {
+      "id": "CUST-102",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@technova.in",
+      "mobile": "9876543210",
+      "companyName": "TechNova Solutions Pvt Ltd",
+      "password": "client123",
+      "passwordLastChangedAt": "October 14, 2026",
+      "receivedEmails": []
+    },
+    {
+      "id": "CUST-103",
+      "name": "Ananya Verma",
+      "email": "ananya@greenleafagro.com",
+      "mobile": "9820012849",
+      "companyName": "GreenLeaf Agro Private Limited",
+      "password": "GreenLeaf@2026!Direct",
+      "passwordLastChangedAt": "October 28, 2026",
+      "receivedEmails": [
+        {
+          "id": "MAIL-1793187775581",
+          "from": "admin@bharatfilings.com",
+          "to": "ananya@greenleafagro.com",
+          "subject": "[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated",
+          "sentAt": "2026-10-28T11:42:55.579Z",
+          "bodySnippet": "Dear Ananya Verma,\n\nYour security credentials for GreenLeaf Agro Private Limited have been administratively updated.\n\n==============================================================\nBHARATFILINGS STATUTORY CREDENTIAL DISPATCH\n==============================================================\n\n• Portal URL: http://localhost:3000/login\n• Login Identifier: ananya@greenleafagro.com\n• Newly Assigned Password: GreenLeaf@2026!Direct\n\nIssued By:\nMaster Security Administrator (admin@bharatfilings.com)\nBharatFilings Compliance Division",
+          "loginUrl": "http://localhost:3000/login",
+          "plainPassword": "GreenLeaf@2026!Direct",
+          "read": false
+        }
+      ]
+    }
+  ]
+}
