@@ -7,14 +7,6 @@ const nextConfig: NextConfig = {
       static: 300,
     },
   },
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
 };
 
 export default nextConfig;
