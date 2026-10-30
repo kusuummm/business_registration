@@ -77,6 +77,12 @@ export default function HomePage() {
     }
   };
 
+  // Categories that actually exist in the current service list
+  const availableCategories = useMemo(() => {
+    const presentCategoryIds = new Set(servicesList.map((s) => s.category));
+    return SERVICE_CATEGORIES.filter((cat) => presentCategoryIds.has(cat.id));
+  }, [servicesList]);
+
   // Filtered Services
   const filteredServices = useMemo(() => {
     return servicesList.filter((srv) => {
@@ -320,48 +326,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust & Live Highlights Metric Strip */}
+      {/* Trust & Live Highlights Metric Strip - Interactive Fast Navigation */}
       <section className="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-blue-50/70 to-white border border-blue-100 shadow-xs">
-            <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-blue-500/25">
+          <Link 
+            href="/register" 
+            title="Start Online Company Registration"
+            className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-blue-50/70 to-white border border-blue-100 shadow-xs hover:border-blue-400 hover:shadow-md transition-all cursor-pointer group active:scale-[0.98]"
+          >
+            <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-black text-slate-900 block">100% Online Filing</span>
-              <span className="text-[11px] text-blue-700 font-semibold">Zero Physical Visits</span>
+              <span className="text-xs font-black text-slate-900 block group-hover:text-blue-600 transition-colors">100% Online Filing</span>
+              <span className="text-[11px] text-blue-700 font-semibold">Zero Physical Visits →</span>
             </div>
-          </div>
+          </Link>
 
-          <div className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-emerald-50/70 to-white border border-emerald-100 shadow-xs">
-            <div className="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/25">
+          <a 
+            href="#tools" 
+            title="Calculate 22-State Sovereign Stamp Duty"
+            className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-emerald-50/70 to-white border border-emerald-100 shadow-xs hover:border-emerald-400 hover:shadow-md transition-all cursor-pointer group active:scale-[0.98]"
+          >
+            <div className="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/25 group-hover:scale-105 transition-transform">
               <Calculator className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-black text-slate-900 block">22+ State Stamp Duties</span>
-              <span className="text-[11px] text-emerald-700 font-semibold">Real-Time Gazette Rates</span>
+              <span className="text-xs font-black text-slate-900 block group-hover:text-emerald-700 transition-colors">22+ State Stamp Duties</span>
+              <span className="text-[11px] text-emerald-700 font-semibold">Real-Time Calculator ↓</span>
             </div>
-          </div>
+          </a>
 
-          <div className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-indigo-50/70 to-white border border-indigo-100 shadow-xs">
-            <div className="w-10 h-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-indigo-500/25">
+          <a 
+            href="#tools" 
+            title="Check MCA Name Availability"
+            className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-indigo-50/70 to-white border border-indigo-100 shadow-xs hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group active:scale-[0.98]"
+          >
+            <div className="w-10 h-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-indigo-500/25 group-hover:scale-105 transition-transform">
               <Zap className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-black text-slate-900 block">24-48h Name Approval</span>
-              <span className="text-[11px] text-indigo-700 font-semibold">Fast CRC Allocation</span>
+              <span className="text-xs font-black text-slate-900 block group-hover:text-indigo-600 transition-colors">24-48h Name Approval</span>
+              <span className="text-[11px] text-indigo-700 font-semibold">Check MCA V3 Availability ↓</span>
             </div>
-          </div>
+          </a>
 
-          <div className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-amber-50/70 to-white border border-amber-100 shadow-xs">
-            <div className="w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm shadow-amber-500/25">
+          <a 
+            href="#pricing" 
+            title="View Transparent Startup Pricing Packages"
+            className="flex items-center gap-3 p-3.5 rounded-xl bg-gradient-to-br from-amber-50/70 to-white border border-amber-100 shadow-xs hover:border-amber-400 hover:shadow-md transition-all cursor-pointer group active:scale-[0.98]"
+          >
+            <div className="w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm shadow-amber-500/25 group-hover:scale-105 transition-transform">
               <Award className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-black text-slate-900 block">₹0 Hidden Markups</span>
-              <span className="text-[11px] text-amber-800 font-semibold">Itemized Tax Invoices</span>
+              <span className="text-xs font-black text-slate-900 block group-hover:text-amber-700 transition-colors">₹0 Hidden Markups</span>
+              <span className="text-[11px] text-amber-800 font-semibold">View Packages ↓</span>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -746,7 +768,7 @@ export default function HomePage() {
             >
               All Services
             </button>
-            {SERVICE_CATEGORIES.slice(0, 5).map((cat) => (
+            {availableCategories.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
