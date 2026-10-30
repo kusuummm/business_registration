@@ -889,14 +889,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-slate-800 text-xs">
             {/* Col 1: Brand & Mission */}
             <div className="space-y-3 md:col-span-2">
-              <div className="flex items-center space-x-2">
-                <div className="px-2.5 py-1 rounded-md border border-slate-700 text-xs font-semibold text-slate-300 tracking-wide bg-slate-900/80">
+              <Link href="/" title="Go to Home Page" className="flex items-center space-x-2 group cursor-pointer w-fit">
+                <div className="px-2.5 py-1 rounded-md border border-slate-700 text-xs font-semibold text-slate-300 tracking-wide bg-slate-900/80 group-hover:border-blue-500 transition">
                   Logo
                 </div>
-                <span className="text-sm font-bold text-white">
+                <span className="text-sm font-bold text-white group-hover:text-blue-400 transition">
                   Corporate Registration & Compliance
                 </span>
-              </div>
+              </Link>
               <p className="text-slate-400 leading-relaxed text-xs max-w-sm">
                 Pan-India sovereign legal-tech platform for company registration, statutory tax filings, and corporate governance. Built with certified Fellow Company Secretaries and Advocates.
               </p>
@@ -943,7 +943,7 @@ export default function HomePage() {
                   <Link href="/calculator" className="hover:text-white transition">Name Checker & Stamp Duty</Link>
                 </li>
                 <li>
-                  <Link href="/compliance-calendar" className="hover:text-white transition">2026 Due Date Calendar</Link>
+                  <Link href="/compliance-calendar" className="hover:text-white transition">2026 Dues & Compliance Calendar</Link>
                 </li>
                 <li>
                   <Link href="/pricing" className="hover:text-white transition">Incorporation Packages</Link>

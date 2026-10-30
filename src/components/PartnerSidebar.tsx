@@ -144,7 +144,7 @@ export default function PartnerSidebar({
       items: [
         {
           id: 'calendar' as const,
-          label: 'Due Date Calendar',
+          label: 'Dues Calendar',
           icon: Calendar
         },
         {

@@ -16,15 +16,17 @@ interface HeaderProps {
 }
 
 const NAV_ITEMS = [
+  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Name & Stamp Suite', href: '/calculator' },
-  { label: 'Due Date Calendar', href: '/compliance-calendar' },
+  { label: 'Dues', href: '/compliance-calendar' },
   { label: 'Packages', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' }
 ];
 
 function resolveActiveFromPath(path: string): string {
+  if (path === '/') return '/';
   if (path.startsWith('/services')) return '/services';
   if (path === '/calculator') return '/calculator';
   if (path === '/compliance-calendar') return '/compliance-calendar';
@@ -135,8 +137,19 @@ export default function Header({ currentStep }: HeaderProps) {
       {/* Main Crisp Institutional Navy Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-200 ${isScrolled ? 'h-16' : 'h-18 sm:h-20'}`}>
-          {/* Brand Logo Slot (Ready for final branding insertion) */}
-          <Link href="/" className="flex items-center space-x-2.5 cursor-pointer group">
+          {/* Brand Logo Slot - Leads to Home Page */}
+          <Link 
+            href="/" 
+            prefetch={true}
+            onClick={() => {
+              handleSelectNav('/');
+              if (pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="flex items-center space-x-2.5 cursor-pointer group"
+            title="Go to Home Page"
+          >
             <div className="px-3.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 flex items-center space-x-2 group-hover:border-blue-500/60 transition shadow-inner">
               <span className="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 shadow-xs" />
               <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
