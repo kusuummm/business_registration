@@ -23,6 +23,7 @@ import {
   DSC_TOKEN_UNIT_PRICE, 
   GST_RATE 
 } from '@/data/pricingData';
+import { INITIAL_SERVICES } from '@/data/servicesData';
 import { ShieldCheck } from 'lucide-react';
 
 const INITIAL_AUTH: CustomerAuth = {
@@ -103,11 +104,43 @@ export default function RegisterPage() {
     };
   });
 
-  // Read URL query parameter for chosen package (from homepage click)
+  // Read URL query parameter for chosen package or specific service (from homepage click)
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
+      const serviceParam = params.get('service');
       const pkg = params.get('package');
+
+      if (serviceParam) {
+        const found = INITIAL_SERVICES.find(s => s.slug === serviceParam || s.id === serviceParam);
+        if (found) {
+          setSelectedPackageTitle(`${found.name} Filing (₹${found.baseFee.toLocaleString('en-IN')})`);
+          setCompany((prev) => ({
+            ...prev,
+            entityType: found.name.includes('LLP') ? 'LLP' :
+                        found.name.includes('One Person') ? 'OPC' :
+                        found.name.includes('Private') ? 'Pvt Ltd' : found.name
+          }));
+          setPricing((prev) => {
+            const baseFee = found.baseFee;
+            const dscFee = found.dscFee || 0;
+            const taxableSubtotal = baseFee + dscFee;
+            const gstAmount = Math.round(taxableSubtotal * GST_RATE);
+            const rocFee = found.govFee || 0;
+            return {
+              ...prev,
+              baseFee,
+              dscFee,
+              taxableSubtotal,
+              gstAmount,
+              rocFee,
+              totalAmount: taxableSubtotal + gstAmount + prev.stampDuty + rocFee
+            };
+          });
+          return;
+        }
+      }
+
       if (pkg === 'growth') {
         setSelectedPackageTitle('Fast-Track Growth Pack (₹4,999)');
         setPricing((prev) => {

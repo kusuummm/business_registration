@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import { 
   Building2, 
@@ -20,6 +21,7 @@ import {
 import { SERVICE_CATEGORIES, INITIAL_SERVICES, ServiceItem } from '@/data/servicesData';
 
 export default function ServicesDirectoryPage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState<'recommended' | 'fee-asc' | 'fee-desc' | 'sla'>('recommended');
@@ -204,13 +206,30 @@ export default function ServicesDirectoryPage() {
             {filteredServices.map((srv) => (
               <div
                 key={srv.id}
-                className="bg-white rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-200 p-6 flex flex-col justify-between shadow-xs group"
+                onClick={() => router.push(`/services/${srv.slug}`)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    router.push(`/services/${srv.slug}`);
+                  }
+                }}
+                className="bg-white rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-200 p-6 flex flex-col justify-between shadow-xs group cursor-pointer hover:-translate-y-1 active:scale-[0.99] select-none text-left"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${getCategoryBadgeClass(srv.category)}`}>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedCategory(srv.category);
+                      }}
+                      title={`Filter by ${srv.categoryName}`}
+                      className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border transition hover:opacity-85 hover:scale-105 cursor-pointer ${getCategoryBadgeClass(srv.category)}`}
+                    >
                       {srv.categoryName}
-                    </span>
+                    </button>
                     {srv.badge && (
                       <span className="text-[10px] font-bold uppercase bg-gradient-to-r from-amber-400 to-orange-400 text-slate-950 px-2 py-0.5 rounded-full shadow-xs">
                         {srv.badge}
@@ -218,11 +237,12 @@ export default function ServicesDirectoryPage() {
                     )}
                   </div>
 
-                  <Link href={`/services/${srv.slug}`} className="block">
-                    <h3 className="text-base font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors cursor-pointer">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-base font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {srv.name}
                     </h3>
-                  </Link>
+                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                  </div>
                   <p className="text-xs text-slate-600 mt-2 leading-relaxed">
                     {srv.shortDesc}
                   </p>
@@ -252,19 +272,27 @@ export default function ServicesDirectoryPage() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Link
-                      href={`/services/${srv.slug}`}
-                      className="px-3 py-2 border border-slate-300 hover:border-blue-300 hover:bg-blue-50/50 text-slate-700 hover:text-blue-700 rounded-lg text-xs font-bold transition cursor-pointer"
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/services/${srv.slug}`);
+                      }}
+                      className="px-3.5 py-2 border border-slate-300 hover:border-blue-500 hover:bg-blue-50 text-slate-700 hover:text-blue-700 rounded-lg text-xs font-bold transition cursor-pointer active:scale-95 shadow-2xs"
                     >
                       Details
-                    </Link>
-                    <Link
-                      href={`/register?service=${srv.slug}`}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/register?service=${srv.slug}`);
+                      }}
                       className="px-3.5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-xs font-bold flex items-center gap-1 transition cursor-pointer shadow-md shadow-blue-500/20 active:scale-95"
                     >
                       <span>Filing</span>
                       <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

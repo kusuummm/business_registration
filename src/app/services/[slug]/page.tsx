@@ -81,7 +81,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
               <Link
-                href="/register"
+                href={`/register?service=${service.slug}`}
                 className="px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-blue-600/30 transition"
               >
                 <span>Start Filing Online</span>
@@ -238,7 +238,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               <Link
-                href="/register"
+                href={`/register?service=${service.slug}`}
                 className="mt-6 w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition text-center"
               >
                 <span>Proceed to Online Filing</span>
