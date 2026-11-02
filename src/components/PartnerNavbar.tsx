@@ -52,14 +52,11 @@ export default function PartnerNavbar({
       <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
         <Link 
           href="/partner" 
-          className="flex items-center text-slate-900 group"
+          aria-label="Partner Desk"
+          className="flex items-center group min-w-[100px] sm:min-w-[130px] h-8"
         >
-          <span className="text-sm font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-            Corporate<span className="text-blue-600">Filings</span>
-          </span>
-          <span className="text-[11px] font-black uppercase tracking-wider text-slate-800 border-l border-slate-200 pl-2 ml-2 hidden xs:inline">
-            Partner Desk
-          </span>
+          {/* Empty space reserved for future logo */}
+          <div className="w-28 sm:w-32 h-7" />
         </Link>
 
         {/* Sidebar Toggle Hamburger (Matches Admin) */}

@@ -580,13 +580,9 @@ export default function AdminDashboardPage() {
         {/* Minimal Institutional Header */}
         <div className="border-b border-slate-800/90 bg-[#0B1528] px-4 sm:px-6 py-2.5 sm:py-3 shrink-0 shadow-md relative z-10">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2.5 cursor-pointer">
-              <span className="text-sm font-black tracking-tight text-white">
-                Corporate<span className="text-amber-400">Filings</span>
-              </span>
-              <span className="text-[10px] font-bold uppercase bg-amber-400/15 text-amber-300 border border-amber-400/40 px-2 py-0.5 rounded shadow-2xs">
-                Super Admin
-              </span>
+            <Link href="/" className="flex items-center cursor-pointer min-w-[100px] h-7" aria-label="Home">
+              {/* Empty space reserved for future logo */}
+              <div className="w-28 sm:w-32 h-6" />
             </Link>
 
             <Link

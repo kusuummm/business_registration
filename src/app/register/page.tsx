@@ -346,13 +346,9 @@ export default function RegisterPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800 text-xs">
             <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <span className="text-base font-black text-white">
-                  Corporate<span className="text-amber-400">Filings</span>
-                </span>
-                <span className="text-xs text-slate-400 border-l border-slate-700 pl-2">
-                  Corporate Registration & Compliance
-                </span>
+              <div className="flex items-center min-w-[120px] h-8">
+                {/* Empty space reserved for future logo */}
+                <div className="w-36 h-7" />
               </div>
               <p className="text-slate-400 leading-relaxed">
                 India&apos;s most transparent legal-tech platform for company registration, ROC filings, and corporate governance.

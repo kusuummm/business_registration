@@ -141,7 +141,7 @@ export default function Header({ currentStep }: HeaderProps) {
       {/* Main Crisp Institutional Navy Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-200 ${isScrolled ? 'h-16' : 'h-18 sm:h-20'}`}>
-          {/* Brand Header - Leads to Home Page */}
+          {/* Reserved Logo Space - Empty slot for custom logo */}
           <Link 
             href="/" 
             prefetch={true}
@@ -151,17 +151,11 @@ export default function Header({ currentStep }: HeaderProps) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="flex items-center cursor-pointer group shrink-0"
-            title="Corporate Filings Home"
+            className="flex items-center cursor-pointer group shrink-0 min-w-[140px] sm:min-w-[180px] h-10"
+            aria-label="Home"
           >
-            <div className="flex flex-col">
-              <span className="text-base sm:text-lg font-black tracking-tight text-white group-hover:text-amber-300 transition-colors">
-                Corporate<span className="text-amber-400">Filings</span>
-              </span>
-              <span className="text-[10px] text-slate-400 font-medium tracking-wide hidden sm:block">
-                MCA Secretarial Desk
-              </span>
-            </div>
+            {/* Empty space reserved for future logo */}
+            <div className="w-36 sm:w-44 h-9" />
           </Link>
 
           {/* Clean Primary Navigation Links with Instant Highlight on Click/Select */}

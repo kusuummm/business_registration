@@ -190,13 +190,9 @@ export default function LoginPage() {
 
       {/* Slim Top Navigation Bar (Height: 40px) */}
       <header className="h-10 px-4 sm:px-6 md:px-8 border-b border-slate-200/80 bg-white/95 backdrop-blur-md flex items-center justify-between relative z-10 shrink-0">
-        <Link href="/" className="flex items-center space-x-2 cursor-pointer group">
-          <span className="text-sm sm:text-base font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-            Corporate<span className="text-blue-600">Filings</span>
-          </span>
-          <span className="text-[10px] font-bold text-slate-500 hidden sm:inline border-l border-slate-200 pl-2">
-            Unified Access
-          </span>
+        <Link href="/" className="flex items-center cursor-pointer group min-w-[100px] h-7" aria-label="Home">
+          {/* Empty space reserved for future logo */}
+          <div className="w-28 sm:w-32 h-6" />
         </Link>
 
         <div className="flex items-center space-x-3">

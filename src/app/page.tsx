@@ -889,13 +889,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-slate-800 text-xs">
             {/* Col 1: Brand & Mission */}
             <div className="space-y-3 md:col-span-2">
-              <Link href="/" title="Go to Home Page" className="flex items-center space-x-2 group cursor-pointer w-fit">
-                <span className="text-base font-black text-white group-hover:text-blue-400 transition">
-                  Corporate<span className="text-amber-400">Filings</span>
-                </span>
-                <span className="text-xs text-slate-400 border-l border-slate-700 pl-2">
-                  Corporate Registration & Compliance
-                </span>
+              <Link href="/" aria-label="Home" className="flex items-center group cursor-pointer w-fit min-w-[120px] h-8">
+                {/* Empty space reserved for future logo */}
+                <div className="w-36 h-7" />
               </Link>
               <p className="text-slate-400 leading-relaxed text-xs max-w-sm">
                 Pan-India sovereign legal-tech platform for company registration, statutory tax filings, and corporate governance. Built with certified Fellow Company Secretaries and Advocates.
