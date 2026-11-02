@@ -21,7 +21,7 @@ import {
   Settings
 } from 'lucide-react';
 
-export type CustomerTab = 'orders' | 'profile' | 'documents' | 'compliance' | 'billing' | 'tickets' | 'advisory' | 'settings';
+export type CustomerTab = 'orders' | 'profile' | 'documents' | 'compliance' | 'billing' | 'banking' | 'tickets' | 'advisory' | 'settings';
 
 interface CustomerSidebarProps {
   activeItem?: CustomerTab;
@@ -105,6 +105,7 @@ export default function CustomerSidebar({
   else if (pathname === '/customer/documents') currentActive = 'documents';
   else if (pathname === '/customer/compliance') currentActive = 'compliance';
   else if (pathname === '/customer/billing') currentActive = 'billing';
+  else if (pathname === '/customer/banking') currentActive = 'banking';
   else if (pathname === '/customer/tickets') currentActive = 'tickets';
   else if (pathname === '/customer/advisory') currentActive = 'advisory';
   else if (pathname === '/customer/settings') currentActive = 'settings';
@@ -154,6 +155,12 @@ export default function CustomerSidebar({
           label: 'Tax Invoices & Receipts',
           href: '/customer/billing',
           icon: Receipt
+        },
+        {
+          id: 'banking' as const,
+          label: 'Partner Current Account',
+          href: '/customer/banking',
+          icon: Landmark
         }
       ]
     },

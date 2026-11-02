@@ -46,17 +46,16 @@ export default function PartnerNavbar({
       {/* Top Colorful Accent Ribbon */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-blue-600 to-emerald-500 shadow-2xs" />
 
-      {/* LEFT SECTION: Logo + Sidebar Toggle Hamburger + Portal Title + Breadcrumb */}
+      {/* LEFT SECTION: Brand Header + Sidebar Toggle Hamburger + Portal Title + Breadcrumb */}
       <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
         <Link 
           href="/partner" 
-          className="flex items-center space-x-2 text-slate-900 group"
+          className="flex items-center text-slate-900 group"
         >
-          <div className="px-2.5 py-1 rounded-lg border border-slate-300 bg-white shadow-xs text-xs font-black text-slate-800 tracking-wide flex items-center gap-1.5 group-hover:border-blue-500 transition">
-            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 shadow-2xs animate-pulse" />
-            <span>Logo</span>
-          </div>
-          <span className="text-[11px] font-black uppercase tracking-wider text-slate-800 border-l border-slate-200 pl-2 hidden xs:inline">
+          <span className="text-sm font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+            Bharat<span className="text-blue-600">Filings</span>
+          </span>
+          <span className="text-[11px] font-black uppercase tracking-wider text-slate-800 border-l border-slate-200 pl-2 ml-2 hidden xs:inline">
             Partner Desk
           </span>
         </Link>

@@ -100,6 +100,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     iconName: 'Sparkles',
     description: 'Virtual CFO, DPIIT Startup India recognition, fundraising due diligence.',
     serviceCount: 3
+  },
+  {
+    id: 'enterprise_licensing',
+    name: 'Enterprise, Telecom & High-Ticket Licensing',
+    iconName: 'Building2',
+    description: 'DoT ISP/VNO, RBI NBFC, CDSCO Medical Device, CPCB EPR & BIS certification.',
+    serviceCount: 3
+  },
+  {
+    id: 'debt_recovery',
+    name: 'MSME Samadhaan & Debt Recovery',
+    iconName: 'FileCheck2',
+    description: 'MSME Samadhaan delayed payment recovery, Section 18 MSMED Act statutory 3x compound interest.',
+    serviceCount: 1
   }
 ];
 
@@ -488,6 +502,205 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       {
         q: 'Does an IEC require annual renewal fees?',
         a: 'No, the IEC license is valid for a lifetime with zero renewal fees. DGFT only requires a free annual online detail confirmation between April-June.'
+      }
+    ]
+  },
+  {
+    id: 'srv-startup-launchpad',
+    slug: 'startup-all-in-one-launchpad-bundle',
+    name: 'All-in-One Startup Launchpad Kit',
+    category: 'incorporation',
+    categoryName: 'Company & LLP Incorporation',
+    shortDesc: 'Pvt Ltd incorporation + Trademark Class + GST registration + ICICI Current Account + 1-Year ROC compliance.',
+    fullDesc: 'The complete founder kit designed to take your company from idea to fully compliant venture. Includes SPICe+ Private Limited registration, 2x Class-3 DSC USB tokens, MOA/AOA drafting, Certificate of Incorporation (COI), PAN, TAN, 1 Trademark application in Nice Class, GST registration, 1-Click ICICI/Axis Current Account integration, and 1 full year of statutory ROC corporate secretarial filings.',
+    baseFee: 14999,
+    govFee: 5500,
+    caFee: 5000,
+    dscFee: 1200,
+    gstRate: 0.18,
+    slaDays: '7-10 Working Days',
+    isActive: true,
+    badge: 'Founder Launch Bundle',
+    inclusions: [
+      'Complete Private Limited incorporation (SPICe+ Part A & B)',
+      '2x Class-3 Digital Signature Certificates (DSC) with hardware tokens',
+      'Name Reservation with MCA Central Registration Centre (CRC)',
+      'Drafting of Memorandum of Association (MOA) and Articles of Association (AOA)',
+      '1x Trademark application under Nice Class with statutory Form TM-A drafting',
+      'GST registration with state tax jurisdiction allocation',
+      'Instant Zero-Balance Current Account opening assistance with ICICI Bank / Axis Bank',
+      '1-Year Annual ROC compliance pack (INC-20A, ADT-1, DIR-3 KYC for 2 directors)'
+    ],
+    exclusions: [
+      'Government Trademark official fee for non-MSME entities',
+      'Additional state stamp duty for authorized capital exceeding ₹15 Lakhs'
+    ],
+    requiredDocuments: [
+      'PAN and Aadhaar card of both proposed directors',
+      'Recent passport size photographs',
+      'Utility bill of registered office (electricity/water bill under 60 days old)',
+      'Rent Agreement & Landlord No Objection Certificate (NOC)',
+      'Proposed brand logo and tagline for Trademark'
+    ],
+    faqs: [
+      {
+        q: 'Why is the All-in-One Launchpad better than buying services separately?',
+        a: 'Buying incorporation, trademark, GST, and annual compliance separately costs upwards of ₹28,000. Our bundle saves over 45% and ensures your corporate governance is fully aligned from day one under a dedicated Company Secretary.'
+      }
+    ]
+  },
+  {
+    id: 'srv-dot-isp-vno',
+    slug: 'dot-isp-vno-telecom-license',
+    name: 'DoT Telecom ISP / VNO License Consulting',
+    category: 'enterprise_licensing',
+    categoryName: 'Enterprise Regulatory & Telecom Licensing',
+    shortDesc: 'Department of Telecommunications Unified License for Internet Service Providers (ISP) and Virtual Network Operators (VNO).',
+    fullDesc: 'Comprehensive regulatory facilitation with the Department of Telecommunications (DoT), Sanchar Bhawan, for Class A (National), Class B (Telecom Circle / Metro), and Class C (Secondary Switching Area) Unified License (UL) authorizations. Full network topology dossier preparation, net-worth certification, and Financial Bank Guarantee (FBG) liaison.',
+    baseFee: 49999,
+    govFee: 30000,
+    caFee: 15000,
+    dscFee: 0,
+    gstRate: 0.18,
+    slaDays: '30-45 Working Days',
+    isActive: true,
+    badge: 'High-Ticket Enterprise',
+    inclusions: [
+      'Saral Sanchar portal profile setup & document vetting',
+      'Network routing diagram & Point of Presence (PoP) dossier drafting',
+      'Statutory Net-Worth Certificate preparation by practicing CA',
+      'Drafting of application under Unified License Guidelines',
+      'Direct liaison with DoT Telecom Enforcement and Monitoring Cell (TERM)'
+    ],
+    exclusions: [
+      'Statutory Financial Bank Guarantee (FBG) and Performance Bank Guarantee (PBG)',
+      'Central Government license entry fees'
+    ],
+    requiredDocuments: [
+      'Certificate of Incorporation, MOA & AOA with telecom object clauses',
+      'Audited balance sheet and Net-Worth Certificate',
+      'List of directors with equity shareholding and DIN',
+      'Proposed network architecture and bandwidth tie-up letter'
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between Class A, B, and C ISP licenses?',
+        a: 'Class A covers all of India (all 22 telecom circles). Class B covers a single Telecom Circle or Metro City (e.g. Karnataka or Delhi). Class C covers a single Secondary Switching Area (district or small town).'
+      }
+    ]
+  },
+  {
+    id: 'srv-rbi-nbfc',
+    slug: 'rbi-nbfc-registration-advisory',
+    name: 'RBI NBFC Registration & Net-Owned Funds Setup',
+    category: 'enterprise_licensing',
+    categoryName: 'Enterprise Regulatory & Telecom Licensing',
+    shortDesc: 'Reserve Bank of India registration for Non-Banking Financial Company (Type II Non-Deposit Taking Loan Company).',
+    fullDesc: 'End-to-end advisory for incorporation, Net-Owned Funds (NOF) bank fixed deposit escrow, board resolution drafting, promoter fit-and-proper dossiers, and COSMOS portal application submission to the Reserve Bank of India (RBI).',
+    baseFee: 99999,
+    govFee: 0,
+    caFee: 35000,
+    dscFee: 0,
+    gstRate: 0.18,
+    slaDays: '60-90 Working Days',
+    isActive: true,
+    badge: 'RBI Regulatory',
+    inclusions: [
+      'Incorporation of entity with financial lending objects',
+      'CA Statutory Audit and Net-Owned Funds (NOF) escrow certificate',
+      'Drafting of 3-year Business Plan & Fair Practices Code (FPC)',
+      'RBI COSMOS / SARAMS portal submission & compliance responses',
+      'CIBIL and Experian credit score screening of promoters'
+    ],
+    exclusions: [
+      'Statutory Net-Owned Funds capital requirement (minimum ₹10 Crores statutory NOF)'
+    ],
+    requiredDocuments: [
+      'Bank fixed deposit receipt confirming statutory Net-Owned Funds',
+      'Promoter CAs educational certificates & 10-year financial net-worth dossiers',
+      'Certified copy of MOA/AOA approved for financial business',
+      'Statutory auditors report and banker report on promoter accounts'
+    ],
+    faqs: [
+      {
+        q: 'What is the minimum capital required for an RBI NBFC in India?',
+        a: 'Under the revised Scale Based Regulation (SBR) framework issued by the RBI, the minimum Net-Owned Funds (NOF) requirement for an NBFC-Base Layer (Type II ND) is ₹10 Crores.'
+      }
+    ]
+  },
+  {
+    id: 'srv-msme-samadhaan',
+    slug: 'msme-samadhaan-delayed-payment-recovery',
+    name: 'MSME Samadhaan Delayed Payment Recovery Desk',
+    category: 'debt_recovery',
+    categoryName: 'MSME Samadhaan & Debt Recovery',
+    shortDesc: 'Statutory recovery of overdue buyer invoices under Section 18 of the MSMED Act with 3x RBI compound interest.',
+    fullDesc: 'Assist registered MSME enterprises in recovering unpaid dues from corporate and government buyers. Under the Micro, Small and Medium Enterprises Development (MSMED) Act 2006, buyers must settle payments within 45 days, failing which compound interest with monthly rests at 3 times the RBI Bank Rate is mandatory by law. We draft formal demand notices and represent before the Micro and Small Enterprise Facilitation Council (MSEFC).',
+    baseFee: 3999,
+    govFee: 0,
+    caFee: 2000,
+    dscFee: 0,
+    gstRate: 0.18,
+    slaDays: '7-14 Working Days',
+    isActive: true,
+    badge: 'Statutory 3x Interest',
+    inclusions: [
+      'Statutory Legal Demand Notice drafting under Section 15 & 16 of MSMED Act',
+      'Computation of statutory compound interest at 3x RBI Bank Rate',
+      'Online application filing on the Ministry of MSME Samadhaan Portal',
+      'Tracking of MSEFC council proceedings and conciliation summons'
+    ],
+    exclusions: [
+      'Physical advocate courtroom representation if dispute escalates to High Court'
+    ],
+    requiredDocuments: [
+      'Udyam Registration Certificate of supplier',
+      'Purchase Orders (PO), work contracts, or delivery challans',
+      'Unpaid GST Invoices showing supply date',
+      'Bank statements evidencing non-receipt of payment'
+    ],
+    faqs: [
+      {
+        q: 'What rate of interest can I claim under MSME Samadhaan?',
+        a: 'Section 16 of the MSMED Act mandates that defaulting buyers must pay compound interest with monthly rests at 3 times the Bank Rate notified by the Reserve Bank of India, which currently equates to ~19.5% to 20% annual interest!'
+      }
+    ]
+  },
+  {
+    id: 'srv-cpcb-epr',
+    slug: 'cpcb-epr-plastic-ewaste-registration',
+    name: 'CPCB Extended Producer Responsibility (EPR)',
+    category: 'enterprise_licensing',
+    categoryName: 'Enterprise Regulatory & Telecom Licensing',
+    shortDesc: 'Central Pollution Control Board (CPCB) EPR certificate for plastic packaging, electronics (E-Waste), and batteries.',
+    fullDesc: 'Mandatory statutory authorization from Central Pollution Control Board (CPCB) under Ministry of Environment, Forest and Climate Change guidelines. Required for brand owners, importers, and manufacturers utilizing plastic packaging or assembling electronic goods.',
+    baseFee: 14999,
+    govFee: 5000,
+    caFee: 5000,
+    dscFee: 0,
+    gstRate: 0.18,
+    slaDays: '15-20 Working Days',
+    isActive: true,
+    badge: 'Environmental MoEFCC',
+    inclusions: [
+      'CPCB National EPR Portal entity registration',
+      'Plastic Category I, II, III & IV quantification and target setting',
+      'Preparation of EPR Action Plan and recycler tie-up verification',
+      'Filing of Annual EPR Returns with Central Pollution Control Board'
+    ],
+    exclusions: [
+      'Actual physical recycling credit procurement fees'
+    ],
+    requiredDocuments: [
+      'GST Registration & IEC Code (for importers)',
+      'Pollution Control Board Consent to Operate (CTO) or state NOC',
+      'Estimated annual plastic or e-waste packaging tonnage breakdown',
+      'Company PAN and Director identification documents'
+    ],
+    faqs: [
+      {
+        q: 'Who is required to obtain CPCB EPR registration in India?',
+        a: 'Every Brand Owner, Producer, and Importer (PIBO) introducing plastic packaging or electrical/electronic equipment into the Indian market must obtain CPCB EPR registration before customs clearance.'
       }
     ]
   }

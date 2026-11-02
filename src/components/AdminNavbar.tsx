@@ -53,23 +53,22 @@ export default function AdminNavbar({
       style={segoeStyle}
       className="w-full h-14 bg-white border-b border-slate-200 sticky top-0 z-50 flex items-center justify-between px-3 sm:px-6 shadow-xs select-none shrink-0"
     >
-      {/* LEFT SECTION: Brand Logo + Sidebar Toggle Hamburger + View Title */}
+      {/* LEFT SECTION: Brand Header + Sidebar Toggle Hamburger + View Title */}
       <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
-        {/* Brand Logo Placeholder */}
         <Link 
           href="/admin" 
           title="Admin Console"
-          className="flex items-center space-x-2 cursor-pointer group shrink-0"
+          className="flex items-center cursor-pointer group shrink-0"
         >
-          <div className="px-2.5 py-1 rounded-md border border-dashed border-slate-300 text-xs font-semibold text-slate-500 tracking-wide">
-            Logo
-          </div>
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 border-l border-slate-200 pl-2 hidden xs:inline">
+          <span className="text-sm font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+            Bharat<span className="text-blue-600">Filings</span>
+          </span>
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 border-l border-slate-200 pl-2 ml-2 hidden xs:inline">
             Admin Console
           </span>
         </Link>
 
-        {/* Sidebar Toggle Hamburger (Directly next to logo) */}
+        {/* Sidebar Toggle Hamburger */}
         <button
           type="button"
           onClick={handleToggle}

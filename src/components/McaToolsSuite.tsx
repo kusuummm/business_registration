@@ -17,9 +17,17 @@ import {
   Coins, 
   HelpCircle,
   Copy,
-  Check
+  Check,
+  Tag,
+  Receipt,
+  Shield,
+  TrendingUp
 } from 'lucide-react';
 import { STATE_STAMP_DUTY, StatePricing } from '@/data/pricingData';
+import TrademarkFinderTab from '@/components/tools/TrademarkFinderTab';
+import HsnDirectoryTab from '@/components/tools/HsnDirectoryTab';
+import GstinValidatorTab from '@/components/tools/GstinValidatorTab';
+import TaxRegimeCalculatorTab from '@/components/tools/TaxRegimeCalculatorTab';
 
 // Prohibited / Regulated Words under MCA Rule 8 & Emblems and Names Act
 const RESTRICTED_WORDS = [
@@ -65,7 +73,9 @@ interface NameEvaluation {
 }
 
 export default function McaToolsSuite() {
-  const [activeTab, setActiveTab] = useState<'nameChecker' | 'stampDuty'>('nameChecker');
+  const [activeTab, setActiveTab] = useState<
+    'nameChecker' | 'stampDuty' | 'trademarkFinder' | 'hsnDirectory' | 'gstinValidator' | 'taxRegime'
+  >('nameChecker');
 
   // ==========================================
   // STATE 1: MCA NAME CHECKER STATE
@@ -257,48 +267,109 @@ export default function McaToolsSuite() {
   }, [selectedStateObj, authorizedCapital, selectedStateCode, dutyEntityType]);
 
   return (
-    <div className="w-full bg-slate-900 text-slate-100 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden my-8">
-      {/* Top Banner & Module Selector */}
-      <div className="p-6 sm:p-8 bg-gradient-to-r from-slate-950 via-slate-900 to-[#0F1E36] border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-5">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>AI MCA Intelligence & Statutory Calculator</span>
+    <div className="w-full bg-slate-900 text-slate-100 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden my-6">
+      {/* Top Banner & Module Selector: Stacked Layout so Heading is Never Squashed! */}
+      <div className="p-6 sm:p-8 bg-gradient-to-b from-[#0F1E36] via-slate-900 to-slate-950 border-b border-slate-800 space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1.5 max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>AI MCA Intelligence & Statutory Suite</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
+              Company Name Availability, State Stamp Duty & Business Tools
+            </h2>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Verify company names against MCA Rule 8 guidelines, calculate 28-state stamp duties, look up Trademark Nice Classes (1-45), search HSN codes, and validate GSTIN / DIN records.
+            </p>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-            Company Name Availability & State Stamp Duty Engine
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl leading-relaxed">
-            Verify proposed company names against MCA Rule 8(2) guidelines and preview itemized State Stamp Duties with zero hidden costs.
-          </p>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="px-3 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>FY 2026-27 Compliant</span>
+            </span>
+          </div>
         </div>
 
-        {/* Tab Switcher Pills */}
-        <div className="flex items-center p-1.5 bg-slate-950/80 rounded-2xl border border-slate-800 shrink-0">
+        {/* Tab Switcher Pills (Clean, Full-Width, Segmented Control) */}
+        <div className="flex items-center gap-1.5 p-1.5 bg-slate-950/90 rounded-2xl border border-slate-800 shrink-0 overflow-x-auto max-w-full shadow-inner">
           <button
             type="button"
             onClick={() => setActiveTab('nameChecker')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'nameChecker'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
             }`}
           >
             <Search className="w-4 h-4" />
-            <span>MCA Name Search</span>
+            <span>MCA Name Feasibility</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('stampDuty')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'stampDuty'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
             }`}
           >
             <Calculator className="w-4 h-4" />
-            <span>State Duty Calculator</span>
+            <span>State Stamp Duty</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('trademarkFinder')}
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              activeTab === 'trademarkFinder'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
+            }`}
+          >
+            <Tag className="w-4 h-4" />
+            <span>Trademark Classes (1-45)</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('hsnDirectory')}
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              activeTab === 'hsnDirectory'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
+            }`}
+          >
+            <Receipt className="w-4 h-4" />
+            <span>HSN & GST Directory</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('gstinValidator')}
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              activeTab === 'gstinValidator'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
+            }`}
+          >
+            <Shield className="w-4 h-4" />
+            <span>GSTIN & DIN Desk</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('taxRegime')}
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              activeTab === 'taxRegime'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
+            }`}
+          >
+            <TrendingUp className="w-4 h-4" />
+            <span>Tax Regime (Old vs New)</span>
           </button>
         </div>
       </div>
@@ -718,6 +789,26 @@ export default function McaToolsSuite() {
           </div>
         </div>
       )}
+
+      {/* ======================================================== */}
+      {/* TAB 3: TRADEMARK NICE CLASS 1-45 FINDER & SEARCH         */}
+      {/* ======================================================== */}
+      {activeTab === 'trademarkFinder' && <TrademarkFinderTab />}
+
+      {/* ======================================================== */}
+      {/* TAB 4: HSN & SAC CODE GST RATE DIRECTORY                 */}
+      {/* ======================================================== */}
+      {activeTab === 'hsnDirectory' && <HsnDirectoryTab />}
+
+      {/* ======================================================== */}
+      {/* TAB 5: INSTANT GSTIN & DIRECTOR DIN VERIFICATION DESK    */}
+      {/* ======================================================== */}
+      {activeTab === 'gstinValidator' && <GstinValidatorTab />}
+
+      {/* ======================================================== */}
+      {/* TAB 6: OLD VS NEW TAX REGIME COMPARATOR (FY 2025-27)     */}
+      {/* ======================================================== */}
+      {activeTab === 'taxRegime' && <TaxRegimeCalculatorTab />}
     </div>
   );
 }

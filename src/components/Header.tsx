@@ -18,17 +18,19 @@ interface HeaderProps {
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'Name & Stamp Suite', href: '/calculator' },
-  { label: 'Dues', href: '/compliance-calendar' },
-  { label: 'Packages', href: '/pricing' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' }
+  { label: 'Statutory Suite', href: '/calculator' },
+  { label: 'Legal Contracts', href: '/contracts' },
+  { label: 'GST Invoicing', href: '/invoice-generator' },
+  { label: 'Dues Calendar', href: '/compliance-calendar' },
+  { label: 'Pricing', href: '/pricing' }
 ];
 
 function resolveActiveFromPath(path: string): string {
   if (path === '/') return '/';
   if (path.startsWith('/services')) return '/services';
   if (path === '/calculator') return '/calculator';
+  if (path === '/contracts') return '/contracts';
+  if (path === '/invoice-generator') return '/invoice-generator';
   if (path === '/compliance-calendar') return '/compliance-calendar';
   if (path.startsWith('/pricing')) return '/pricing';
   if (path === '/about') return '/about';
@@ -137,7 +139,7 @@ export default function Header({ currentStep }: HeaderProps) {
       {/* Main Crisp Institutional Navy Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-200 ${isScrolled ? 'h-16' : 'h-18 sm:h-20'}`}>
-          {/* Brand Logo Slot - Leads to Home Page */}
+          {/* Brand Header - Leads to Home Page */}
           <Link 
             href="/" 
             prefetch={true}
@@ -147,19 +149,21 @@ export default function Header({ currentStep }: HeaderProps) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="flex items-center space-x-2.5 cursor-pointer group"
-            title="Go to Home Page"
+            className="flex items-center cursor-pointer group shrink-0"
+            title="BharatFilings Home"
           >
-            <div className="px-3.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/80 text-slate-300 flex items-center space-x-2 group-hover:border-blue-500/60 transition shadow-inner">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 shadow-xs" />
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
-                Logo
+            <div className="flex flex-col">
+              <span className="text-base sm:text-lg font-black tracking-tight text-white group-hover:text-amber-300 transition-colors">
+                Bharat<span className="text-amber-400">Filings</span>
+              </span>
+              <span className="text-[10px] text-slate-400 font-medium tracking-wide hidden sm:block">
+                Corporate Secretarial Desk
               </span>
             </div>
           </Link>
 
           {/* Clean Primary Navigation Links with Instant Highlight on Click/Select */}
-          <nav className="hidden lg:flex items-center space-x-7 text-xs sm:text-sm">
+          <nav className="hidden lg:flex items-center space-x-1 text-xs sm:text-sm">
             {NAV_ITEMS.map((item) => {
               const isActive = checkIsActive(item.href);
               return (
@@ -172,10 +176,10 @@ export default function Header({ currentStep }: HeaderProps) {
                   onMouseDown={() => handleSelectNav(item.href)}
                   onTouchStart={() => handleSelectNav(item.href)}
                   onClick={() => handleSelectNav(item.href)}
-                  className={`cursor-pointer border-b-2 text-xs sm:text-sm select-none ${
+                  className={`cursor-pointer px-3 py-1.5 rounded-lg text-xs font-semibold transition-all select-none ${
                     isActive
-                      ? 'text-amber-400 font-bold border-amber-400 pb-0.5'
-                      : 'text-slate-200 hover:text-white font-semibold border-transparent pb-0.5'
+                      ? 'text-amber-400 bg-amber-400/10 font-bold border border-amber-400/20 shadow-xs'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60 border border-transparent'
                   }`}
                 >
                   {item.label}
@@ -185,20 +189,20 @@ export default function Header({ currentStep }: HeaderProps) {
           </nav>
 
           {/* Action CTAs */}
-          <div className="flex items-center space-x-2.5 sm:space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <Link
               href="/register"
-              className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black shadow-md shadow-amber-500/20 transition cursor-pointer active:scale-95"
+              className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-black shadow-md shadow-amber-500/20 transition cursor-pointer active:scale-95"
             >
-              <span>Start Registration</span>
-              <ArrowRight className="w-4 h-4 hidden sm:inline" />
+              <span>Start Filing</span>
+              <ArrowRight className="w-3.5 h-3.5 hidden sm:inline" />
             </Link>
 
             <a
               href="https://wa.me/919820012849?text=Hi%2C%20I%20need%20assistance%20with%20company%20registration"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-md shadow-emerald-600/20 cursor-pointer active:scale-95"
+              className="inline-flex items-center space-x-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-md shadow-emerald-600/20 cursor-pointer active:scale-95"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               <span className="hidden sm:inline">WhatsApp</span>

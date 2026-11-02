@@ -890,10 +890,10 @@ export default function HomePage() {
             {/* Col 1: Brand & Mission */}
             <div className="space-y-3 md:col-span-2">
               <Link href="/" title="Go to Home Page" className="flex items-center space-x-2 group cursor-pointer w-fit">
-                <div className="px-2.5 py-1 rounded-md border border-slate-700 text-xs font-semibold text-slate-300 tracking-wide bg-slate-900/80 group-hover:border-blue-500 transition">
-                  Logo
-                </div>
-                <span className="text-sm font-bold text-white group-hover:text-blue-400 transition">
+                <span className="text-base font-black text-white group-hover:text-blue-400 transition">
+                  Bharat<span className="text-amber-400">Filings</span>
+                </span>
+                <span className="text-xs text-slate-400 border-l border-slate-700 pl-2">
                   Corporate Registration & Compliance
                 </span>
               </Link>

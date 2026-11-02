@@ -347,10 +347,10 @@ export default function RegisterPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800 text-xs">
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <div className="px-2.5 py-1 rounded-md border border-dashed border-slate-700 text-xs font-semibold text-slate-300 tracking-wide bg-slate-900/60">
-                  Logo
-                </div>
-                <span className="text-sm font-bold text-white">
+                <span className="text-base font-black text-white">
+                  Bharat<span className="text-amber-400">Filings</span>
+                </span>
+                <span className="text-xs text-slate-400 border-l border-slate-700 pl-2">
                   Corporate Registration & Compliance
                 </span>
               </div>

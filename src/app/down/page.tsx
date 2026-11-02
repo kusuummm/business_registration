@@ -20,10 +20,10 @@ export default function StandaloneDowntimePage() {
       <header className="bg-white border-b border-slate-200 py-2.5 px-4 sm:px-6 shrink-0">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="px-2.5 py-1 rounded-md border border-dashed border-slate-300 text-xs font-semibold text-slate-500 tracking-wide">
-              Logo
-            </div>
-            <span className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase">
+            <span className="text-sm font-black text-slate-900">
+              Bharat<span className="text-blue-600">Filings</span>
+            </span>
+            <span className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase border-l border-slate-200 pl-2">
               Corporate Services Desk
             </span>
           </div>

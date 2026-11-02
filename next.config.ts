@@ -2,11 +2,20 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    staleTimes: {
-      dynamic: 300,
-      static: 300,
-    },
+    cpus: 1,
+    workerThreads: false,
   },
+  headers: async () => [
+    {
+      source: '/:path*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-cache, no-store, must-revalidate',
+        },
+      ],
+    },
+  ],
 };
 
 export default nextConfig;
