@@ -47,6 +47,12 @@ export async function POST(request: Request) {
       cleanId.startsWith('adv.');
 
     if (mode === 'partner' || isPartnerIdentifier) {
+      if (cleanPass.length < 4) {
+        return NextResponse.json(
+          { success: false, error: 'Invalid Partner password. Must be at least 4 characters.' },
+          { status: 401 }
+        );
+      }
       return NextResponse.json({
         success: true,
         role: 'partner',
