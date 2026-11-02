@@ -3,7 +3,7 @@ import React from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BharatFilings | Pan-India Business Registration & Corporate Compliance",
+  title: "Corporate Filings | Pan-India Business Registration & Compliance Platform",
   description: "Official corporate secretarial desk, company registration (Private Limited, LLP, OPC), and statutory ROC compliance gateway.",
 };
 

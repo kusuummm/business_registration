@@ -231,7 +231,7 @@ export default function Step1AuthOTP({ auth, onSuccess }: Step1Props) {
                   </span>
                 </div>
                 <p className="text-xs text-emerald-800 mt-1">
-                  Your BharatFilings OTP is <span className="font-mono font-bold text-emerald-950 text-sm tracking-wider">{mockGeneratedOtp}</span>. Valid for 10 minutes.
+                  Your verification OTP is <span className="font-mono font-bold text-emerald-950 text-sm tracking-wider">{mockGeneratedOtp}</span>. Valid for 10 minutes.
                 </p>
                 <button
                   type="button"

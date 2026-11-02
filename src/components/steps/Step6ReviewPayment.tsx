@@ -63,12 +63,12 @@ export default function Step6ReviewPayment({
     if (code === 'STARTUP500') {
       setDiscountAmount(500);
       setCouponApplied('STARTUP500 (₹500 Instant Discount)');
-    } else if (code === 'FOUNDER10' || code === 'BHARAT10') {
+    } else if (code === 'FOUNDER10' || code === 'STARTUP10') {
       const disc = Math.round(pricing.baseFee * 0.1);
       setDiscountAmount(disc);
       setCouponApplied(`${code} (10% Off Platform Fee)`);
     } else {
-      setCouponError('Invalid coupon. Try STARTUP500 or BHARAT10');
+      setCouponError('Invalid coupon. Try STARTUP500 or STARTUP10');
     }
   };
 
@@ -80,7 +80,7 @@ export default function Step6ReviewPayment({
       setIsProcessing(false);
       setShowCheckoutModal(false);
 
-      const randomOrderId = `BF-2026-MCA-${Math.floor(1000 + Math.random() * 9000)}`;
+      const randomOrderId = `ORD-2026-MCA-${Math.floor(1000 + Math.random() * 9000)}`;
       const randomTxnId = `pay_${Date.now().toString(36)}${Math.random().toString(36).substring(2, 5)}`;
 
       const order: RegistrationOrder = {
@@ -99,7 +99,7 @@ export default function Step6ReviewPayment({
         assignedCs: {
           name: 'CS Priya Sharma',
           membershipNumber: 'FCS #11849',
-          email: 'priya.sharma@bharatfilings.in',
+          email: 'priya.sharma@corporatefilings.in',
           phone: '+91 98200 12849'
         }
       };
@@ -348,11 +348,11 @@ export default function Step6ReviewPayment({
             {/* Modal Header */}
             <div className="bg-[#0B1528] text-white px-6 py-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center font-bold">
-                  BF
+                <div className="w-9 h-9 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">
+                  MCA
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm">BharatFilings Secure Checkout</h4>
+                  <h4 className="font-bold text-sm">Secure Payment Gateway</h4>
                   <p className="text-[11px] text-slate-400">Order Amount: ₹{finalTotal.toLocaleString('en-IN')}</p>
                 </div>
               </div>

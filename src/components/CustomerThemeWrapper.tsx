@@ -343,9 +343,9 @@ export default function CustomerThemeWrapper({
 
   const loadThemeFromStorage = () => {
     try {
-      const savedThemeId = localStorage.getItem('bharatfilings_customer_theme');
-      const savedDarknessStr = localStorage.getItem('bharatfilings_customer_darkness');
-      const customBg = localStorage.getItem('bharatfilings_customer_bg_color');
+      const savedThemeId = localStorage.getItem('app_customer_theme');
+      const savedDarknessStr = localStorage.getItem('app_customer_darkness');
+      const customBg = localStorage.getItem('app_customer_bg_color');
 
       const darkness = savedDarknessStr !== null ? parseInt(savedDarknessStr, 10) : undefined;
 

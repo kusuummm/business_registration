@@ -38,8 +38,10 @@ export default function AdminNavbar({
       return;
     }
     try {
-      localStorage.removeItem('bharatfilings_admin_auth');
-      sessionStorage.removeItem('bharatfilings_admin_auth');
+      localStorage.removeItem('app_admin_auth');
+      sessionStorage.removeItem('app_admin_auth');
+      localStorage.removeItem('app_admin_auth');
+      sessionStorage.removeItem('app_admin_auth');
     } catch {}
     window.location.reload();
   };
@@ -61,7 +63,7 @@ export default function AdminNavbar({
           className="flex items-center cursor-pointer group shrink-0"
         >
           <span className="text-sm font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-            Bharat<span className="text-blue-600">Filings</span>
+            Corporate<span className="text-blue-600">Filings</span>
           </span>
           <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 border-l border-slate-200 pl-2 ml-2 hidden xs:inline">
             Admin Console

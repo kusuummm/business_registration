@@ -76,7 +76,7 @@ export default function Step3CompanyNames({
   // Rule 8 checks for guidance
   const cleanP = formatCleanName(primaryName);
   const hasMultipleWords = cleanP.split(/\s+/).filter(Boolean).length >= 2;
-  const isTooGeneric = /^(india|national|global|international|bharat|prime|world)$/i.test(cleanP.trim());
+  const isTooGeneric = /^(india|national|global|international|prime|world)$/i.test(cleanP.trim());
   const selectedIndustryObj = INDUSTRIES.find((i) => i.id === industry);
 
   return (

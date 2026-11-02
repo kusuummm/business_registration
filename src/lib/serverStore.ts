@@ -198,7 +198,7 @@ const SEED_ORDERS: ExtendedOrder[] = [
     assignedCs: {
       name: 'CS Priya Sharma',
       membershipNumber: 'FCS-11248',
-      email: 'priya.sharma@bharatfilings.in',
+      email: 'priya.sharma@corporatefilings.in',
       phone: '+91 98201 55432'
     },
     status: 'ROC Scrutiny in Progress',
@@ -275,7 +275,7 @@ const SEED_ORDERS: ExtendedOrder[] = [
     assignedCs: {
       name: 'CS Rajesh Mehta',
       membershipNumber: 'FCS-9943',
-      email: 'rajesh.mehta@bharatfilings.in',
+      email: 'rajesh.mehta@corporatefilings.in',
       phone: '+91 98112 44321'
     },
     status: 'Certificate of Incorporation Issued',
@@ -350,7 +350,7 @@ const SEED_ORDERS: ExtendedOrder[] = [
     assignedCs: {
       name: 'CS Priya Sharma',
       membershipNumber: 'FCS-11248',
-      email: 'priya.sharma@bharatfilings.in',
+      email: 'priya.sharma@corporatefilings.in',
       phone: '+91 98201 55432'
     },
     status: 'Pending Admin Document Verification',
@@ -418,7 +418,7 @@ const SEED_ORDERS: ExtendedOrder[] = [
     assignedCs: {
       name: 'CS Priya Sharma',
       membershipNumber: 'FCS-11248',
-      email: 'priya.sharma@bharatfilings.in',
+      email: 'priya.sharma@corporatefilings.in',
       phone: '+91 98201 55432'
     },
     status: 'Drafting MOA & AOA',
@@ -486,7 +486,7 @@ const SEED_ORDERS: ExtendedOrder[] = [
     assignedCs: {
       name: 'CA Amit Kulkarni',
       membershipNumber: 'FCA-78321',
-      email: 'amit.kulkarni@bharatfilings.in',
+      email: 'amit.kulkarni@corporatefilings.in',
       phone: '+91 97654 33210'
     },
     status: 'SPICe+ Part B Treasury Paid',
@@ -1086,7 +1086,7 @@ export function adminResetCustomerPassword(params: {
 Pursuant to your statutory password update request (${req.id}), the Platform Security Administrator has re-authenticated your identity and generated new secure access credentials for ${req.companyName}.
 
 ==============================================================
-BHARATFILINGS STATUTORY CREDENTIAL DISPATCH
+STATUTORY CREDENTIAL DISPATCH
 Ministry of Corporate Affairs (MCA V3) Direct Access
 ==============================================================
 
@@ -1098,17 +1098,17 @@ Ministry of Corporate Affairs (MCA V3) Direct Access
 Security & Compliance Protocol:
 1. Use your newly assigned password at the Unified Sign-In Portal.
 2. Under Digital Personal Data Protection (DPDP) Act 2023, do not share these credentials.
-3. If this reset was not authorized by you or a co-director, immediately notify security@bharatfilings.com or call 1800-889-2244.
+3. If this reset was not authorized by you or a co-director, immediately notify security@corporatefilings.in or call 1800-889-2244.
 
 Issued By:
 Master Security Administrator (${params.adminEmail})
-BharatFilings Corporate Compliance Division`;
+Corporate Compliance Division`;
 
   const emailDispatchDetails = {
     to: req.customerEmail,
-    from: params.adminEmail || 'admin@bharatfilings.com',
+    from: params.adminEmail || 'admin@corporatefilings.in',
     sentAt: now,
-    subject: `[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated (${req.id})`,
+    subject: `[Security Notice] Your Portal Login Credentials Have Been Updated (${req.id})`,
     loginUrl,
     plainPassword: params.newPassword,
     bodySnippet: emailBodySnippet
@@ -1138,9 +1138,9 @@ BharatFilings Corporate Compliance Division`;
   const formattedDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const newEmailEntry: CustomerEmail = {
     id: `MAIL-${Date.now()}`,
-    from: params.adminEmail || 'admin@bharatfilings.com',
+    from: params.adminEmail || 'admin@corporatefilings.in',
     to: req.customerEmail,
-    subject: `[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated (${req.id})`,
+    subject: `[Security Notice] Your Portal Login Credentials Have Been Updated (${req.id})`,
     sentAt: now,
     bodySnippet: emailBodySnippet,
     loginUrl,
@@ -1297,22 +1297,22 @@ export function directAdminResetPassword(params: {
 Your security credentials for ${customer.companyName} have been administratively updated.
 
 ==============================================================
-BHARATFILINGS STATUTORY CREDENTIAL DISPATCH
+CORPORATE STATUTORY CREDENTIAL DISPATCH
 ==============================================================
 
-• Portal URL: http://localhost:3000/login
+• Portal URL: /login
 • Login Identifier: ${customer.email}
 • Newly Assigned Password: ${params.newPassword}
 
 Issued By:
 Master Security Administrator (${params.adminEmail})
-BharatFilings Compliance Division`;
+Corporate Compliance Division`;
 
   const newEmail: CustomerEmail = {
     id: `MAIL-${Date.now()}`,
-    from: params.adminEmail || 'admin@bharatfilings.com',
+    from: params.adminEmail || 'admin@corporatefilings.in',
     to: customer.email,
-    subject: `[Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated`,
+    subject: `[Security Notice] Your Corporate Filings Portal Login Credentials Have Been Updated`,
     sentAt: now,
     bodySnippet: emailBodySnippet,
     loginUrl: 'http://localhost:3000/login',

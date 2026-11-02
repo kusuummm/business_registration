@@ -47,11 +47,11 @@ export default function AdminSidebar({
   // Load persisted preference immediately on mount
   useEffect(() => {
     try {
-      const savedCollapsed = localStorage.getItem('bharatfilings_admin_sidebar_collapsed');
+      const savedCollapsed = localStorage.getItem('app_admin_sidebar_collapsed');
       if (savedCollapsed === 'true') {
         setIsCollapsed(true);
       }
-      const savedHidden = localStorage.getItem('bharatfilings_admin_sidebar_hidden');
+      const savedHidden = localStorage.getItem('app_admin_sidebar_hidden');
       if (savedHidden === 'true') {
         setIsCompletelyHidden(true);
       }
@@ -61,13 +61,13 @@ export default function AdminSidebar({
   // Persist states non-blockingly
   useEffect(() => {
     try {
-      localStorage.setItem('bharatfilings_admin_sidebar_collapsed', String(isCollapsed));
+      localStorage.setItem('app_admin_sidebar_collapsed', String(isCollapsed));
     } catch {}
   }, [isCollapsed]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('bharatfilings_admin_sidebar_hidden', String(isCompletelyHidden));
+      localStorage.setItem('app_admin_sidebar_hidden', String(isCompletelyHidden));
     } catch {}
   }, [isCompletelyHidden]);
 

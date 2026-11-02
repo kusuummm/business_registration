@@ -139,7 +139,7 @@ export default function ContactPage() {
 
             {/* Helpline 3: Email */}
             <a
-              href="mailto:support@bharatfilings.in"
+              href="mailto:support@corporatefilings.in"
               className="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-400 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-200 flex items-start gap-4 block shadow-xs group"
             >
               <div className="w-11 h-11 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-indigo-500/25">
@@ -150,7 +150,7 @@ export default function ContactPage() {
                   Priority Secretarial Email
                 </span>
                 <h4 className="text-base font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                  support@bharatfilings.in
+                  support@corporatefilings.in
                 </h4>
                 <p className="text-xs text-slate-500">
                   Send draft MOA/AOA or complex ROC matters for expert legal review.
@@ -170,7 +170,7 @@ export default function ContactPage() {
               <div className="text-xs text-slate-300 space-y-0.5 pt-1 border-t border-slate-800">
                 <p><strong>Name:</strong> CS Vikramaditya Sen (FCS No. 9812)</p>
                 <p><strong>Designation:</strong> Head of Governance & Grievance Redressal</p>
-                <p><strong>Direct Email:</strong> <span className="text-blue-300">grievance@bharatfilings.in</span></p>
+                <p><strong>Direct Email:</strong> <span className="text-blue-300">grievance@corporatefilings.in</span></p>
                 <p><strong>SLA for Grievance Acknowledgment:</strong> 24 Hours</p>
               </div>
             </div>

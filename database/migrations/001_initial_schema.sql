@@ -1,6 +1,6 @@
 -- =========================================================================
 -- MASTER PRODUCTION DATABASE SCHEMA (PostgreSQL 16)
--- BharatFilings: Pan-India Legal, Tax, Registration & Compliance Platform
+-- CorporateFilings: Pan-India Legal, Tax, Registration & Compliance Platform
 -- =========================================================================
 
 -- Enable UUID extension for cryptographically secure identifiers

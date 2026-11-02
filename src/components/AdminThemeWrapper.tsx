@@ -249,9 +249,9 @@ export default function AdminThemeWrapper({
 
   const loadThemeFromStorage = () => {
     try {
-      const savedThemeId = localStorage.getItem('bharatfilings_admin_theme');
-      const savedDarknessStr = localStorage.getItem('bharatfilings_admin_darkness');
-      const customBg = localStorage.getItem('bharatfilings_admin_bg_color');
+      const savedThemeId = localStorage.getItem('app_admin_theme');
+      const savedDarknessStr = localStorage.getItem('app_admin_darkness');
+      const customBg = localStorage.getItem('app_admin_bg_color');
 
       const darkness = savedDarknessStr !== null ? parseInt(savedDarknessStr, 10) : undefined;
 

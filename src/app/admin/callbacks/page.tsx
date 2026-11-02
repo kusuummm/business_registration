@@ -293,7 +293,7 @@ export default function AdminCallbacksPage() {
 
                               {/* WhatsApp Chat Link */}
                               <a
-                                href={`https://wa.me/91${(cb.phone || '').replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${cb.name}, this is BharatFilings reaching out regarding your inquiry on ${cb.service || 'company incorporation'}.`)}`}
+                                href={`https://wa.me/91${(cb.phone || '').replace(/\D/g, '')}?text=${encodeURIComponent(`Hello ${cb.name}, this is Corporate Filings reaching out regarding your inquiry on ${cb.service || 'company incorporation'}.`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title="Chat on WhatsApp"

@@ -105,7 +105,7 @@ export async function sendTransactionalEmail({
   htmlContent: string;
 }): Promise<boolean> {
   const settings = getSettings();
-  console.log(`[TRANSACTIONAL EMAIL] To: ${to} | Subject: "${subject}" | From: ${settings.emailSenderAddress || 'filings@bharatfilings.com'}`);
+  console.log(`[TRANSACTIONAL EMAIL] To: ${to} | Subject: "${subject}" | From: ${settings.emailSenderAddress || 'filings@corporatefilings.in'}`);
   return true;
 }
 
@@ -148,7 +148,7 @@ export async function notifyOrderPlaced(order: any): Promise<void> {
 
     await dispatchJob('SEND_DLT_SMS', {
       to: mobile,
-      message: `BharatFilings: Registration for ${companyName} received (#${orderId}). Documents queued for Admin verification. Track at bharatfilings.com/customer - ${getSettings().smsSenderId || 'BHRTFL'}`,
+      message: `Registration for ${companyName} received (#${orderId}). Documents queued for Admin verification. Track at your customer portal - ${getSettings().smsSenderId || 'CORPFL'}`,
       templateId: 'DLT-REG-01'
     });
   }
@@ -182,7 +182,7 @@ export async function notifyDocumentsApproved(order: any): Promise<void> {
 
     await dispatchJob('SEND_DLT_SMS', {
       to: mobile,
-      message: `BharatFilings: Great news! Your registration documents for ${companyName} (#${orderId}) have been verified and approved by the Admin. - ${getSettings().smsSenderId || 'BHRTFL'}`,
+      message: `Great news! Your registration documents for ${companyName} (#${orderId}) have been verified and approved by the Admin. - ${getSettings().smsSenderId || 'CORPFL'}`,
       templateId: 'DLT-DOC-02'
     });
   }
@@ -215,7 +215,7 @@ export async function notifyCertificateReleased(order: any, cin?: string): Promi
 
     await dispatchJob('SEND_DLT_SMS', {
       to: mobile,
-      message: `BharatFilings: Congratulations! Certificate of Incorporation for ${companyName} is released. CIN: ${cin || 'Issued'}. Download from your customer vault. - ${getSettings().smsSenderId || 'BHRTFL'}`,
+      message: `Congratulations! Certificate of Incorporation for ${companyName} is released. CIN: ${cin || 'Issued'}. Download from your customer vault. - ${getSettings().smsSenderId || 'CORPFL'}`,
       templateId: 'DLT-COI-03'
     });
   }

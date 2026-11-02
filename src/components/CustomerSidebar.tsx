@@ -40,9 +40,9 @@ export default function CustomerSidebar({
   // Load persisted collapse preference
   useEffect(() => {
     try {
-      const savedCollapsed = localStorage.getItem('bharatfilings_customer_sidebar_collapsed');
+      const savedCollapsed = localStorage.getItem('app_customer_sidebar_collapsed');
       if (savedCollapsed === 'true') setIsCollapsed(true);
-      const savedHidden = localStorage.getItem('bharatfilings_customer_sidebar_hidden');
+      const savedHidden = localStorage.getItem('app_customer_sidebar_hidden');
       if (savedHidden === 'true') setIsCompletelyHidden(true);
     } catch {}
   }, []);
@@ -50,13 +50,13 @@ export default function CustomerSidebar({
   // Persist states non-blockingly
   useEffect(() => {
     try {
-      localStorage.setItem('bharatfilings_customer_sidebar_collapsed', String(isCollapsed));
+      localStorage.setItem('app_customer_sidebar_collapsed', String(isCollapsed));
     } catch {}
   }, [isCollapsed]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('bharatfilings_customer_sidebar_hidden', String(isCompletelyHidden));
+      localStorage.setItem('app_customer_sidebar_hidden', String(isCompletelyHidden));
     } catch {}
   }, [isCompletelyHidden]);
 

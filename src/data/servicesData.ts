@@ -167,7 +167,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
         a: 'Yes, Indian corporate law allows your residential or rented home to be registered as the official corporate office as long as you provide a utility bill and landlord NOC.'
       },
       {
-        q: 'Why does BharatFilings separate Government Stamp Duty from the professional fee?',
+        q: 'Why do we separate Government Stamp Duty from the professional fee?',
         a: 'State stamp duty varies between ₹860 (Delhi) to ₹10,000 (Punjab). We practice radical transparency so you only pay the exact statutory government fee with zero markups or GST on sovereign taxes.'
       }
     ]

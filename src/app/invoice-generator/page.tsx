@@ -32,7 +32,7 @@ export default function InvoiceGeneratorPage() {
   const [dueDate, setDueDate] = useState('2026-11-15');
 
   // Seller Details
-  const [sellerName, setSellerName] = useState('Bharat Corporate Cloud Private Limited');
+  const [sellerName, setSellerName] = useState('Apex Corporate Cloud Private Limited');
   const [sellerGstin, setSellerGstin] = useState('27AAACR1234M1Z5');
   const [sellerStateCode, setSellerStateCode] = useState('27');
   const [sellerAddress, setSellerAddress] = useState('Level 4, Nariman Point, Mumbai, Maharashtra 400021');
@@ -47,7 +47,7 @@ export default function InvoiceGeneratorPage() {
   const [bankName, setBankName] = useState('ICICI Bank Limited');
   const [bankAccountNo, setBankAccountNo] = useState('001105029384');
   const [bankIfsc, setBankIfsc] = useState('ICIC0000011');
-  const [upiId, setUpiId] = useState('bharatcloud@icici');
+  const [upiId, setUpiId] = useState('corporatecloud@icici');
 
   // Items
   const [items, setItems] = useState<InvoiceItem[]>([

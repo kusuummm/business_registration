@@ -85,7 +85,7 @@ export const DEFAULT_SETTINGS: PlatformSettings = {
   mcaEnvironment: 'production',
   mcaPollingIntervalMinutes: 5,
   esignProvider: 'Protean (NSDL)',
-  digilockerClientId: 'dl_live_bharatfilings_b2b',
+  digilockerClientId: 'dl_live_corporatefilings_b2b',
   digilockerClientSecret: '••••••••••••••••••••••••',
 
   // Payment

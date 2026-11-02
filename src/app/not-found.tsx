@@ -10,7 +10,7 @@ export default function NotFound() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-sm font-black text-slate-900">
-              Bharat<span className="text-blue-600">Filings</span>
+              Corporate<span className="text-blue-600">Filings</span>
             </span>
             <span className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase border-l border-slate-200 pl-2">
               Corporate Services Desk

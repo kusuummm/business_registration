@@ -55,7 +55,7 @@ export default function CustomerNavbar({
 
   const updateProfileFromStorage = () => {
     try {
-      const stored = localStorage.getItem('bharatfilings_customer_user');
+      const stored = localStorage.getItem('app_customer_user') || localStorage.getItem('app_customer_user');
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed.name) {
@@ -138,7 +138,7 @@ export default function CustomerNavbar({
             className="flex items-center text-slate-900 group"
           >
             <span className="text-sm font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-              Bharat<span className="text-blue-600">Filings</span>
+              Corporate<span className="text-blue-600">Filings</span>
             </span>
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 border-l border-slate-200 pl-2 ml-2 hidden xs:inline">
               Client Portal

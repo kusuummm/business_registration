@@ -92,7 +92,7 @@ export default function CustomerDocumentsPage() {
   useEffect(() => {
     // Load stored company info
     try {
-      const storedUser = localStorage.getItem('bharatfilings_customer_user');
+      const storedUser = localStorage.getItem('app_customer_user') || localStorage.getItem('app_customer_user');
       if (storedUser) {
         const parsed = JSON.parse(storedUser);
         if (parsed.companyName) setCompanyName(parsed.companyName);

@@ -116,7 +116,7 @@ export default function CustomerSettingsPage() {
   useEffect(() => {
     try {
       // User profile
-      const storedUser = localStorage.getItem('bharatfilings_customer_user');
+      const storedUser = localStorage.getItem('app_customer_user');
       if (storedUser) {
         const parsed = JSON.parse(storedUser);
         setProfile((prev) => ({
@@ -131,9 +131,9 @@ export default function CustomerSettingsPage() {
       }
 
       // Theme & Background Color & Darkness Level
-      const storedTheme = localStorage.getItem('bharatfilings_customer_theme');
-      const storedDarkness = localStorage.getItem('bharatfilings_customer_darkness');
-      const customBg = localStorage.getItem('bharatfilings_customer_bg_color');
+      const storedTheme = localStorage.getItem('app_customer_theme');
+      const storedDarkness = localStorage.getItem('app_customer_darkness');
+      const customBg = localStorage.getItem('app_customer_bg_color');
 
       const initialDarkness = storedDarkness !== null ? parseInt(storedDarkness, 10) : 80;
       setDarknessLevel(initialDarkness);
@@ -150,11 +150,11 @@ export default function CustomerSettingsPage() {
         setCurrentThemeConfig(getPresetTheme('navy', 80));
       }
 
-      const storedDensity = localStorage.getItem('bharatfilings_customer_density');
+      const storedDensity = localStorage.getItem('app_customer_density');
       if (storedDensity) setCompactDensity(storedDensity === 'true');
 
       // Notifications
-      const storedNotifs = localStorage.getItem('bharatfilings_customer_notifications');
+      const storedNotifs = localStorage.getItem('app_customer_notifications');
       if (storedNotifs) setNotifications(JSON.parse(storedNotifs));
 
       fetchPasswordRequests();
@@ -179,7 +179,7 @@ export default function CustomerSettingsPage() {
   const handleSaveProfile = (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      localStorage.setItem('bharatfilings_customer_user', JSON.stringify(profile));
+      localStorage.setItem('app_customer_user', JSON.stringify(profile));
       window.dispatchEvent(new CustomEvent('bf_customer_user_updated'));
       showNotification('Profile and company contact details updated successfully.');
     } catch (err) {
@@ -200,8 +200,8 @@ export default function CustomerSettingsPage() {
 
     setCurrentThemeConfig(updatedConfig);
     try {
-      localStorage.setItem('bharatfilings_customer_darkness', String(newDarkness));
-      localStorage.setItem('bharatfilings_customer_bg_color', updatedConfig.surfaceBg);
+      localStorage.setItem('app_customer_darkness', String(newDarkness));
+      localStorage.setItem('app_customer_bg_color', updatedConfig.surfaceBg);
       window.dispatchEvent(new CustomEvent('bf_customer_theme_change', { detail: { themeConfig: updatedConfig } }));
     } catch (err) {
       console.error('Failed to update darkness level:', err);
@@ -231,9 +231,9 @@ export default function CustomerSettingsPage() {
     setCurrentThemeConfig(updatedConfig);
 
     try {
-      localStorage.setItem('bharatfilings_customer_theme', preset.id);
-      localStorage.setItem('bharatfilings_customer_darkness', String(targetDarkness));
-      localStorage.setItem('bharatfilings_customer_bg_color', updatedConfig.surfaceBg);
+      localStorage.setItem('app_customer_theme', preset.id);
+      localStorage.setItem('app_customer_darkness', String(targetDarkness));
+      localStorage.setItem('app_customer_bg_color', updatedConfig.surfaceBg);
       window.dispatchEvent(new CustomEvent('bf_customer_theme_change', { detail: { themeConfig: updatedConfig } }));
       showNotification(`Theme changed to "${preset.name}". Background set to ${updatedConfig.surfaceBg} (${targetDarkness}% darkness).`);
     } catch (err) {
@@ -248,9 +248,9 @@ export default function CustomerSettingsPage() {
     const customConfig = createCustomTheme(hex, darknessLevel);
     setCurrentThemeConfig(customConfig);
     try {
-      localStorage.setItem('bharatfilings_customer_theme', 'custom');
-      localStorage.setItem('bharatfilings_customer_bg_color', hex);
-      localStorage.setItem('bharatfilings_customer_darkness', String(darknessLevel));
+      localStorage.setItem('app_customer_theme', 'custom');
+      localStorage.setItem('app_customer_bg_color', hex);
+      localStorage.setItem('app_customer_darkness', String(darknessLevel));
       window.dispatchEvent(new CustomEvent('bf_customer_theme_change', { detail: { themeConfig: customConfig } }));
       showNotification(`Custom color applied (${hex}) at ${darknessLevel}% darkness.`);
     } catch (err) {
@@ -264,7 +264,7 @@ export default function CustomerSettingsPage() {
     const updated = { ...notifications, [key]: !notifications[key] };
     setNotifications(updated);
     try {
-      localStorage.setItem('bharatfilings_customer_notifications', JSON.stringify(updated));
+      localStorage.setItem('app_customer_notifications', JSON.stringify(updated));
       showNotification('Notification preferences saved.');
     } catch (err) {
       console.error('Failed to save notifications:', err);
@@ -313,7 +313,7 @@ export default function CustomerSettingsPage() {
   // Export Customer Data (JSON)
   const handleExportData = () => {
     const exportPayload = {
-      platform: 'BharatFilings',
+      platform: 'CorporateFilings',
       exportedAt: new Date().toISOString(),
       userProfile: profile,
       preferences: {
@@ -333,7 +333,7 @@ export default function CustomerSettingsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `bharatfilings-account-${profile.din || 'data'}.json`;
+    a.download = `account-data-${profile.din || 'archive'}.json`;
     a.click();
     URL.revokeObjectURL(url);
     showNotification('Account data archive exported as JSON.');
@@ -1179,7 +1179,7 @@ export default function CustomerSettingsPage() {
                           Administrator Has Dispatched Updated Credentials!
                         </span>
                         <span className="text-[11px] text-emerald-700/90 block">
-                          A statutory notification with your new login key was sent from <strong>admin@bharatfilings.com</strong>. View it via the mailbox ✉️ icon in the top navbar.
+                          A statutory notification with your new login key was sent from <strong>admin@corporatefilings.in</strong>. View it via the mailbox ✉️ icon in the top navbar.
                         </span>
                       </div>
                     </div>

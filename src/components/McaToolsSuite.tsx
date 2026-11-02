@@ -35,7 +35,7 @@ const RESTRICTED_WORDS = [
   { word: 'national', reason: 'Requires Central Government prior approval under Emblems and Names Act, 1950.' },
   { word: 'federal', reason: 'Restricted under MCA Rule 8(2)(b); suggests government ownership.' },
   { word: 'republic', reason: 'Prohibited under Rule 8; indicates sovereign entity.' },
-  { word: 'bharat', reason: 'Permissible only with substantial national presence or prior approval.' },
+  { word: 'sovereignty', reason: 'Prohibited under Rule 8; indicates sovereign authority.' },
   { word: 'prime minister', reason: 'Strictly prohibited under Emblems and Names Act, 1950.' },
   { word: 'rashtrapati', reason: 'Strictly prohibited under Emblems and Names Act, 1950.' },
   { word: 'governor', reason: 'Prohibited; implies state governance.' },

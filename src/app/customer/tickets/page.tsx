@@ -46,7 +46,7 @@ export default function CustomerTicketsPage() {
 
     let custName = 'Registered Signatory';
     try {
-      const u = localStorage.getItem('bharatfilings_customer_user');
+      const u = localStorage.getItem('app_customer_user') || localStorage.getItem('app_customer_user');
       if (u) {
         const parsed = JSON.parse(u);
         if (parsed.name) custName = parsed.name;

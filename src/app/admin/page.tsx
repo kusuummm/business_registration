@@ -55,7 +55,7 @@ import { PARTNERS_DATA, Partner } from '@/data/partnersData';
 export default function AdminDashboardPage() {
   // Authentication & Security Guard States
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [adminEmail, setAdminEmail] = useState('admin@bharatfilings.com');
+  const [adminEmail, setAdminEmail] = useState('admin@corporatefilings.in');
   const [adminPassword, setAdminPassword] = useState('Admin@2026');
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
@@ -117,7 +117,7 @@ export default function AdminDashboardPage() {
 
   // Verify session on mount
   useEffect(() => {
-    const sessionAuth = sessionStorage.getItem('bharatfilings_admin_auth') || localStorage.getItem('bharatfilings_admin_auth');
+    const sessionAuth = sessionStorage.getItem('app_admin_auth') || localStorage.getItem('app_admin_auth');
     if (sessionAuth === 'true') {
       setIsAuthenticated(true);
     }
@@ -160,8 +160,8 @@ export default function AdminDashboardPage() {
       }
 
       // Successful authentication
-      sessionStorage.setItem('bharatfilings_admin_auth', 'true');
-      localStorage.setItem('bharatfilings_admin_auth', 'true');
+      sessionStorage.setItem('app_admin_auth', 'true');
+      localStorage.setItem('app_admin_auth', 'true');
       setIsAuthenticated(true);
       setIsLoggingIn(false);
       setIsSuccessBanner('Master Administrator authenticated successfully! Secure session initialized.');
@@ -171,8 +171,8 @@ export default function AdminDashboardPage() {
 
   // Handle Admin Sign Out
   const handleSignOut = () => {
-    sessionStorage.removeItem('bharatfilings_admin_auth');
-    localStorage.removeItem('bharatfilings_admin_auth');
+    sessionStorage.removeItem('app_admin_auth');
+    localStorage.removeItem('app_admin_auth');
     setIsAuthenticated(false);
     setAdminPassword('');
   };
@@ -582,7 +582,7 @@ export default function AdminDashboardPage() {
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2.5 cursor-pointer">
               <span className="text-sm font-black tracking-tight text-white">
-                Bharat<span className="text-amber-400">Filings</span>
+                Corporate<span className="text-amber-400">Filings</span>
               </span>
               <span className="text-[10px] font-bold uppercase bg-amber-400/15 text-amber-300 border border-amber-400/40 px-2 py-0.5 rounded shadow-2xs">
                 Super Admin
@@ -649,7 +649,7 @@ export default function AdminDashboardPage() {
                         type="email"
                         value={adminEmail}
                         onChange={(e) => setAdminEmail(e.target.value)}
-                        placeholder="admin@bharatfilings.com"
+                        placeholder="admin@corporatefilings.in"
                         required
                         className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs font-medium text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition"
                       />
@@ -698,12 +698,12 @@ export default function AdminDashboardPage() {
                   <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/60 border border-blue-200/80 rounded-xl p-2.5 flex items-center justify-between text-xs">
                     <div>
                       <span className="text-[10px] uppercase font-bold text-blue-800 block">Default Credentials:</span>
-                      <span className="font-mono text-indigo-950 font-black text-[11px]">admin@bharatfilings.com / Admin@2026</span>
+                      <span className="font-mono text-indigo-950 font-black text-[11px]">admin@corporatefilings.in / Admin@2026</span>
                     </div>
                     <button
                       type="button"
                       onClick={() => {
-                        setAdminEmail('admin@bharatfilings.com');
+                        setAdminEmail('admin@corporatefilings.in');
                         setAdminPassword('Admin@2026');
                       }}
                       className="px-2.5 py-1 bg-white hover:bg-blue-50 border border-blue-300 text-blue-700 rounded text-[10px] font-bold transition shadow-2xs cursor-pointer"
@@ -786,7 +786,7 @@ export default function AdminDashboardPage() {
                           type="email"
                           value={forgotEmail}
                           onChange={(e) => setForgotEmail(e.target.value)}
-                          placeholder="admin@bharatfilings.com"
+                          placeholder="admin@corporatefilings.in"
                           required
                           className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs font-medium text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition"
                         />
@@ -2406,7 +2406,7 @@ export default function AdminDashboardPage() {
                   <input
                     type="text"
                     disabled
-                    value="admin@bharatfilings.com (Master Admin Console)"
+                    value="admin@corporatefilings.in (Master Admin Console)"
                     className="w-full px-3 py-2 bg-slate-100 border border-slate-200 rounded-lg text-slate-600 text-xs font-medium cursor-not-allowed"
                   />
                 </div>
@@ -2419,8 +2419,8 @@ export default function AdminDashboardPage() {
                   </label>
                   <div className="p-3 bg-slate-900 text-slate-100 rounded-xl font-mono text-[11px] space-y-1.5 border border-slate-800 shadow-inner">
                     <p className="text-slate-400"><strong>To:</strong> {selectedPasswordRequest.customerEmail}</p>
-                    <p className="text-slate-400"><strong>From:</strong> admin@bharatfilings.com</p>
-                    <p className="text-amber-300"><strong>Subject:</strong> [Security Notice] Your BharatFilings Portal Login Credentials Have Been Updated ({selectedPasswordRequest.id})</p>
+                    <p className="text-slate-400"><strong>From:</strong> admin@corporatefilings.in</p>
+                    <p className="text-amber-300"><strong>Subject:</strong> [Security Notice] Your Corporate Filings Portal Login Credentials Have Been Updated ({selectedPasswordRequest.id})</p>
                     <div className="pt-2 border-t border-slate-800 text-[10px] text-slate-300 leading-relaxed font-sans">
                       <p>Dear {selectedPasswordRequest.customerName},</p>
                       <p className="mt-1">
@@ -2653,7 +2653,7 @@ export default function AdminDashboardPage() {
 
                 {/* Sender Email Info */}
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1 text-slate-600 text-[11px]">
-                  <p><strong>Outbound Email:</strong> admin@bharatfilings.com</p>
+                  <p><strong>Outbound Email:</strong> admin@corporatefilings.in</p>
                   <p><strong>Statutory Notification:</strong> An encrypted credential dispatch will be delivered to <strong>{directCustomerEmail || '[Customer Email]'}</strong> containing portal URL and the new password.</p>
                 </div>
 

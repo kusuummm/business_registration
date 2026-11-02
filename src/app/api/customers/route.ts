@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     const result = directAdminResetPassword({
       customerEmail,
       newPassword,
-      adminEmail: adminEmail || 'admin@bharatfilings.com',
+      adminEmail: adminEmail || 'admin@corporatefilings.in',
       adminNotes: adminNotes || 'Direct administrator password reset'
     });
 

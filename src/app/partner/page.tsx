@@ -291,7 +291,7 @@ export default function PartnerPortalPage() {
 
   const handleCopyReferral = () => {
     setCopiedLink(true);
-    navigator.clipboard?.writeText('https://bharatfilings.in/ref/CS-PRIYA-11849');
+    navigator.clipboard?.writeText('https://corporatefilings.in/ref/CS-PRIYA-11849');
     setTimeout(() => setCopiedLink(false), 2500);
   };
 
@@ -696,7 +696,7 @@ export default function PartnerPortalPage() {
                                   <Eye className="w-3.5 h-3.5" />
                                 </button>
                                 <a
-                                  href={`https://wa.me/${ord.customerMobile.replace(/\D/g, '')}?text=Hello%20${encodeURIComponent(ord.customerName)},%20this%20is%20CS%20Priya%20Sharma%20from%20BharatFilings%20regarding%20${encodeURIComponent(ord.companyName)}.`}
+                                  href={`https://wa.me/${ord.customerMobile.replace(/\D/g, '')}?text=Hello%20${encodeURIComponent(ord.customerName)},%20this%20is%20CS%20Priya%20Sharma%20regarding%20${encodeURIComponent(ord.companyName)}.`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="p-1.5 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 text-emerald-700 rounded-lg cursor-pointer transition shadow-2xs"
@@ -862,7 +862,7 @@ export default function PartnerPortalPage() {
                             </button>
 
                             <a
-                              href={`https://wa.me/${order.customerMobile.replace(/\D/g, '')}?text=Hello%20${encodeURIComponent(order.customerName)},%20this%20is%20CS%20Priya%20Sharma%20from%20BharatFilings%20regarding%20${encodeURIComponent(order.companyName)}.`}
+                              href={`https://wa.me/${order.customerMobile.replace(/\D/g, '')}?text=Hello%20${encodeURIComponent(order.customerName)},%20this%20is%20CS%20Priya%20Sharma%20regarding%20${encodeURIComponent(order.companyName)}.`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="w-full py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-lg text-xs font-bold transition flex items-center justify-center gap-1 text-center shadow-xs"
@@ -1352,13 +1352,13 @@ export default function PartnerPortalPage() {
                   Refer Clients & Earn 10% Advisory Commission
                 </h3>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Refer startup founders or corporate clients to BharatFilings using your unique partner link. Earn ongoing revenue on GST, Trademark, and Annual ROC compliance filings.
+                  Refer startup founders or corporate clients to our platform using your unique partner link. Earn ongoing revenue on GST, Trademark, and Annual ROC compliance filings.
                 </p>
               </div>
 
               <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
                 <span className="font-mono text-xs font-bold text-slate-800 truncate">
-                  https://bharatfilings.in/ref/CS-PRIYA-11849
+                  https://corporatefilings.in/ref/CS-PRIYA-11849
                 </span>
                 <button
                   type="button"

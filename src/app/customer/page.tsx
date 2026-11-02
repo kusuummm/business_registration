@@ -51,7 +51,7 @@ export default function CustomerOrdersPage() {
     let loggedMobile = '';
 
     try {
-      const storedUser = localStorage.getItem('bharatfilings_customer_user');
+      const storedUser = localStorage.getItem('app_customer_user') || localStorage.getItem('app_customer_user');
       if (storedUser) {
         const parsed = JSON.parse(storedUser);
         if (parsed.name) {
@@ -677,7 +677,7 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
 
                   <button
                     type="button"
-                    onClick={() => handleDownloadDoc(`BharatFilings_Tax_Invoice_${ordId}.pdf`, `Statutory Tax Invoice #${ordId} (${orderPrice})`)}
+                    onClick={() => handleDownloadDoc(`Corporate_Tax_Invoice_${ordId}.pdf`, `Statutory Tax Invoice #${ordId} (${orderPrice})`)}
                     className="px-3 py-1.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
@@ -854,7 +854,7 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
                 </div>
 
                 <div className="p-3 bg-purple-50/70 border border-purple-200 rounded-xl text-[11px] text-purple-900">
-                  💡 Zero Fee: 1 complimentary video structuring session is included in all BharatFilings SPICe+ Private Limited and LLP packages.
+                  💡 Zero Fee: 1 complimentary video structuring session is included in all SPICe+ Private Limited and LLP packages.
                 </div>
 
                 <button

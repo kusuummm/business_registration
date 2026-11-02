@@ -84,9 +84,9 @@ export default function AdminSettingsPage() {
   // Load Admin Theme on Mount
   useEffect(() => {
     try {
-      const storedTheme = localStorage.getItem('bharatfilings_admin_theme');
-      const storedDarkness = localStorage.getItem('bharatfilings_admin_darkness');
-      const customBg = localStorage.getItem('bharatfilings_admin_bg_color');
+      const storedTheme = localStorage.getItem('app_admin_theme');
+      const storedDarkness = localStorage.getItem('app_admin_darkness');
+      const customBg = localStorage.getItem('app_admin_bg_color');
 
       const initialDarkness = storedDarkness !== null ? parseInt(storedDarkness, 10) : 80;
       setAdminDarknessLevel(initialDarkness);
@@ -117,8 +117,8 @@ export default function AdminSettingsPage() {
 
     setCurrentAdminThemeConfig(updatedConfig);
     try {
-      localStorage.setItem('bharatfilings_admin_darkness', String(newDarkness));
-      localStorage.setItem('bharatfilings_admin_bg_color', updatedConfig.surfaceBg);
+      localStorage.setItem('app_admin_darkness', String(newDarkness));
+      localStorage.setItem('app_admin_bg_color', updatedConfig.surfaceBg);
       window.dispatchEvent(new CustomEvent('bf_admin_theme_change', { detail: { themeConfig: updatedConfig } }));
     } catch (err) {
       console.error('Failed to update admin darkness:', err);
@@ -146,9 +146,9 @@ export default function AdminSettingsPage() {
     setCurrentAdminThemeConfig(updatedConfig);
 
     try {
-      localStorage.setItem('bharatfilings_admin_theme', preset.id);
-      localStorage.setItem('bharatfilings_admin_darkness', String(targetDarkness));
-      localStorage.setItem('bharatfilings_admin_bg_color', updatedConfig.surfaceBg);
+      localStorage.setItem('app_admin_theme', preset.id);
+      localStorage.setItem('app_admin_darkness', String(targetDarkness));
+      localStorage.setItem('app_admin_bg_color', updatedConfig.surfaceBg);
       window.dispatchEvent(new CustomEvent('bf_admin_theme_change', { detail: { themeConfig: updatedConfig } }));
       setSavedBanner(`Admin theme switched to "${preset.name}" (${targetDarkness}% darkness).`);
       setTimeout(() => setSavedBanner(''), 4000);
@@ -163,9 +163,9 @@ export default function AdminSettingsPage() {
     const customConfig = createAdminCustomTheme(hex, adminDarknessLevel);
     setCurrentAdminThemeConfig(customConfig);
     try {
-      localStorage.setItem('bharatfilings_admin_theme', 'custom');
-      localStorage.setItem('bharatfilings_admin_bg_color', hex);
-      localStorage.setItem('bharatfilings_admin_darkness', String(adminDarknessLevel));
+      localStorage.setItem('app_admin_theme', 'custom');
+      localStorage.setItem('app_admin_bg_color', hex);
+      localStorage.setItem('app_admin_darkness', String(adminDarknessLevel));
       window.dispatchEvent(new CustomEvent('bf_admin_theme_change', { detail: { themeConfig: customConfig } }));
       setSavedBanner(`Custom admin color applied (${hex}) at ${adminDarknessLevel}% darkness.`);
       setTimeout(() => setSavedBanner(''), 4000);
@@ -211,7 +211,7 @@ export default function AdminSettingsPage() {
       });
       const data = await res.json();
       if (data.success) {
-        setSavedBanner('Settings saved and synchronized with BharatFilings secure configuration vault.');
+        setSavedBanner('Settings saved and synchronized with secure configuration vault.');
         setTimeout(() => setSavedBanner(''), 5000);
       }
     } catch (err) {
@@ -288,7 +288,7 @@ export default function AdminSettingsPage() {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `BharatFilings_System_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+        a.download = `System_Backup_${new Date().toISOString().slice(0, 10)}.json`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -1315,12 +1315,12 @@ export default function AdminSettingsPage() {
                           <input
                             type="text"
                             readOnly
-                            value="https://bharatfilings.com/api/webhooks/razorpay"
+                            value="https://corporatefilings.in/api/webhooks/razorpay"
                             className="w-full font-mono bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 text-slate-600 text-xs"
                           />
                           <button
                             type="button"
-                            onClick={() => copyToClipboard('https://bharatfilings.com/api/webhooks/razorpay', 'webhook')}
+                            onClick={() => copyToClipboard('https://corporatefilings.in/api/webhooks/razorpay', 'webhook')}
                             className="px-3 py-2 bg-slate-50 hover:bg-slate-100 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 flex items-center gap-1 cursor-pointer shrink-0"
                           >
                             <Copy className="w-3.5 h-3.5" />
@@ -1717,7 +1717,7 @@ export default function AdminSettingsPage() {
               {/* Bottom Save Action Floating / Anchored */}
               <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
                 <span className="text-xs text-slate-400">
-                  Last synchronized with BharatFilings root tier config store.
+                  Last synchronized with root tier configuration store.
                 </span>
 
                 <div className="flex items-center gap-3">

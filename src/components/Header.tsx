@@ -152,14 +152,14 @@ export default function Header({ currentStep }: HeaderProps) {
               }
             }}
             className="flex items-center cursor-pointer group shrink-0"
-            title="BharatFilings Home"
+            title="Corporate Filings Home"
           >
             <div className="flex flex-col">
               <span className="text-base sm:text-lg font-black tracking-tight text-white group-hover:text-amber-300 transition-colors">
-                Bharat<span className="text-amber-400">Filings</span>
+                Corporate<span className="text-amber-400">Filings</span>
               </span>
               <span className="text-[10px] text-slate-400 font-medium tracking-wide hidden sm:block">
-                Corporate Secretarial Desk
+                MCA Secretarial Desk
               </span>
             </div>
           </Link>

@@ -45,7 +45,7 @@ export async function PATCH(request: Request) {
       return NextResponse.json({
         success: true,
         status: 'DELIVERED',
-        recipient: body.email || 'support@bharatfilings.com',
+        recipient: body.email || 'support@corporatefilings.in',
         latencyMs: 120,
         message: 'Transactional test message sent successfully via SendGrid SMTP relay.'
       });

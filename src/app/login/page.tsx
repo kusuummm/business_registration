@@ -121,23 +121,23 @@ export default function LoginPage() {
       }
 
       if (json.role === 'admin') {
-        sessionStorage.setItem('bharatfilings_admin_auth', 'true');
-        localStorage.setItem('bharatfilings_admin_auth', 'true');
+        sessionStorage.setItem('app_admin_auth', 'true');
+        localStorage.setItem('app_admin_auth', 'true');
         setSuccessMsg('Administrator verified! Redirecting to Master Admin Console...');
         setTimeout(() => {
           router.push('/admin');
         }, 350);
       } else if (json.role === 'partner') {
-        sessionStorage.setItem('bharatfilings_partner_auth', 'true');
-        localStorage.setItem('bharatfilings_partner_auth', 'true');
+        sessionStorage.setItem('app_partner_auth', 'true');
+        localStorage.setItem('app_partner_auth', 'true');
         setSuccessMsg('Partner verified! Redirecting to CA/CS Workbench...');
         setTimeout(() => {
           router.push('/partner');
         }, 350);
       } else {
-        localStorage.setItem('bharatfilings_customer_user', JSON.stringify(json.user));
-        localStorage.setItem('bharatfilings_customer_auth', 'true');
-        sessionStorage.setItem('bharatfilings_customer_auth', 'true');
+        localStorage.setItem('app_customer_user', JSON.stringify(json.user));
+        localStorage.setItem('app_customer_auth', 'true');
+        sessionStorage.setItem('app_customer_auth', 'true');
         window.dispatchEvent(new CustomEvent('bf_customer_user_updated'));
         setSuccessMsg('Welcome back! Redirecting to Client Compliance Portal...');
         setTimeout(() => {
@@ -160,14 +160,14 @@ export default function LoginPage() {
   };
 
   const handleFillAdmin = () => {
-    setIdentifier('admin@bharatfilings.com');
+    setIdentifier('admin@corporatefilings.in');
     setPassword('Admin@2026');
     setErrorMsg('');
     setActiveDemo('admin');
   };
 
   const handleFillPartner = () => {
-    setIdentifier('partner.ca@bharatfilings.in');
+    setIdentifier('partner.ca@corporatefilings.in');
     setPassword('partner123');
     setErrorMsg('');
     setActiveDemo('partner');
@@ -192,7 +192,7 @@ export default function LoginPage() {
       <header className="h-10 px-4 sm:px-6 md:px-8 border-b border-slate-200/80 bg-white/95 backdrop-blur-md flex items-center justify-between relative z-10 shrink-0">
         <Link href="/" className="flex items-center space-x-2 cursor-pointer group">
           <span className="text-sm sm:text-base font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-            Bharat<span className="text-blue-600">Filings</span>
+            Corporate<span className="text-blue-600">Filings</span>
           </span>
           <span className="text-[10px] font-bold text-slate-500 hidden sm:inline border-l border-slate-200 pl-2">
             Unified Access
@@ -503,7 +503,7 @@ export default function LoginPage() {
                       Admin
                     </span>
                   </div>
-                  <div className="text-[10px] text-slate-600 leading-tight truncate" title="admin@bharatfilings.com">
+                  <div className="text-[10px] text-slate-600 leading-tight truncate" title="admin@corporatefilings.in">
                     ID: <span className="font-mono font-bold text-slate-900">admin@...</span>
                   </div>
                   <div className="text-[10px] text-slate-500 leading-tight mt-0.5">
@@ -526,7 +526,7 @@ export default function LoginPage() {
                       Partner
                     </span>
                   </div>
-                  <div className="text-[10px] text-slate-600 leading-tight truncate" title="partner.ca@bharatfilings.in">
+                  <div className="text-[10px] text-slate-600 leading-tight truncate" title="partner.ca@corporatefilings.in">
                     ID: <span className="font-mono font-bold text-slate-900">partner.ca</span>
                   </div>
                   <div className="text-[10px] text-slate-500 leading-tight mt-0.5">
@@ -552,7 +552,7 @@ export default function LoginPage() {
 
       {/* Slim Institutional Footer (Height: 28px) */}
       <footer className="h-7 px-4 flex items-center justify-center text-[10px] text-slate-400 border-t border-slate-200/60 bg-white/60 shrink-0">
-        <p>© 2026 BharatFilings Legal-Tech Platform • Government Authorized Corporate Compliance Partner</p>
+        <p>© 2026 Corporate Filings Legal-Tech Platform • Government Authorized Corporate Compliance Partner</p>
       </footer>
     </div>
   );

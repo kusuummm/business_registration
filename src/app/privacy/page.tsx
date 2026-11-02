@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3 p-5 bg-blue-50/70 border border-blue-200 rounded-xl">
             <h3 className="text-sm font-bold text-blue-900">Grievance Redressal Officer Contact:</h3>
             <p className="text-xs text-blue-800">
-              In accordance with DPDP Act 2023 Section 13, for any queries or grievances regarding data protection, please write directly to our designated Grievance Officer: <strong className="font-mono">grievance@bharatfilings.in</strong>. Acknowledgment will be furnished within 24 hours.
+              In accordance with DPDP Act 2023 Section 13, for any queries or grievances regarding data protection, please write directly to our designated Grievance Officer: <strong className="font-mono">grievance@corporatefilings.in</strong>. Acknowledgment will be furnished within 24 hours.
             </p>
           </section>
         </div>

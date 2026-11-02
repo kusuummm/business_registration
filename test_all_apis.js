@@ -1,4 +1,4 @@
-// Comprehensive Deep API Verification Test Suite for BharatFilings
+// Comprehensive Deep API Verification Test Suite for CorporateFilings
 const BASE_URL = 'http://localhost:3000';
 
 async function runTests() {
@@ -79,7 +79,7 @@ async function runTests() {
     const testOrderPayload = {
       auth: {
         mobile: '9820099999',
-        email: 'deepcheck@bharatfilings.com',
+        email: 'deepcheck@corporatefilings.com',
         name: 'Deep Test Founder',
         isVerified: true
       },

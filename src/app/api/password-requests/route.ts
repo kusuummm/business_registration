@@ -97,7 +97,7 @@ export async function PATCH(request: Request) {
       const result = adminResetCustomerPassword({
         requestId,
         newPassword,
-        adminEmail: adminEmail || 'admin@bharatfilings.com',
+        adminEmail: adminEmail || 'admin@corporatefilings.in',
         adminNotes: adminNotes || 'Administrator verified and dispatched new credentials.'
       });
 

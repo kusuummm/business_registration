@@ -23,7 +23,7 @@ export default function CustomerProfilePage() {
 
   useEffect(() => {
     try {
-      const u = localStorage.getItem('bharatfilings_customer_user');
+      const u = localStorage.getItem('app_customer_user') || localStorage.getItem('app_customer_user');
       if (u) setStoredUser(JSON.parse(u));
     } catch {}
 

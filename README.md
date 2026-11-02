@@ -1,4 +1,4 @@
-# BharatFilings - Business Registration & Corporate Compliance Platform
+# CorporateFilings - Business Registration & Corporate Compliance Platform
 
 A modern, full-stack enterprise platform for Indian corporate filings, company registrations (Private Limited, LLP, OPC, Section 8), statutory compliance, and digital governance.
 

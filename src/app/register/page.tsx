@@ -228,8 +228,8 @@ export default function RegisterPage() {
       if (data.success && data.data) {
         setOrder(data.data);
         if (typeof window !== 'undefined') {
-          localStorage.setItem('bharatfilings_current_order', JSON.stringify(data.data));
-          localStorage.setItem('bharatfilings_customer_user', JSON.stringify(data.data.auth));
+          localStorage.setItem('app_current_order', JSON.stringify(data.data));
+          localStorage.setItem('app_customer_user', JSON.stringify(data.data.auth));
         }
       }
     } catch (err) {
@@ -239,8 +239,8 @@ export default function RegisterPage() {
     // Cache customer session in browser storage for instant portal sync
     try {
       if (typeof window !== 'undefined') {
-        localStorage.setItem('bharatfilings_current_order', JSON.stringify(pendingOrder));
-        localStorage.setItem('bharatfilings_customer_user', JSON.stringify(pendingOrder.auth));
+        localStorage.setItem('app_current_order', JSON.stringify(pendingOrder));
+        localStorage.setItem('app_customer_user', JSON.stringify(pendingOrder.auth));
       }
     } catch (e) {
       console.warn('Storage sync notice:', e);
@@ -348,7 +348,7 @@ export default function RegisterPage() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <span className="text-base font-black text-white">
-                  Bharat<span className="text-amber-400">Filings</span>
+                  Corporate<span className="text-amber-400">Filings</span>
                 </span>
                 <span className="text-xs text-slate-400 border-l border-slate-700 pl-2">
                   Corporate Registration & Compliance
@@ -389,7 +389,7 @@ export default function RegisterPage() {
               </h5>
               <p className="text-slate-400 leading-relaxed">
                 MCA Certified Secretarial Desk<br />
-                Email: support@bharatfilings.in<br />
+                Email: support@corporatefilings.in<br />
                 WhatsApp: +91 98200 12849
               </p>
             </div>

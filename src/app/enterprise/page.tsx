@@ -339,7 +339,7 @@ export default function EnterpriseLicensingPage() {
                     <span className="font-mono font-bold text-slate-900">₹{ispCalculations.minNetWorth}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-blue-800 uppercase font-semibold block">BharatFilings Professional Fee:</span>
+                    <span className="text-[10px] text-blue-800 uppercase font-semibold block">Statutory Advisory Fee:</span>
                     <span className="font-mono font-bold text-emerald-700">{ispCalculations.profFee}</span>
                   </div>
                 </div>

@@ -891,7 +891,7 @@ export default function HomePage() {
             <div className="space-y-3 md:col-span-2">
               <Link href="/" title="Go to Home Page" className="flex items-center space-x-2 group cursor-pointer w-fit">
                 <span className="text-base font-black text-white group-hover:text-blue-400 transition">
-                  Bharat<span className="text-amber-400">Filings</span>
+                  Corporate<span className="text-amber-400">Filings</span>
                 </span>
                 <span className="text-xs text-slate-400 border-l border-slate-700 pl-2">
                   Corporate Registration & Compliance
