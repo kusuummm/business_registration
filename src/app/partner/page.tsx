@@ -202,17 +202,24 @@ export default function PartnerPortalPage() {
             customerEmail: o.auth?.email || o.customerEmail || 'client@example.com',
             companyName: o.company?.primaryName || o.companyName || 'Corporate Venture',
             service: o.company?.entityType === 'llp' ? 'LLP Registration' : 'Private Limited Company (SPICe+)',
-            state: o.company?.stateCode || o.state || 'Maharashtra (ROC Mumbai)',
-            earnedFee: o.pricing?.caFee || 1500,
+            state: o.company?.stateCode === 'MH' ? 'Maharashtra (ROC Mumbai)' :
+                   o.company?.stateCode === 'KA' ? 'Karnataka (ROC Bangalore)' :
+                   o.company?.stateCode === 'DL' ? 'Delhi (ROC Delhi)' :
+                   o.company?.stateCode === 'TN' ? 'Tamil Nadu (ROC Chennai)' :
+                   o.company?.stateCode === 'HR' ? 'Haryana (ROC Delhi & Haryana)' :
+                   o.company?.stateCode || o.state || 'Maharashtra (ROC Mumbai)',
+            earnedFee: o.pricing?.baseFee ? Math.round(o.pricing.baseFee * 0.35) : 1500,
             currentStatus: o.status || 'In Review',
-            docsReceived: Array.isArray(o.company?.directors) ? o.company.directors.length * 2 + 2 : 4,
+            docsReceived: Array.isArray(o.directors) ? o.directors.length * 2 + 2 : Array.isArray(o.company?.directors) ? o.company.directors.length * 2 + 2 : 4,
             deadline: 'Within 48 Hours',
             isAccepted: Boolean(o.adminApproved || o.status !== 'Pending Admin Verification'),
-            directors: Array.isArray(o.company?.directors) 
-              ? o.company.directors.map((d: any) => d.name || 'Director') 
+            directors: Array.isArray(o.directors) 
+              ? o.directors.map((d: any) => d.fullName || d.name || 'Director')
+              : Array.isArray(o.company?.directors) 
+              ? o.company.directors.map((d: any) => d.fullName || d.name || 'Director') 
               : ['Director 1', 'Director 2'],
             authorizedCapital: o.company?.authorizedCapital ? `₹${Number(o.company.authorizedCapital).toLocaleString('en-IN')}` : '₹10,00,000',
-            cinStatus: 'SPICe+ In Progress',
+            cinStatus: o.certificateUploaded ? 'COI Released' : 'SPICe+ In Progress',
             lastUpdated: 'Recently'
           }));
           
@@ -251,16 +258,25 @@ export default function PartnerPortalPage() {
   };
 
   const handleUpdateStatus = async (orderId: string, status: string) => {
+    const isCompleted = status.includes('Completed') || status.includes('COI') || status.includes('Certificate');
     try {
       await fetch(`/api/orders/${orderId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status })
+        body: JSON.stringify({ 
+          status,
+          certificateUploaded: isCompleted,
+          certificateFileName: isCompleted ? `Certificate_Of_Incorporation_${orderId}.pdf` : undefined
+        })
       });
     } catch {}
 
     setAssignedOrders((prev) =>
-      prev.map((o) => (o.id === orderId ? { ...o, currentStatus: status } : o))
+      prev.map((o) => (o.id === orderId ? { 
+        ...o, 
+        currentStatus: status,
+        cinStatus: isCompleted ? 'COI Released' : o.cinStatus
+      } : o))
     );
     setSuccessMsg(`Filing status for ${orderId} updated to: "${status}". Founder and Admin notified.`);
     setTimeout(() => setSuccessMsg(''), 4000);

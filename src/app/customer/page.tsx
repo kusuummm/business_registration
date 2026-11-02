@@ -28,6 +28,7 @@ import {
 
 export default function CustomerOrdersPage() {
   const [ordersList, setOrdersList] = useState<any[]>([]);
+  const [selectedOrderIndex, setSelectedOrderIndex] = useState<number>(0);
   const [isLoadingOrders, setIsLoadingOrders] = useState(true);
   const [customerUser, setCustomerUser] = useState({ 
     name: '', 
@@ -41,63 +42,89 @@ export default function CustomerOrdersPage() {
   // ==========================================
   const [whatsappEnabled, setWhatsappEnabled] = useState(true);
   const [isSendingPing, setIsSendingPing] = useState(false);
-  const [whatsappFeed, setWhatsappFeed] = useState([
-    {
-      id: 1,
-      sender: 'bot',
-      time: '10:14 AM',
-      text: '👋 Namaste Rahul! Your incorporation file #ORD-2026-9182 for TechNova Solutions Pvt Ltd is assigned to CS Priya Sharma (FCS #11849). SLA Guarantee active: documents will be prepared within 48h.'
-    },
-    {
-      id: 2,
-      sender: 'bot',
-      time: '11:30 AM',
-      text: '✅ MCA RUN Name Feasibility: "TechNova Solutions" verified under Rule 8 with zero phonetic trademark conflicts. Name approved by Central Registration Centre.'
-    },
-    {
-      id: 3,
-      sender: 'bot',
-      time: '02:45 PM',
-      text: '📄 SPICe+ Part B & e-MOA/AOA drafted. Digital Class-3 DSC cryptographic signature successfully affixed via emBridge. MCA SRN Generated: #AA91827462.'
-    }
-  ]);
+  const [whatsappFeed, setWhatsappFeed] = useState<Array<{ id: number; sender: string; time: string; text: string }>>([]);
 
-  const handleSendTestPing = () => {
-    setIsSendingPing(true);
-    setTimeout(() => {
-      setIsSendingPing(false);
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      setWhatsappFeed((prev) => [
-        ...prev,
-        {
-          id: Date.now(),
-          sender: 'bot',
-          time: timeStr,
-          text: `🔔 [LIVE MILESTONE] MCA ROC V3 Daily Poller Update: Your application SRN #AA91827462 is in stage "Under Scrutiny with ROC Delhi/Mumbai". Zero clarification queries raised.`
+  const refreshCustomerData = () => {
+    setIsLoadingOrders(true);
+
+    let loggedEmail = '';
+    let loggedMobile = '';
+
+    try {
+      const storedUser = localStorage.getItem('bharatfilings_customer_user');
+      if (storedUser) {
+        const parsed = JSON.parse(storedUser);
+        if (parsed.name) {
+          setCustomerUser((prev) => ({ 
+            ...prev, 
+            name: parsed.name, 
+            email: parsed.email || prev.email,
+            mobile: parsed.mobile || prev.mobile,
+            companyName: parsed.companyName || prev.companyName 
+          }));
+          loggedEmail = parsed.email || '';
+          loggedMobile = parsed.mobile || '';
         }
-      ]);
-    }, 600);
-  };
+      }
+    } catch (e) {}
 
-  const handleQuickBotQuery = (query: string) => {
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    let botReply = '';
+    fetch('/api/orders')
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          // If customer has specific email or mobile, prioritize matching orders
+          let relevantOrders = json.data;
+          if (loggedEmail || loggedMobile) {
+            const cleanMobile = (loggedMobile || '').replace(/\D/g, '').slice(-10);
+            const userOrders = json.data.filter((o: any) => {
+              const orderEmail = (o.auth?.email || '').toLowerCase();
+              const orderMobile = (o.auth?.mobile || '').replace(/\D/g, '').slice(-10);
+              return (loggedEmail && orderEmail === loggedEmail.toLowerCase()) || (cleanMobile && orderMobile === cleanMobile);
+            });
+            if (userOrders.length > 0) {
+              relevantOrders = userOrders;
+            }
+          }
 
-    if (query === 'STATUS') {
-      botReply = '📊 Status: Stage 3 (ROC Processing). Expected Certificate of Incorporation dispatch within 3 business days.';
-    } else if (query === 'VAULT') {
-      botReply = '📁 Vault: 4 verified dockets available (Draft MOA, AOA, Director DIR-2 Consent, and PAN Receipt). Download anytime from your portal.';
-    } else if (query === 'CALL_CS') {
-      botReply = '📞 Direct Line: CS Priya Sharma is on desk today. You can also book a 15-minute video sync using the consultation button below.';
-    }
+          setOrdersList(relevantOrders);
+          const primary = relevantOrders[0];
+          const cName = primary.company?.primaryName || primary.companyName;
+          if (cName) {
+            setCustomerUser((prev) => ({ ...prev, companyName: cName }));
+          }
 
-    setWhatsappFeed((prev) => [
-      ...prev,
-      { id: Date.now(), sender: 'user', time: timeStr, text: query },
-      { id: Date.now() + 1, sender: 'bot', time: timeStr, text: botReply }
-    ]);
+          // Build dynamic WhatsApp feed for active order
+          const csName = primary.assignedCs?.name || primary.assignedPartner || 'CS Priya Sharma';
+          const csMem = primary.assignedCs?.membershipNumber || 'FCS-11248';
+          const ordId = primary.orderId || primary.id || 'ORD-2026-9182';
+          const compName = primary.company?.primaryName || primary.companyName || 'Corporate Venture';
+
+          setWhatsappFeed([
+            {
+              id: 1,
+              sender: 'bot',
+              time: '10:14 AM',
+              text: `👋 Namaste ${primary.auth?.name || 'Founder'}! Your incorporation file #${ordId} for ${compName} is assigned to ${csName} (${csMem}). SLA Guarantee active: documents will be prepared within 48h.`
+            },
+            {
+              id: 2,
+              sender: 'bot',
+              time: '11:30 AM',
+              text: `✅ MCA RUN Name Feasibility: "${compName}" verified under Rule 8 with zero phonetic trademark conflicts. Name approved by Central Registration Centre.`
+            },
+            {
+              id: 3,
+              sender: 'bot',
+              time: '02:45 PM',
+              text: `📄 SPICe+ Part B & e-MOA/AOA drafted. Digital Class-3 DSC cryptographic signature successfully affixed via emBridge. Current Status: ${primary.status || 'Under Scrutiny'}.`
+            }
+          ]);
+        } else {
+          setOrdersList([]);
+        }
+      })
+      .catch((err) => console.log('Error loading orders:', err))
+      .finally(() => setIsLoadingOrders(false));
   };
 
   // ==========================================
@@ -118,41 +145,42 @@ export default function CustomerOrdersPage() {
     }, 700);
   };
 
-  const refreshCustomerData = () => {
-    setIsLoadingOrders(true);
-
-    try {
-      const storedUser = localStorage.getItem('bharatfilings_customer_user');
-      if (storedUser) {
-        const parsed = JSON.parse(storedUser);
-        if (parsed.name) {
-          setCustomerUser((prev) => ({ 
-            ...prev, 
-            name: parsed.name, 
-            email: parsed.email || prev.email,
-            mobile: parsed.mobile || prev.mobile,
-            companyName: parsed.companyName || prev.companyName 
-          }));
+  const handleSendTestPing = () => {
+    setIsSendingPing(true);
+    setTimeout(() => {
+      setIsSendingPing(false);
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      setWhatsappFeed((prev) => [
+        ...prev,
+        {
+          id: Date.now(),
+          sender: 'bot',
+          time: timeStr,
+          text: `🔔 [LIVE MILESTONE] MCA ROC V3 Daily Poller Update: Application #${currentOrder?.orderId || 'ORD-2026-9182'} for ${currentOrder?.company?.primaryName || 'your entity'} is in stage "${currentOrder?.status || 'Under Scrutiny'}". Zero clarification queries raised.`
         }
-      }
-    } catch (e) {}
+      ]);
+    }, 600);
+  };
 
-    fetch('/api/orders')
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
-          setOrdersList(json.data);
-          const primary = json.data[0];
-          const cName = primary.company?.primaryName || primary.companyName;
-          if (cName) {
-            setCustomerUser((prev) => ({ ...prev, companyName: cName }));
-          }
-        } else {
-          setOrdersList([]);
-        }
-      })
-      .catch((err) => console.log('Error loading orders:', err))
-      .finally(() => setIsLoadingOrders(false));
+  const handleQuickBotQuery = (query: string) => {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    let botReply = '';
+
+    if (query === 'STATUS') {
+      botReply = `📊 Current Status: Stage ${currentStage} of 6 (${currentOrder?.status || 'In Progress'}). Expected turnaround compliant with 48h SLA.`;
+    } else if (query === 'VAULT') {
+      botReply = `📁 Vault: Verified dossiers available for ${compName}. All KYC and office deeds safely secured in Class-3 vault.`;
+    } else if (query === 'CALL_CS') {
+      botReply = `📞 Direct Line: ${csOfficer} is on desk today. You can also book a 15-minute video sync using the consultation button above.`;
+    }
+
+    setWhatsappFeed((prev) => [
+      ...prev,
+      { id: Date.now(), sender: 'user', time: timeStr, text: query },
+      { id: Date.now() + 1, sender: 'bot', time: timeStr, text: botReply }
+    ]);
   };
 
   useEffect(() => {
@@ -165,7 +193,7 @@ STATUTORY CERTIFICATE REPOSITORY
 Document: ${title || filename}
 Timestamp: ${new Date().toUTCString()}
 Status: VERIFIED & SEALED UNDER COMPANIES ACT 2013
-Entity: ${customerUser.companyName || 'TechNova Solutions Pvt Ltd'}
+Entity: ${compName}
 Applicant: ${customerUser.name || 'Rahul Sharma'}
 Government Registry: Ministry of Corporate Affairs (MCA V3)
 SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
@@ -179,10 +207,86 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
     URL.revokeObjectURL(url);
   };
 
-  const currentOrder = ordersList[0];
-  const isOrderApproved = currentOrder 
-    ? Boolean(currentOrder.adminApproved || currentOrder.docVerificationStatus === 'Approved' || (currentOrder.status && currentOrder.status.toLowerCase().includes('approved')) || currentOrder.certificateUploaded)
-    : false;
+  const currentOrder = ordersList[selectedOrderIndex] || ordersList[0];
+
+  // Dynamic Pipeline Progress Calculation (Stage 1 to 6)
+  const isCoiIssued = Boolean(
+    currentOrder?.certificateUploaded ||
+    (currentOrder?.status && (
+      currentOrder.status.toLowerCase().includes('certificate') ||
+      currentOrder.status.toLowerCase().includes('incorporated')
+    ))
+  );
+
+  const isRocScrutiny = Boolean(
+    currentOrder?.status && (
+      currentOrder.status.toLowerCase().includes('scrutiny') ||
+      currentOrder.status.toLowerCase().includes('roc') ||
+      currentOrder.status.toLowerCase().includes('treasury')
+    )
+  );
+
+  const isDraftingMoa = Boolean(
+    currentOrder?.status && (
+      currentOrder.status.toLowerCase().includes('drafting') ||
+      currentOrder.status.toLowerCase().includes('moa') ||
+      currentOrder.status.toLowerCase().includes('dsc')
+    )
+  );
+
+  const isRunApproved = Boolean(
+    currentOrder?.status && (
+      currentOrder.status.toLowerCase().includes('run') ||
+      currentOrder.status.toLowerCase().includes('name')
+    )
+  );
+
+  const isKycApproved = Boolean(
+    currentOrder?.adminApproved ||
+    currentOrder?.docVerificationStatus === 'Approved'
+  );
+
+  let currentStage = 1;
+  let stageProgressText = '16% Completed • Next: KYC Verification';
+  let stageProgressPercent = '16%';
+
+  if (isCoiIssued) {
+    currentStage = 6;
+    stageProgressText = '100% Completed • Certificate of Incorporation Issued';
+    stageProgressPercent = '100%';
+  } else if (isRocScrutiny) {
+    currentStage = 5;
+    stageProgressText = '83% Completed • Next: COI Issuance';
+    stageProgressPercent = '83%';
+  } else if (isDraftingMoa) {
+    currentStage = 4;
+    stageProgressText = '66% Completed • Next: ROC Scrutiny';
+    stageProgressPercent = '66%';
+  } else if (isRunApproved) {
+    currentStage = 3;
+    stageProgressText = '50% Completed • Next: MOA / AOA Drafting';
+    stageProgressPercent = '50%';
+  } else if (isKycApproved) {
+    currentStage = 2;
+    stageProgressText = '33% Completed • Next: Name Reservation';
+    stageProgressPercent = '33%';
+  }
+
+  const isOrderApproved = isKycApproved || isCoiIssued;
+  const compName = currentOrder ? (currentOrder.company?.primaryName || currentOrder.companyName || 'TechNova Solutions Private Limited') : 'TechNova Solutions Private Limited';
+  const ordId = currentOrder ? (currentOrder.orderId || currentOrder.id || 'ORD-2026-9182') : 'ORD-2026-9182';
+  const stateDesc = currentOrder?.company?.stateCode === 'MH' ? 'Maharashtra (ROC Mumbai)' :
+                    currentOrder?.company?.stateCode === 'KA' ? 'Karnataka (ROC Bangalore)' :
+                    currentOrder?.company?.stateCode === 'DL' ? 'Delhi (ROC Delhi)' :
+                    currentOrder?.company?.stateCode === 'TN' ? 'Tamil Nadu (ROC Chennai)' :
+                    currentOrder?.company?.stateCode === 'HR' ? 'Haryana (ROC Delhi & Haryana)' :
+                    currentOrder?.company?.stateCode || currentOrder?.state || 'Pan-India MCA Jurisdiction';
+  const capitalFormatted = currentOrder?.company?.authorizedCapital 
+    ? `₹${Number(currentOrder.company.authorizedCapital).toLocaleString('en-IN')}` 
+    : '₹10,00,000';
+  const directorCount = currentOrder?.directors?.length || currentOrder?.company?.directorCount || 2;
+  const csOfficer = currentOrder?.assignedCs?.name || currentOrder?.assignedPartner || 'CS Priya Sharma (FCS #11849)';
+  const orderPrice = currentOrder?.pricing?.totalAmount ? `₹${Number(currentOrder.pricing.totalAmount).toLocaleString('en-IN')}` : '₹10,998';
 
   const segoeStyle = {
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
@@ -336,6 +440,43 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
               </div>
             </div>
 
+            {/* Multi-Entity Switcher if multiple filings exist */}
+            {ordersList.length > 1 && (
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider shrink-0">Your Registered Companies:</span>
+                {ordersList.map((ord, idx) => {
+                  const isSelected = idx === selectedOrderIndex;
+                  const name = ord.company?.primaryName || ord.companyName || `Filing #${ord.orderId || idx + 1}`;
+                  const isInc = Boolean(ord.certificateUploaded || ord.status?.toLowerCase().includes('certificate') || ord.status?.toLowerCase().includes('incorporated'));
+                  return (
+                    <button
+                      key={ord.orderId || idx}
+                      onClick={() => {
+                        setSelectedOrderIndex(idx);
+                        const cName = ord.company?.primaryName || ord.companyName;
+                        if (cName) setCustomerUser((prev) => ({ ...prev, companyName: cName }));
+                      }}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                        isSelected 
+                          ? 'bg-blue-600 text-white shadow-xs' 
+                          : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <Building2 className="w-3.5 h-3.5" />
+                      <span>{name}</span>
+                      <span className={`text-[9px] px-1.5 py-0.2 rounded-full font-mono ${
+                        isSelected 
+                          ? 'bg-blue-500/40 text-blue-100' 
+                          : isInc ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-500'
+                      }`}>
+                        {isInc ? 'Incorporated' : ord.adminApproved ? 'In Progress' : 'Pending Review'}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
             {/* Active Incorporation Card */}
             <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-5">
               {/* Order Header */}
@@ -343,24 +484,51 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold uppercase bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded-md border border-blue-200">
-                      SPICe+ Part A & B Filing
+                      {currentOrder?.company?.entityType === 'llp' ? 'FiLLiP LLP Incorporation' : 'SPICe+ Part A & B Filing'}
                     </span>
-                    <span className="font-mono text-xs font-bold text-slate-600">#ORD-2026-9182</span>
+                    <span className="font-mono text-xs font-bold text-slate-600">#{ordId}</span>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mt-1">TechNova Solutions Private Limited</h3>
+                  <h3 className="text-base font-bold text-slate-900 mt-1">{compName}</h3>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Jurisdiction: <span className="text-slate-700 font-semibold">Maharashtra (ROC Mumbai)</span> • Authorized Capital: <span className="font-mono font-semibold text-slate-700">₹1,00,000</span> • 2 Directors
+                    Jurisdiction: <span className="text-slate-700 font-semibold">{stateDesc}</span> • Authorized Capital: <span className="font-mono font-semibold text-slate-700">{capitalFormatted}</span> • {directorCount} Directors
                   </p>
                 </div>
 
                 <div className="text-left sm:text-right">
                   <span className="text-[10px] uppercase font-bold text-slate-400 block mb-0.5">Statutory Registration Status</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-blue-50 text-blue-900 border-blue-200">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                    <span>ROC Scrutiny • emBridge Signed</span>
-                  </span>
+                  {isCoiIssued ? (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-emerald-50 text-emerald-900 border-emerald-300 shadow-2xs">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Incorporated • Active on MCA Portal</span>
+                    </span>
+                  ) : isRocScrutiny ? (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-blue-50 text-blue-900 border-blue-200">
+                      <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                      <span>ROC Scrutiny • emBridge Signed</span>
+                    </span>
+                  ) : isDraftingMoa ? (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-purple-50 text-purple-900 border-purple-200">
+                      <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                      <span>Drafting MOA & AOA</span>
+                    </span>
+                  ) : isRunApproved ? (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-indigo-50 text-indigo-900 border-indigo-200">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600" />
+                      <span>Name Reservation Approved</span>
+                    </span>
+                  ) : isKycApproved ? (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-emerald-50 text-emerald-900 border-emerald-200">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>KYC Verified • Docket Active</span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-amber-50 text-amber-900 border-amber-200">
+                      <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                      <span>Pending Admin Document QC</span>
+                    </span>
+                  )}
                   <p className="text-[11px] text-slate-400 mt-1">
-                    MCA SRN: <span className="font-mono font-bold text-slate-700">#AA91827462</span>
+                    MCA SRN: <span className="font-mono font-bold text-slate-700">#SRN-{ordId.replace(/\D/g, '') || '91827462'}</span>
                   </p>
                 </div>
               </div>
@@ -368,43 +536,116 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
               {/* Milestone Progress Tracker */}
               <div className="space-y-2">
                 <div className="flex justify-between text-xs font-bold text-slate-700">
-                  <span>Statutory Pipeline Progress (Stage 5 of 6)</span>
+                  <span>Statutory Pipeline Progress (Stage {currentStage} of 6)</span>
                   <span className="text-blue-700 font-mono">
-                    83% Completed • Next: COI Issuance
+                    {stageProgressText}
                   </span>
                 </div>
                 <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-blue-600 to-indigo-600"
-                    style={{ width: '83%' }} 
+                    className={`h-full rounded-full transition-all duration-500 ${
+                      currentStage === 6 
+                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500' 
+                        : 'bg-gradient-to-r from-blue-600 to-indigo-600'
+                    }`}
+                    style={{ width: stageProgressPercent }} 
                   />
                 </div>
               </div>
 
               {/* 6 Step Milestone Blocks */}
               <div className="grid grid-cols-2 sm:grid-cols-6 gap-2 text-center text-[11px]">
+                {/* Step 1: Payment */}
                 <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">
                   <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
                   <span>1. Payment</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">
-                  <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+
+                {/* Step 2: KYC & DSC */}
+                <div className={`p-2.5 rounded-xl border font-bold ${
+                  currentStage >= 2 
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
+                    : currentStage === 1
+                    ? 'bg-blue-50 border-blue-200 text-blue-800'
+                    : 'bg-slate-50 border-slate-200 text-slate-400 font-medium'
+                }`}>
+                  {currentStage >= 2 ? (
+                    <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+                  ) : (
+                    <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600 animate-spin" />
+                  )}
                   <span>2. KYC & DSC</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">
-                  <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+
+                {/* Step 3: Name RUN */}
+                <div className={`p-2.5 rounded-xl border font-bold ${
+                  currentStage >= 3 
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
+                    : currentStage === 2
+                    ? 'bg-blue-50 border-blue-200 text-blue-800'
+                    : 'bg-slate-50 border-slate-200 text-slate-400 font-medium'
+                }`}>
+                  {currentStage >= 3 ? (
+                    <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+                  ) : currentStage === 2 ? (
+                    <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600 animate-spin" />
+                  ) : (
+                    <Clock className="w-4 h-4 mx-auto mb-1 opacity-40" />
+                  )}
                   <span>3. Name RUN</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">
-                  <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+
+                {/* Step 4: MOA/AOA */}
+                <div className={`p-2.5 rounded-xl border font-bold ${
+                  currentStage >= 4 
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
+                    : currentStage === 3
+                    ? 'bg-blue-50 border-blue-200 text-blue-800'
+                    : 'bg-slate-50 border-slate-200 text-slate-400 font-medium'
+                }`}>
+                  {currentStage >= 4 ? (
+                    <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+                  ) : currentStage === 3 ? (
+                    <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600 animate-spin" />
+                  ) : (
+                    <FileText className="w-4 h-4 mx-auto mb-1 opacity-40" />
+                  )}
                   <span>4. MOA/AOA</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-800 font-bold">
-                  <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600 animate-spin" />
+
+                {/* Step 5: ROC Scrutiny */}
+                <div className={`p-2.5 rounded-xl border font-bold ${
+                  currentStage >= 5 
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
+                    : currentStage === 4
+                    ? 'bg-blue-50 border-blue-200 text-blue-800'
+                    : 'bg-slate-50 border-slate-200 text-slate-400 font-medium'
+                }`}>
+                  {currentStage >= 5 ? (
+                    <CheckCircle2 className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+                  ) : currentStage === 4 ? (
+                    <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600 animate-spin" />
+                  ) : (
+                    <ShieldCheck className="w-4 h-4 mx-auto mb-1 opacity-40" />
+                  )}
                   <span>5. ROC Scrutiny</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-400 font-medium">
-                  <Award className="w-4 h-4 mx-auto mb-1 opacity-50" />
+
+                {/* Step 6: COI Issued */}
+                <div className={`p-2.5 rounded-xl border font-bold ${
+                  currentStage === 6 
+                    ? 'bg-emerald-50 border-emerald-300 text-emerald-900 shadow-xs' 
+                    : currentStage === 5
+                    ? 'bg-blue-50 border-blue-200 text-blue-800'
+                    : 'bg-slate-50 border-slate-200 text-slate-400 font-medium'
+                }`}>
+                  {currentStage === 6 ? (
+                    <Award className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
+                  ) : currentStage === 5 ? (
+                    <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600 animate-spin" />
+                  ) : (
+                    <Award className="w-4 h-4 mx-auto mb-1 opacity-40" />
+                  )}
                   <span>6. COI Issued</span>
                 </div>
               </div>
@@ -416,24 +657,36 @@ SHA-256 Vault Signature: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991
                     CS
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-900">Assigned Professional: CS Priya Sharma (FCS #11849)</p>
-                    <p className="text-[11px] text-slate-500">Fellow Company Secretary • Dedicated MCA V3 Advisory Desk</p>
+                    <p className="text-xs font-bold text-slate-900">Assigned Officer: {csOfficer}</p>
+                    <p className="text-[11px] text-slate-500">Corporate Compliance Professional • Dedicated MCA Advisory Desk</p>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">
+                  {/* Highlighted Official COI Certificate Download when incorporated */}
+                  {isCoiIssued && (
+                    <button
+                      type="button"
+                      onClick={() => handleDownloadDoc(currentOrder?.certificateFileName || `COI_${ordId}.pdf`, `Official Certificate of Incorporation (Form INC-11) for ${compName}`)}
+                      className="px-3.5 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition cursor-pointer shadow-xs active:scale-[0.98]"
+                    >
+                      <Award className="w-3.5 h-3.5" />
+                      <span>Download COI Certificate</span>
+                    </button>
+                  )}
+
                   <button
                     type="button"
-                    onClick={() => handleDownloadDoc('BharatFilings_Tax_Invoice_9182.pdf', 'Statutory Tax Invoice #9182')}
+                    onClick={() => handleDownloadDoc(`BharatFilings_Tax_Invoice_${ordId}.pdf`, `Statutory Tax Invoice #${ordId} (${orderPrice})`)}
                     className="px-3 py-1.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Tax Invoice</span>
+                    <span>Tax Invoice ({orderPrice})</span>
                   </button>
 
                   <button
                     type="button"
-                    onClick={() => handleDownloadDoc('SPICe_Plus_PartB_AA91827462.pdf', 'Draft SPICe+ Part B Dossier')}
+                    onClick={() => handleDownloadDoc(`SPICe_Plus_Dossier_${ordId}.pdf`, `Draft SPICe+ Part B Filing Dossier #${ordId}`)}
                     className="px-3.5 py-1.5 bg-slate-900 hover:bg-black text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer shadow-xs"
                   >
                     <Download className="w-3.5 h-3.5" />

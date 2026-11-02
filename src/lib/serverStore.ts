@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import { INITIAL_SERVICES, ServiceItem } from '@/data/servicesData';
-import { RegistrationOrder } from '@/types';
-import { PlatformSettings, DEFAULT_SETTINGS } from '@/data/settingsData';
+import { INITIAL_SERVICES, ServiceItem } from '../data/servicesData';
+import { RegistrationOrder } from '../types';
+import { PlatformSettings, DEFAULT_SETTINGS } from '../data/settingsData';
 
 export type { PlatformSettings };
 export { DEFAULT_SETTINGS };
@@ -65,6 +65,7 @@ export interface ExtendedOrder extends RegistrationOrder {
   adminApprovedAt?: string;
   adminApprovedBy?: string;
   adminNotes?: string;
+  coiReleasedAt?: string;
 }
 
 export interface PasswordResetRequest {
@@ -132,15 +133,508 @@ const DATA_DIR = path.join(process.cwd(), 'data');
 const DB_FILE = path.join(DATA_DIR, 'db.json');
 
 // Initial seed orders
-const SEED_ORDERS: ExtendedOrder[] = [];
+const SEED_ORDERS: ExtendedOrder[] = [
+  {
+    orderId: 'ORD-2026-9182',
+    auth: {
+      name: 'Rahul Sharma',
+      email: 'client@example.com',
+      mobile: '9876543210',
+      isVerified: true
+    },
+    company: {
+      entityType: 'pvt_ltd',
+      stateCode: 'MH',
+      authorizedCapital: 1000000,
+      directorCount: 2,
+      primaryName: 'TechNova Solutions Private Limited',
+      secondaryName: 'TechNova Dynamics Pvt Ltd',
+      industry: 'Software & Information Technology',
+      officeAddress: {
+        line1: 'Unit 402, Quantum IT Park, Hinjewadi Phase 1',
+        city: 'Pune',
+        pincode: '411057',
+        utilityBillType: 'Electricity Bill',
+        utilityBillDate: '2026-10-15',
+        utilityBillDocName: 'EB_Bill_Pune_Oct2026.pdf',
+        hasNoc: true
+      }
+    },
+    directors: [
+      {
+        id: 'DIR-101',
+        fullName: 'Rahul Sharma',
+        panNumber: 'ABCPS1234F',
+        aadhaarNumber: '•••• •••• 8912',
+        hasExistingDin: false,
+        isDigiLockerVerified: true,
+        panDocName: 'PAN_Rahul_Sharma.pdf',
+        aadhaarDocName: 'Aadhaar_Rahul_Sharma.pdf'
+      },
+      {
+        id: 'DIR-102',
+        fullName: 'Pooja Sharma',
+        panNumber: 'BCDPS5678G',
+        aadhaarNumber: '•••• •••• 4410',
+        hasExistingDin: false,
+        isDigiLockerVerified: true,
+        panDocName: 'PAN_Pooja_Sharma.pdf',
+        aadhaarDocName: 'Aadhaar_Pooja_Sharma.pdf'
+      }
+    ],
+    pricing: {
+      baseFee: 4999,
+      stampDuty: 1000,
+      rocFee: 2000,
+      dscFee: 2999,
+      taxableSubtotal: 8998,
+      gstAmount: 1619,
+      totalAmount: 10998
+    },
+    paymentStatus: 'success',
+    paymentMethod: 'Razorpay / UPI',
+    paymentTransactionId: 'pay_ONL_98218763',
+    createdAt: '2026-10-24T10:30:00.000Z',
+    assignedCs: {
+      name: 'CS Priya Sharma',
+      membershipNumber: 'FCS-11248',
+      email: 'priya.sharma@bharatfilings.in',
+      phone: '+91 98201 55432'
+    },
+    status: 'ROC Scrutiny in Progress',
+    assignedPartner: 'CS Priya Sharma',
+    adminApproved: true,
+    docVerificationStatus: 'Approved',
+    adminApprovedAt: '2026-10-25T11:00:00.000Z',
+    adminApprovedBy: 'Admin Master QC',
+    docsPending: 'None (All KYC Verified)',
+    certificateUploaded: false
+  },
+  {
+    orderId: 'ORD-2026-7734',
+    auth: {
+      name: 'Ananya Verma',
+      email: 'ananya@greenleafagro.com',
+      mobile: '9820012849',
+      isVerified: true
+    },
+    company: {
+      entityType: 'pvt_ltd',
+      stateCode: 'KA',
+      authorizedCapital: 500000,
+      directorCount: 2,
+      primaryName: 'GreenLeaf Agro Private Limited',
+      secondaryName: 'GreenLeaf Organics Pvt Ltd',
+      industry: 'Agri-Tech & Organic Supply Chain',
+      officeAddress: {
+        line1: 'Level 2, Brigade Tech Gardens, Whitefield',
+        city: 'Bengaluru',
+        pincode: '560066',
+        utilityBillType: 'BESCOM Electricity Bill',
+        utilityBillDate: '2026-10-10',
+        utilityBillDocName: 'BESCOM_Oct2026.pdf',
+        hasNoc: true
+      }
+    },
+    directors: [
+      {
+        id: 'DIR-201',
+        fullName: 'Ananya Verma',
+        panNumber: 'DEFPV9012K',
+        aadhaarNumber: '•••• •••• 3021',
+        hasExistingDin: false,
+        isDigiLockerVerified: true,
+        panDocName: 'PAN_Ananya_Verma.pdf',
+        aadhaarDocName: 'Aadhaar_Ananya_Verma.pdf'
+      },
+      {
+        id: 'DIR-202',
+        fullName: 'Tarun Verma',
+        panNumber: 'EFGPV3456L',
+        aadhaarNumber: '•••• •••• 7712',
+        hasExistingDin: true,
+        dinNumber: 'DIN-09182741',
+        isDigiLockerVerified: true,
+        panDocName: 'PAN_Tarun_Verma.pdf',
+        aadhaarDocName: 'Aadhaar_Tarun_Verma.pdf'
+      }
+    ],
+    pricing: {
+      baseFee: 4999,
+      stampDuty: 1000,
+      rocFee: 1000,
+      dscFee: 2999,
+      taxableSubtotal: 7998,
+      gstAmount: 1439,
+      totalAmount: 9998
+    },
+    paymentStatus: 'success',
+    paymentMethod: 'Net Banking (HDFC Bank)',
+    paymentTransactionId: 'pay_HDFC_33918274',
+    createdAt: '2026-10-18T14:15:00.000Z',
+    assignedCs: {
+      name: 'CS Rajesh Mehta',
+      membershipNumber: 'FCS-9943',
+      email: 'rajesh.mehta@bharatfilings.in',
+      phone: '+91 98112 44321'
+    },
+    status: 'Certificate of Incorporation Issued',
+    assignedPartner: 'CS Rajesh Mehta',
+    adminApproved: true,
+    docVerificationStatus: 'Approved',
+    adminApprovedAt: '2026-10-19T09:30:00.000Z',
+    adminApprovedBy: 'Admin Master QC',
+    docsPending: 'None - Company Active',
+    certificateUploaded: true,
+    certificateFileName: 'COI_U72900KA2026PTC184920_GreenLeaf_Agro.pdf',
+    coiReleasedAt: '2026-10-23T16:00:00.000Z'
+  },
+  {
+    orderId: 'ORD-2026-9042',
+    auth: {
+      name: 'Rahul Sharma',
+      email: 'client@example.com',
+      mobile: '9876543210',
+      isVerified: true
+    },
+    company: {
+      entityType: 'pvt_ltd',
+      stateCode: 'DL',
+      authorizedCapital: 2500000,
+      directorCount: 2,
+      primaryName: 'AuraFintech Innovations Private Limited',
+      secondaryName: 'AuraPay Technologies Pvt Ltd',
+      industry: 'Fintech & Neo-Banking Solutions',
+      officeAddress: {
+        line1: 'Plot 14, Okhla Industrial Area Phase 3',
+        city: 'New Delhi',
+        pincode: '110020',
+        utilityBillType: 'BSES Rajdhani Bill',
+        utilityBillDate: '2026-10-22',
+        utilityBillDocName: 'BSES_Bill_Oct2026.pdf',
+        hasNoc: true
+      }
+    },
+    directors: [
+      {
+        id: 'DIR-301',
+        fullName: 'Rahul Sharma',
+        panNumber: 'ABCPS1234F',
+        aadhaarNumber: '•••• •••• 8912',
+        hasExistingDin: true,
+        dinNumber: 'DIN-09948210',
+        isDigiLockerVerified: true
+      },
+      {
+        id: 'DIR-302',
+        fullName: 'Neha Taneja',
+        panNumber: 'FGHPB8821M',
+        aadhaarNumber: '•••• •••• 9920',
+        hasExistingDin: false,
+        isDigiLockerVerified: true
+      }
+    ],
+    pricing: {
+      baseFee: 6999,
+      stampDuty: 2500,
+      rocFee: 4000,
+      dscFee: 4498,
+      taxableSubtotal: 13997,
+      gstAmount: 2519,
+      totalAmount: 17997
+    },
+    paymentStatus: 'success',
+    paymentMethod: 'Corporate Credit Card',
+    paymentTransactionId: 'pay_CC_77192841',
+    createdAt: '2026-10-26T16:45:00.000Z',
+    assignedCs: {
+      name: 'CS Priya Sharma',
+      membershipNumber: 'FCS-11248',
+      email: 'priya.sharma@bharatfilings.in',
+      phone: '+91 98201 55432'
+    },
+    status: 'Pending Admin Document Verification',
+    assignedPartner: 'Unassigned (Pending QC)',
+    adminApproved: false,
+    docVerificationStatus: 'Pending Admin Verification',
+    docsPending: 'Admin Sign-off Required',
+    certificateUploaded: false
+  },
+  {
+    orderId: 'ORD-2026-8812',
+    auth: {
+      name: 'Vikramaditya Roy',
+      email: 'vikram@zenithagro.com',
+      mobile: '9811234567',
+      isVerified: true
+    },
+    company: {
+      entityType: 'llp',
+      stateCode: 'TN',
+      authorizedCapital: 500000,
+      directorCount: 2,
+      primaryName: 'Zenith Organic Foods LLP',
+      secondaryName: 'Zenith Agritech LLP',
+      industry: 'Agri-Business & Exports',
+      officeAddress: {
+        line1: '45 Anna Salai, Guindy',
+        city: 'Chennai',
+        pincode: '600032',
+        utilityBillType: 'TNEB Electricity Bill',
+        utilityBillDate: '2026-10-21',
+        hasNoc: true
+      }
+    },
+    directors: [
+      {
+        id: 'DIR-401',
+        fullName: 'Vikramaditya Roy',
+        panNumber: 'GHIPV4410N',
+        aadhaarNumber: '•••• •••• 1102',
+        hasExistingDin: false,
+        isDigiLockerVerified: true
+      },
+      {
+        id: 'DIR-402',
+        fullName: 'Neha Roy',
+        panNumber: 'HIJPV5521P',
+        aadhaarNumber: '•••• •••• 9918',
+        hasExistingDin: false,
+        isDigiLockerVerified: true
+      }
+    ],
+    pricing: {
+      baseFee: 3999,
+      stampDuty: 500,
+      rocFee: 1000,
+      dscFee: 2999,
+      taxableSubtotal: 6498,
+      gstAmount: 1169,
+      totalAmount: 8498
+    },
+    paymentStatus: 'success',
+    paymentMethod: 'UPI',
+    createdAt: '2026-10-27T11:20:00.000Z',
+    assignedCs: {
+      name: 'CS Priya Sharma',
+      membershipNumber: 'FCS-11248',
+      email: 'priya.sharma@bharatfilings.in',
+      phone: '+91 98201 55432'
+    },
+    status: 'Drafting MOA & AOA',
+    assignedPartner: 'CS Priya Sharma',
+    adminApproved: true,
+    docVerificationStatus: 'Approved',
+    docsPending: 'Partner Secretarial Drafting',
+    certificateUploaded: false
+  },
+  {
+    orderId: 'ORD-2026-8740',
+    auth: {
+      name: 'Dr. Arjun Mehta',
+      email: 'arjun@biohealthai.in',
+      mobile: '9723456789',
+      isVerified: true
+    },
+    company: {
+      entityType: 'pvt_ltd',
+      stateCode: 'HR',
+      authorizedCapital: 1500000,
+      directorCount: 2,
+      primaryName: 'BioHealth Diagnostic Labs Pvt Ltd',
+      secondaryName: 'BioHealth Diagnostics Private Limited',
+      industry: 'Healthcare Diagnostics & AI',
+      officeAddress: {
+        line1: 'Tower B, Cyber City, Phase 2',
+        city: 'Gurugram',
+        pincode: '122002',
+        utilityBillType: 'DHBVN Bill',
+        utilityBillDate: '2026-10-19',
+        hasNoc: true
+      }
+    },
+    directors: [
+      {
+        id: 'DIR-501',
+        fullName: 'Dr. Arjun Mehta',
+        panNumber: 'IJKPM9912Q',
+        aadhaarNumber: '•••• •••• 6621',
+        hasExistingDin: false,
+        isDigiLockerVerified: true
+      },
+      {
+        id: 'DIR-502',
+        fullName: 'Dr. Kavita Singhal',
+        panNumber: 'JKLPS3321R',
+        aadhaarNumber: '•••• •••• 4419',
+        hasExistingDin: false,
+        isDigiLockerVerified: true
+      }
+    ],
+    pricing: {
+      baseFee: 4999,
+      stampDuty: 1500,
+      rocFee: 2000,
+      dscFee: 2999,
+      taxableSubtotal: 9498,
+      gstAmount: 1709,
+      totalAmount: 11998
+    },
+    paymentStatus: 'success',
+    paymentMethod: 'Net Banking',
+    createdAt: '2026-10-25T15:30:00.000Z',
+    assignedCs: {
+      name: 'CA Amit Kulkarni',
+      membershipNumber: 'FCA-78321',
+      email: 'amit.kulkarni@bharatfilings.in',
+      phone: '+91 97654 33210'
+    },
+    status: 'SPICe+ Part B Treasury Paid',
+    assignedPartner: 'CA Amit Kulkarni',
+    adminApproved: true,
+    docVerificationStatus: 'Approved',
+    docsPending: 'MCA Scrutiny & Approval',
+    certificateUploaded: false
+  }
+];
 
-const SEED_PARTNERS: PartnerAccount[] = [];
+const SEED_PARTNERS: PartnerAccount[] = [
+  {
+    id: 'PARTNER-01',
+    name: 'CS Priya Sharma',
+    title: 'Fellow Company Secretary',
+    type: 'CS',
+    copNumber: 'FCS-11248',
+    verified: true,
+    activeOrdersCount: 2,
+    completedOrdersCount: 48,
+    walletBalance: 42500,
+    bankAccount: 'HDFC Bank •••• 4419'
+  },
+  {
+    id: 'PARTNER-02',
+    name: 'CS Rajesh Mehta',
+    title: 'Fellow Company Secretary',
+    type: 'CS',
+    copNumber: 'FCS-9943',
+    verified: true,
+    activeOrdersCount: 1,
+    completedOrdersCount: 86,
+    walletBalance: 68000,
+    bankAccount: 'ICICI Bank •••• 8921'
+  },
+  {
+    id: 'PARTNER-03',
+    name: 'CA Amit Kulkarni',
+    title: 'Fellow Chartered Accountant',
+    type: 'CA',
+    copNumber: 'FCA-78321',
+    verified: true,
+    activeOrdersCount: 1,
+    completedOrdersCount: 34,
+    walletBalance: 31200,
+    bankAccount: 'Axis Bank •••• 1102'
+  }
+];
 
-const SEED_PAYOUTS: PayoutRecord[] = [];
+const SEED_PAYOUTS: PayoutRecord[] = [
+  {
+    id: 'PO-901',
+    partnerId: 'PARTNER-01',
+    partnerName: 'CS Priya Sharma',
+    orders: 8,
+    feeEarned: 24000,
+    status: 'Pending Payout',
+    bank: 'HDFC Bank •••• 4419',
+    date: '2026-10-25'
+  },
+  {
+    id: 'PO-902',
+    partnerId: 'PARTNER-02',
+    partnerName: 'CS Rajesh Mehta',
+    orders: 12,
+    feeEarned: 35000,
+    status: 'Processed',
+    bank: 'ICICI Bank •••• 8921',
+    date: '2026-10-20'
+  },
+  {
+    id: 'PO-903',
+    partnerId: 'PARTNER-03',
+    partnerName: 'CA Amit Kulkarni',
+    orders: 6,
+    feeEarned: 18000,
+    status: 'Processed',
+    bank: 'Axis Bank •••• 1102',
+    date: '2026-10-18'
+  }
+];
 
-const SEED_CALLBACKS: CallbackLead[] = [];
+const SEED_CALLBACKS: CallbackLead[] = [
+  {
+    id: 'CB-501',
+    name: 'Karthik Iyer',
+    mobile: '9840192834',
+    service: 'Private Limited Company Incorporation',
+    city: 'Chennai',
+    status: 'Pending',
+    createdAt: '2026-10-28T08:30:00.000Z'
+  },
+  {
+    id: 'CB-502',
+    name: 'Deepak Chawla',
+    mobile: '9810238475',
+    service: 'Section 8 NGO / Non-Profit Company',
+    city: 'Delhi NCR',
+    status: 'Contacted',
+    createdAt: '2026-10-27T15:45:00.000Z'
+  },
+  {
+    id: 'CB-503',
+    name: 'Meera Nair',
+    mobile: '9745129834',
+    service: 'Trademark & Brand Registry Filing',
+    city: 'Kochi',
+    status: 'Pending',
+    createdAt: '2026-10-28T10:10:00.000Z'
+  }
+];
 
-const SEED_TICKETS: SupportTicket[] = [];
+const SEED_TICKETS: SupportTicket[] = [
+  {
+    id: 'TCK-301',
+    customerName: 'Rahul Sharma',
+    subject: 'Query regarding SPICe+ Part B submission time',
+    category: 'ROC Tracking',
+    message: 'When will SPICe+ Part B be submitted for TechNova Solutions? All DSCs are ready.',
+    status: 'In Progress',
+    assignedTo: 'CS Priya Sharma',
+    createdAt: '2026-10-26T12:00:00.000Z',
+    updatedAt: '2026-10-27T10:00:00.000Z'
+  },
+  {
+    id: 'TCK-302',
+    customerName: 'Ananya Verma',
+    subject: 'Bank Account Opening Kit Delivery',
+    category: 'Post-Incorporation',
+    message: 'Requesting expedited dispatch of bank opening resolution copy and certified True copies of MOA/AOA.',
+    status: 'Resolved',
+    assignedTo: 'CS Rajesh Mehta',
+    createdAt: '2026-10-20T11:00:00.000Z',
+    updatedAt: '2026-10-21T16:00:00.000Z'
+  },
+  {
+    id: 'TCK-303',
+    customerName: 'Rahul Sharma',
+    subject: 'Expedited Review for Second Venture',
+    category: 'Document Review',
+    message: 'Uploaded utility bills and NOC for AuraFintech. Please prioritize KYC check for our seed-funded company.',
+    status: 'Open',
+    assignedTo: 'Admin Master QC',
+    createdAt: '2026-10-27T09:20:00.000Z',
+    updatedAt: '2026-10-27T09:20:00.000Z'
+  }
+];
 
 const SEED_PASSWORD_REQUESTS: PasswordResetRequest[] = [
   {
@@ -219,15 +713,48 @@ function ensureStore(): DataStore {
         memoryStore = JSON.parse(raw);
         lastMtime = stat.mtimeMs;
       }
+      let needsSave = false;
+      if (!memoryStore!.services || memoryStore!.services.length === 0) {
+        memoryStore!.services = [...INITIAL_SERVICES];
+        needsSave = true;
+      }
       if (!memoryStore!.settings) {
         memoryStore!.settings = { ...DEFAULT_SETTINGS };
+        needsSave = true;
       }
-      if (!memoryStore!.passwordRequests) {
+      if (!memoryStore!.passwordRequests || memoryStore!.passwordRequests.length === 0) {
         memoryStore!.passwordRequests = [...SEED_PASSWORD_REQUESTS];
+        needsSave = true;
       }
-      if (!memoryStore!.customers) {
+      if (!memoryStore!.customers || memoryStore!.customers.length === 0) {
         memoryStore!.customers = [...SEED_CUSTOMERS];
+        needsSave = true;
       }
+      if (!memoryStore!.orders || memoryStore!.orders.length === 0) {
+        memoryStore!.orders = [...SEED_ORDERS];
+        needsSave = true;
+      }
+      if (!memoryStore!.partners || memoryStore!.partners.length === 0) {
+        memoryStore!.partners = [...SEED_PARTNERS];
+        needsSave = true;
+      }
+      if (!memoryStore!.payouts || memoryStore!.payouts.length === 0) {
+        memoryStore!.payouts = [...SEED_PAYOUTS];
+        needsSave = true;
+      }
+      if (!memoryStore!.callbacks || memoryStore!.callbacks.length === 0) {
+        memoryStore!.callbacks = [...SEED_CALLBACKS];
+        needsSave = true;
+      }
+      if (!memoryStore!.tickets || memoryStore!.tickets.length === 0) {
+        memoryStore!.tickets = [...SEED_TICKETS];
+        needsSave = true;
+      }
+
+      if (needsSave) {
+        persistStore();
+      }
+
       return memoryStore!;
     }
   } catch (err) {
