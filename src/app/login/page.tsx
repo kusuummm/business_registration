@@ -170,7 +170,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-screen w-screen max-h-screen overflow-hidden bg-[#F8FAFC] text-slate-800 flex flex-col font-sans select-none relative">
+    <div className="h-screen w-screen max-h-screen overflow-hidden bg-gradient-to-b from-blue-50/70 via-indigo-50/20 to-white text-slate-800 flex flex-col font-sans select-none relative">
       {/* Absolute CSS guarantee against document scrolling */}
       <style dangerouslySetInnerHTML={{ __html: `
         html, body {
@@ -180,123 +180,134 @@ export default function LoginPage() {
         }
       `}} />
 
-      {/* Slim Top Navigation Bar (Height: 40px) */}
-      <header className="h-10 px-4 sm:px-6 md:px-8 border-b border-slate-200/80 bg-white/95 backdrop-blur-md flex items-center justify-between relative z-10 shrink-0">
+      {/* Colorful Ambient Background Auras */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Corporate Deep Navy Top Header Bar (Height: 44px, Matches Website Theme) */}
+      <header className="h-11 px-4 sm:px-6 md:px-8 bg-[#0F2744] border-b border-blue-900/60 text-white flex items-center justify-between relative z-10 shrink-0 shadow-sm">
         <Link href="/" className="flex items-center cursor-pointer group min-w-[100px] h-7" aria-label="Home">
           {/* Empty space reserved for future logo */}
           <div className="w-28 sm:w-32 h-6" />
         </Link>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="hidden md:flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-700/50 px-2.5 py-0.5 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>MCA V3 Portal Operational</span>
+          </div>
+
           <a
             href="tel:18008892244"
-            className="text-[11px] font-semibold text-slate-600 hover:text-blue-600 transition hidden sm:flex items-center gap-1"
+            className="text-[11px] font-semibold text-sky-300 hover:text-white transition flex items-center gap-1"
           >
-            <Phone className="w-3 h-3 text-blue-600" />
+            <Phone className="w-3.5 h-3.5 text-sky-400" />
             <span>1800-889-2244</span>
           </a>
-          <span className="text-slate-200 hidden sm:inline">|</span>
+
+          <span className="text-blue-800 hidden sm:inline">|</span>
+
           <Link
             href="/"
-            className="text-[11px] font-bold text-slate-600 hover:text-blue-600 transition flex items-center gap-0.5 cursor-pointer"
+            className="text-[11px] font-bold text-slate-200 hover:text-amber-300 transition flex items-center gap-0.5 cursor-pointer"
           >
             <span>Back to Home</span>
-            <ChevronRight className="w-3 h-3" />
+            <ChevronRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </header>
 
       {/* Main Container: Exact-fit, perfectly centered in remaining viewport */}
       <main className="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4 min-h-0 overflow-hidden relative z-10">
-        <div className="w-full max-w-sm sm:max-w-md md:max-w-4xl lg:max-w-[940px] rounded-2xl border border-slate-200/90 shadow-xl shadow-blue-900/5 bg-white overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-full relative">
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-4xl lg:max-w-[940px] rounded-2xl border border-blue-100 shadow-2xl shadow-blue-900/15 bg-white overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-full relative">
           
           {/* Top Colorful Accent Stripe (Matches Website Theme) */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-teal-400 z-20" />
 
-          {/* Left Column: Authentic Executive Secretarial & Filing Showcase (Matches Website Light Theme) */}
-          <div className="md:col-span-5 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-5 lg:p-6 text-slate-800 flex flex-col justify-between border-r border-blue-100 relative hidden md:flex">
+          {/* Left Column: Rich Royal Blue & Deep Navy Showcase (High Color Contrast & Trust) */}
+          <div className="md:col-span-5 bg-gradient-to-br from-[#0A192F] via-[#0F2744] to-[#1E40AF] p-5 lg:p-6 text-white flex flex-col justify-between border-r border-blue-900/40 relative hidden md:flex">
             
             {/* Top Header & Official Context */}
             <div className="space-y-2 pt-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 text-blue-900 text-[10px] font-semibold shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-200 text-[10px] font-semibold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
                 <span>MCA V3 Certified Portal</span>
               </div>
 
-              <h2 className="text-lg lg:text-xl font-black text-slate-900 tracking-tight leading-snug">
+              <h2 className="text-lg lg:text-xl font-black text-white tracking-tight leading-snug">
                 Company Incorporation & Statutory Filings
               </h2>
 
-              <p className="text-[11px] text-slate-600 leading-relaxed">
+              <p className="text-[11px] text-blue-100/80 leading-relaxed">
                 Centralized secretarial desk for Private Limited, LLP, and OPC statutory dockets with certified Company Secretaries.
               </p>
             </div>
 
-            {/* Middle: Filing Lifecycle Tracker (Matches Website Consultation Card) */}
+            {/* Middle: Filing Lifecycle Tracker (Rich Sapphire Card with Vibrant Badges) */}
             <div className="my-auto py-3">
-              <div className="rounded-xl border border-blue-100 bg-white p-3.5 space-y-3 shadow-md shadow-blue-900/5">
-                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-slate-100">
-                  <div className="flex items-center gap-1.5 font-mono text-slate-700 font-bold">
-                    <span>SRN:</span>
-                    <span className="text-blue-600 font-bold">AA92841029</span>
+              <div className="rounded-xl border border-blue-400/30 bg-[#0B213F]/90 p-3.5 space-y-3 shadow-xl backdrop-blur-xs">
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-blue-800/60">
+                  <div className="flex items-center gap-1.5 font-mono text-slate-100 font-bold">
+                    <span className="text-blue-300">SRN:</span>
+                    <span className="text-sky-300 font-bold">AA92841029</span>
                   </div>
-                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-400/50 px-2.5 py-0.5 rounded-full">
                     Active Filing
                   </span>
                 </div>
 
                 <div className="space-y-2.5 text-[11px]">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-100 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                       <span>SPICe+ Part A Name Approval</span>
                     </span>
-                    <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-400/40 px-2 py-0.5 rounded">
                       Approved
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-100 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                       <span>DSC Tokens & Director DINs</span>
                     </span>
-                    <span className="text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-sky-300 bg-blue-500/20 border border-blue-400/40 px-2 py-0.5 rounded">
                       Completed
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-700 font-medium">
-                      <Clock className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-100 font-medium">
+                      <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                       <span>ROC Scrutiny & Certificate</span>
                     </span>
-                    <span className="text-[10px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-amber-300 bg-amber-500/20 border border-amber-400/40 px-2 py-0.5 rounded">
                       In Scrutiny
                     </span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
+                <div className="pt-2 border-t border-blue-800/60 flex items-center justify-between text-[10px] text-blue-200/80">
                   <span>Assigned Professional:</span>
-                  <span className="font-bold text-slate-800">CS Advisory Desk</span>
+                  <span className="font-bold text-sky-300">CS Advisory Desk</span>
                 </div>
               </div>
             </div>
 
             {/* Bottom Institutional Trust Notes */}
-            <div className="pt-3 border-t border-slate-200/80 space-y-1.5 text-[10px] text-slate-600">
+            <div className="pt-3 border-t border-blue-800/60 space-y-1.5 text-[10px] text-blue-200/80">
               <div className="flex items-center justify-between">
                 <span>Governing Authority:</span>
-                <span className="text-slate-900 font-semibold">Ministry of Corporate Affairs</span>
+                <span className="text-white font-semibold">Ministry of Corporate Affairs</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Security Standard:</span>
-                <span className="text-slate-900 font-semibold">256-Bit SSL • UIDAI Privacy Masking</span>
+                <span className="text-white font-semibold">256-Bit SSL • UIDAI Privacy Masking</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Assistance Line:</span>
-                <span className="text-blue-700 font-bold font-mono">1800-889-2244 (Toll-Free)</span>
+                <span className="text-sky-300 font-bold font-mono">1800-889-2244 (Toll-Free)</span>
               </div>
             </div>
           </div>
@@ -466,20 +477,20 @@ export default function LoginPage() {
                   onClick={handleFillCustomer}
                   className={`p-1.5 rounded-lg border text-left transition-all cursor-pointer ${
                     activeDemo === 'client'
-                      ? 'bg-blue-50 border-blue-400 ring-1 ring-blue-200'
-                      : 'bg-slate-50 hover:bg-slate-100 border-slate-200'
+                      ? 'bg-blue-100 border-blue-500 ring-2 ring-blue-300 shadow-sm'
+                      : 'bg-gradient-to-br from-blue-50 to-blue-100/60 hover:from-blue-100 hover:to-blue-200/70 border-blue-200 hover:border-blue-400'
                   }`}
                 >
                   <div className="flex items-center mb-0.5">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-blue-700 bg-blue-100/80 px-1 py-0.2 rounded">
+                    <span className="text-[9px] font-black uppercase tracking-wider text-white bg-blue-600 px-1.5 py-0.5 rounded shadow-2xs">
                       Client
                     </span>
                   </div>
-                  <div className="text-[10px] text-slate-600 leading-tight">
-                    ID: <span className="font-mono font-semibold text-slate-900">9876543210</span>
+                  <div className="text-[10px] text-slate-700 leading-tight">
+                    ID: <span className="font-mono font-bold text-blue-950">9876543210</span>
                   </div>
-                  <div className="text-[10px] text-slate-500 leading-tight mt-0.5">
-                    Pass: <span className="font-mono font-semibold text-slate-700">client123</span>
+                  <div className="text-[10px] text-slate-600 leading-tight mt-0.5">
+                    Pass: <span className="font-mono font-bold text-slate-800">client123</span>
                   </div>
                 </button>
 
@@ -489,20 +500,20 @@ export default function LoginPage() {
                   onClick={handleFillAdmin}
                   className={`p-1.5 rounded-lg border text-left transition-all cursor-pointer ${
                     activeDemo === 'admin'
-                      ? 'bg-slate-100 border-slate-400 ring-1 ring-slate-300'
-                      : 'bg-slate-50 hover:bg-slate-100 border-slate-200'
+                      ? 'bg-amber-100 border-amber-500 ring-2 ring-amber-300 shadow-sm'
+                      : 'bg-gradient-to-br from-amber-50 to-amber-100/60 hover:from-amber-100 hover:to-amber-200/70 border-amber-200 hover:border-amber-400'
                   }`}
                 >
                   <div className="flex items-center mb-0.5">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-slate-800 bg-slate-200 px-1 py-0.2 rounded">
+                    <span className="text-[9px] font-black uppercase tracking-wider text-white bg-amber-600 px-1.5 py-0.5 rounded shadow-2xs">
                       Admin
                     </span>
                   </div>
-                  <div className="text-[10px] text-slate-600 leading-tight truncate" title="admin@corporatefilings.in">
-                    ID: <span className="font-mono font-semibold text-slate-900">admin@...</span>
+                  <div className="text-[10px] text-slate-700 leading-tight truncate" title="admin@corporatefilings.in">
+                    ID: <span className="font-mono font-bold text-amber-950">admin@...</span>
                   </div>
-                  <div className="text-[10px] text-slate-500 leading-tight mt-0.5">
-                    Pass: <span className="font-mono font-semibold text-slate-700">Admin@2026</span>
+                  <div className="text-[10px] text-slate-600 leading-tight mt-0.5">
+                    Pass: <span className="font-mono font-bold text-slate-800">Admin@2026</span>
                   </div>
                 </button>
 
@@ -512,20 +523,20 @@ export default function LoginPage() {
                   onClick={handleFillPartner}
                   className={`p-1.5 rounded-lg border text-left transition-all cursor-pointer ${
                     activeDemo === 'partner'
-                      ? 'bg-indigo-50 border-indigo-400 ring-1 ring-indigo-200'
-                      : 'bg-slate-50 hover:bg-slate-100 border-slate-200'
+                      ? 'bg-purple-100 border-purple-500 ring-2 ring-purple-300 shadow-sm'
+                      : 'bg-gradient-to-br from-purple-50 to-purple-100/60 hover:from-purple-100 hover:to-purple-200/70 border-purple-200 hover:border-purple-400'
                   }`}
                 >
                   <div className="flex items-center mb-0.5">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100/80 px-1 py-0.2 rounded">
+                    <span className="text-[9px] font-black uppercase tracking-wider text-white bg-purple-600 px-1.5 py-0.5 rounded shadow-2xs">
                       Partner
                     </span>
                   </div>
-                  <div className="text-[10px] text-slate-600 leading-tight truncate" title="partner.ca@corporatefilings.in">
-                    ID: <span className="font-mono font-semibold text-slate-900">partner.ca</span>
+                  <div className="text-[10px] text-slate-700 leading-tight truncate" title="partner.ca@corporatefilings.in">
+                    ID: <span className="font-mono font-bold text-purple-950">partner.ca</span>
                   </div>
-                  <div className="text-[10px] text-slate-500 leading-tight mt-0.5">
-                    Pass: <span className="font-mono font-semibold text-slate-700">partner123</span>
+                  <div className="text-[10px] text-slate-600 leading-tight mt-0.5">
+                    Pass: <span className="font-mono font-bold text-slate-800">partner123</span>
                   </div>
                 </button>
               </div>
