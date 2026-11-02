@@ -28,6 +28,7 @@ import TrademarkFinderTab from '@/components/tools/TrademarkFinderTab';
 import HsnDirectoryTab from '@/components/tools/HsnDirectoryTab';
 import GstinValidatorTab from '@/components/tools/GstinValidatorTab';
 import TaxRegimeCalculatorTab from '@/components/tools/TaxRegimeCalculatorTab';
+import DocumentValidatorTab from '@/components/tools/DocumentValidatorTab';
 
 // Prohibited / Regulated Words under MCA Rule 8 & Emblems and Names Act
 const RESTRICTED_WORDS = [
@@ -74,7 +75,7 @@ interface NameEvaluation {
 
 export default function McaToolsSuite() {
   const [activeTab, setActiveTab] = useState<
-    'nameChecker' | 'stampDuty' | 'trademarkFinder' | 'hsnDirectory' | 'gstinValidator' | 'taxRegime'
+    'nameChecker' | 'stampDuty' | 'trademarkFinder' | 'hsnDirectory' | 'gstinValidator' | 'taxRegime' | 'docValidator'
   >('nameChecker');
 
   // ==========================================
@@ -370,6 +371,19 @@ export default function McaToolsSuite() {
           >
             <TrendingUp className="w-4 h-4" />
             <span>Tax Regime (Old vs New)</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('docValidator')}
+            className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              activeTab === 'docValidator'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 border border-blue-400/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent'
+            }`}
+          >
+            <ShieldCheck className="w-4 h-4" />
+            <span>Document & KYC QC Desk</span>
           </button>
         </div>
       </div>
@@ -809,6 +823,15 @@ export default function McaToolsSuite() {
       {/* TAB 6: OLD VS NEW TAX REGIME COMPARATOR (FY 2025-27)     */}
       {/* ======================================================== */}
       {activeTab === 'taxRegime' && <TaxRegimeCalculatorTab />}
+
+      {/* ======================================================== */}
+      {/* TAB 7: 60-DAY BILL, AADHAAR MASK & PAN MATCHER QC DESK    */}
+      {/* ======================================================== */}
+      {activeTab === 'docValidator' && (
+        <div className="p-6 sm:p-8">
+          <DocumentValidatorTab />
+        </div>
+      )}
     </div>
   );
 }

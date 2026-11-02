@@ -18,6 +18,7 @@ interface HeaderProps {
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
+  { label: 'Enterprise Desk', href: '/enterprise' },
   { label: 'Statutory Suite', href: '/calculator' },
   { label: 'Legal Contracts', href: '/contracts' },
   { label: 'GST Invoicing', href: '/invoice-generator' },
@@ -27,6 +28,7 @@ const NAV_ITEMS = [
 
 function resolveActiveFromPath(path: string): string {
   if (path === '/') return '/';
+  if (path.startsWith('/enterprise')) return '/enterprise';
   if (path.startsWith('/services')) return '/services';
   if (path === '/calculator') return '/calculator';
   if (path === '/contracts') return '/contracts';
