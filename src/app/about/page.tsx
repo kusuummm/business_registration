@@ -211,7 +211,7 @@ export default function AboutPage() {
 
       {/* CTA Box */}
       <section className="py-14 px-4 sm:px-6 max-w-7xl mx-auto w-full">
-        <div className="p-8 sm:p-10 bg-gradient-to-r from-[#0B1528] via-slate-900 to-[#0B1528] rounded-2xl text-white text-center space-y-4 border border-slate-800 shadow-xl">
+        <div className="p-8 sm:p-10 bg-gradient-to-r from-[#0F2744] via-slate-900 to-[#0F2744] rounded-2xl text-white text-center space-y-4 border border-slate-800 shadow-xl">
           <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/20 px-3 py-1 rounded-full border border-amber-400/30">
             Start Your Business Today
           </span>

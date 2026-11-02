@@ -212,7 +212,7 @@ export default function Step4DirectorKYC({
               onClick={() => setActiveTab(idx)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition cursor-pointer ${
                 isSelected
-                  ? 'bg-[#0B1528] text-white shadow-xs'
+                  ? 'bg-[#0F2744] text-white shadow-xs'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
               }`}
             >
@@ -248,7 +248,7 @@ export default function Step4DirectorKYC({
           <button
             type="button"
             onClick={() => handleDigiLockerFetch(activeTab)}
-            className="px-4 py-2 bg-[#0B1528] hover:bg-[#1E293B] text-white rounded-lg text-xs font-bold flex items-center gap-2 shadow-xs transition cursor-pointer shrink-0"
+            className="px-4 py-2 bg-[#0F2744] hover:bg-[#1E3A8A] text-white rounded-lg text-xs font-bold flex items-center gap-2 shadow-xs transition cursor-pointer shrink-0"
           >
             <UserCheck className="w-4 h-4" />
             <span>Fetch via DigiLocker</span>
@@ -340,7 +340,7 @@ export default function Step4DirectorKYC({
                 onClick={() => updateDirector(activeTab, { hasExistingDin: false, dinNumber: '' })}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition ${
                   !activeDir.hasExistingDin
-                    ? 'bg-[#0B1528] text-white'
+                    ? 'bg-[#0F2744] text-white'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -351,7 +351,7 @@ export default function Step4DirectorKYC({
                 onClick={() => updateDirector(activeTab, { hasExistingDin: true })}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition ${
                   activeDir.hasExistingDin
-                    ? 'bg-[#0B1528] text-white'
+                    ? 'bg-[#0F2744] text-white'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -507,7 +507,7 @@ export default function Step4DirectorKYC({
         <button
           type="button"
           onClick={handleNext}
-          className="flex-1 py-3 px-4 rounded-xl bg-[#0B1528] hover:bg-[#1E293B] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
+          className="flex-1 py-3 px-4 rounded-xl bg-[#0F2744] hover:bg-[#1E3A8A] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
         >
           <span>Confirm All Directors & Proceed to Registered Office</span>
           <ArrowRight className="w-4 h-4" />

@@ -78,7 +78,7 @@ export default function StandaloneDowntimePage() {
             <button
               type="button"
               onClick={() => window.location.reload()}
-              className="flex-1 py-2.5 px-4 bg-[#0B1528] hover:bg-[#1E293B] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition shadow-xs cursor-pointer"
+              className="flex-1 py-2.5 px-4 bg-[#0F2744] hover:bg-[#1E3A8A] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition shadow-xs cursor-pointer"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Try Again / Refresh</span>

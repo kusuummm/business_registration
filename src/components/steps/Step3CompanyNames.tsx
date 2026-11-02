@@ -158,7 +158,7 @@ export default function Step3CompanyNames({
                       onClick={() => setIndustry(ind.id)}
                       className={`p-3 rounded-xl border text-left transition cursor-pointer flex flex-col justify-between ${
                         isSel
-                          ? 'border-[#0B1528] bg-slate-50 ring-2 ring-slate-900/10'
+                          ? 'border-[#0F2744] bg-slate-50 ring-2 ring-slate-900/10'
                           : 'border-slate-200 hover:border-slate-300'
                       }`}
                     >
@@ -191,7 +191,7 @@ export default function Step3CompanyNames({
             <button
               type="button"
               onClick={handleNext}
-              className="flex-1 py-3 px-4 rounded-xl bg-[#0B1528] hover:bg-[#1E293B] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
+              className="flex-1 py-3 px-4 rounded-xl bg-[#0F2744] hover:bg-[#1E3A8A] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
             >
               <span>Save Names & Proceed to Director KYC</span>
               <ArrowRight className="w-4 h-4" />
@@ -202,7 +202,7 @@ export default function Step3CompanyNames({
         {/* Right Column: Rule 8 MCA Compliance Engine & SPICe+ Preview */}
         <div className="lg:col-span-5 space-y-5">
           {/* Live CRC Name Preview Card */}
-          <div className="bg-[#0B1528] text-white rounded-2xl p-6 border border-slate-800 shadow-sm">
+          <div className="bg-[#0F2744] text-white rounded-2xl p-6 border border-slate-800 shadow-sm">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
               <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400">
                 MCA SPICe+ Part A Preview

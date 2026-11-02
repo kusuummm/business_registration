@@ -208,7 +208,7 @@ export default function Step1AuthOTP({ auth, onSuccess }: Step1Props) {
 
             <button
               type="submit"
-              className="w-full py-3 px-4 bg-[#0B1528] hover:bg-[#1E293B] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
+              className="w-full py-3 px-4 bg-[#0F2744] hover:bg-[#1E3A8A] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
             >
               <span>Continue & Get 4-Digit OTP</span>
               <ArrowRight className="w-4 h-4" />
@@ -271,7 +271,7 @@ export default function Step1AuthOTP({ auth, onSuccess }: Step1Props) {
                   value={digit}
                   onChange={(e) => handleOtpChange(index, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(index, e)}
-                  className="w-14 h-14 text-center text-2xl font-bold font-mono rounded-xl border-2 border-slate-300 focus:border-[#0B1528] focus:ring-4 focus:ring-slate-100 outline-none transition bg-white text-slate-900"
+                  className="w-14 h-14 text-center text-2xl font-bold font-mono rounded-xl border-2 border-slate-300 focus:border-[#0F2744] focus:ring-4 focus:ring-slate-100 outline-none transition bg-white text-slate-900"
                 />
               ))}
             </div>
@@ -301,7 +301,7 @@ export default function Step1AuthOTP({ auth, onSuccess }: Step1Props) {
                 type="button"
                 onClick={handleVerifyOtp}
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-6 py-2.5 bg-[#0B1528] hover:bg-[#1E293B] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 bg-[#0F2744] hover:bg-[#1E3A8A] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
               >
                 {isSubmitting ? (
                   <span>Verifying...</span>

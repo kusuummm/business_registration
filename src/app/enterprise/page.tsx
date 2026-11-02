@@ -166,7 +166,7 @@ export default function EnterpriseLicensingPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0B1528] via-[#101F3C] to-[#0A1324] text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-[#0F2744] via-[#101F3C] to-[#0A1324] text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 

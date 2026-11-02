@@ -210,12 +210,12 @@ export default function LoginPage() {
       <main className="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4 min-h-0 overflow-hidden relative z-10">
         <div className="w-full max-w-sm sm:max-w-md md:max-w-4xl lg:max-w-[940px] rounded-2xl border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-full">
           
-          {/* Left Column: Authentic Executive Secretarial & Filing Showcase */}
-          <div className="md:col-span-5 bg-[#0B1528] p-5 lg:p-6 text-white flex flex-col justify-between border-r border-slate-800 relative hidden md:flex">
+          {/* Left Column: Authentic Executive Secretarial & Filing Showcase (Royal Blue & Deep Navy) */}
+          <div className="md:col-span-5 bg-gradient-to-br from-[#0A192F] via-[#0F2744] to-[#16335C] p-5 lg:p-6 text-white flex flex-col justify-between border-r border-[#1E3A8A]/30 relative hidden md:flex">
             
             {/* Top Header & Official Context */}
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/80 text-slate-300 text-[10px] font-semibold tracking-wide">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#132B4F] border border-[#234B80] text-blue-200 text-[10px] font-semibold tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span>MCA21 Direct Statutory Desk</span>
               </div>
@@ -224,70 +224,70 @@ export default function LoginPage() {
                 Corporate Secretarial & Compliance Platform
               </h2>
 
-              <p className="text-[11px] text-slate-400 leading-relaxed">
+              <p className="text-[11px] text-blue-100/70 leading-relaxed">
                 Centralized dashboard for Private Limited, LLP, and OPC statutory filings, DIN/DSC issuance, and annual ROC governance.
               </p>
             </div>
 
             {/* Middle: Filing Lifecycle Tracker (Authentic Product UI Preview) */}
             <div className="my-auto py-3">
-              <div className="rounded-xl border border-slate-800 bg-slate-900/90 p-3.5 space-y-3">
-                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-slate-800">
-                  <div className="flex items-center gap-1.5 font-mono text-slate-300 font-semibold">
+              <div className="rounded-xl border border-[#1E3A8A]/50 bg-[#0A1D36]/90 p-3.5 space-y-3 shadow-inner">
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-[#1E3A8A]/40">
+                  <div className="flex items-center gap-1.5 font-mono text-slate-200 font-semibold">
                     <span>SRN:</span>
-                    <span className="text-blue-400">AA92841029</span>
+                    <span className="text-sky-400 font-bold">AA92841029</span>
                   </div>
-                  <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-700/50 px-2 py-0.5 rounded">
                     Active Filing
                   </span>
                 </div>
 
                 <div className="space-y-2.5 text-[11px]">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-300">
+                    <span className="flex items-center gap-2 text-slate-200">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                       <span>SPICe+ Part A Name Approval</span>
                     </span>
-                    <span className="text-[10px] text-slate-400 font-medium">Approved</span>
+                    <span className="text-[10px] text-blue-200/80 font-medium">Approved</span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-300">
+                    <span className="flex items-center gap-2 text-slate-200">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                       <span>DSC Tokens & Director DINs</span>
                     </span>
-                    <span className="text-[10px] text-slate-400 font-medium">Completed</span>
+                    <span className="text-[10px] text-blue-200/80 font-medium">Completed</span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-300">
+                    <span className="flex items-center gap-2 text-slate-200">
                       <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                       <span>ROC Scrutiny & Certificate</span>
                     </span>
-                    <span className="text-[10px] text-amber-400 font-medium">In Scrutiny</span>
+                    <span className="text-[10px] text-amber-300 font-medium">In Scrutiny</span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] text-slate-400">
+                <div className="pt-2 border-t border-[#1E3A8A]/40 flex items-center justify-between text-[10px] text-slate-300">
                   <span>Assigned Professional:</span>
-                  <span className="font-semibold text-slate-300">CS Advisory Desk</span>
+                  <span className="font-semibold text-blue-200">CS Advisory Desk</span>
                 </div>
               </div>
             </div>
 
             {/* Bottom Institutional Trust Notes */}
-            <div className="pt-3 border-t border-slate-800/80 space-y-1.5 text-[10px] text-slate-400">
+            <div className="pt-3 border-t border-[#1E3A8A]/40 space-y-1.5 text-[10px] text-blue-200/70">
               <div className="flex items-center justify-between">
                 <span>Governing Authority:</span>
-                <span className="text-slate-300 font-medium">Ministry of Corporate Affairs</span>
+                <span className="text-white font-medium">Ministry of Corporate Affairs</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Security Standard:</span>
-                <span className="text-slate-300 font-medium">TLS 1.3 End-to-End Encryption</span>
+                <span className="text-white font-medium">TLS 1.3 End-to-End Encryption</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Assistance Line:</span>
-                <span className="text-slate-300 font-mono">1800-889-2244 (Toll-Free)</span>
+                <span className="text-white font-mono">1800-889-2244 (Toll-Free)</span>
               </div>
             </div>
           </div>
@@ -421,7 +421,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white rounded-lg font-bold text-xs shadow-xs transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                className="w-full py-2.5 px-4 bg-[#1E40AF] hover:bg-[#1D4ED8] active:bg-[#172554] text-white rounded-lg font-bold text-xs shadow-md shadow-blue-600/20 transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
               >
                 {isLoading ? (
                   <span>Authenticating...</span>

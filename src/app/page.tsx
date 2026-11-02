@@ -884,7 +884,7 @@ export default function HomePage() {
       </section>
 
       {/* Universal Footer with Clean Colored Highlights and Complete Platform Navigation */}
-      <footer className="bg-[#0B1528] text-slate-300 border-t border-slate-800 py-12 px-4 sm:px-6 mt-auto">
+      <footer className="bg-[#0F2744] text-slate-300 border-t border-slate-800 py-12 px-4 sm:px-6 mt-auto">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-slate-800 text-xs">
             {/* Col 1: Brand & Mission */}

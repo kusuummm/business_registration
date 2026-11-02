@@ -229,7 +229,7 @@ export default function Step6ReviewPayment({
 
         {/* Right Column: Checkout & Itemized Billing */}
         <div className="lg:col-span-5 sticky top-36 space-y-5">
-          <div className="bg-[#0B1528] text-white rounded-2xl p-6 sm:p-7 border border-slate-800 shadow-sm">
+          <div className="bg-[#0F2744] text-white rounded-2xl p-6 sm:p-7 border border-slate-800 shadow-sm">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400">
@@ -346,7 +346,7 @@ export default function Step6ReviewPayment({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-xs">
           <div className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200">
             {/* Modal Header */}
-            <div className="bg-[#0B1528] text-white px-6 py-5 flex items-center justify-between">
+            <div className="bg-[#0F2744] text-white px-6 py-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">
                   MCA

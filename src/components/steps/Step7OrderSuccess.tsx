@@ -212,7 +212,7 @@ CIN: U74140DL2024PTC998822 | GSTIN: 07AAACB2291Q1ZP
       {/* Dynamic Status Banner */}
       {isApproved ? (
         /* Approved Success Celebration Banner */
-        <div className="bg-[#0B1528] text-white rounded-2xl p-6 sm:p-8 border border-emerald-500/40 shadow-sm relative overflow-hidden mb-8 animate-fade-in">
+        <div className="bg-[#0F2744] text-white rounded-2xl p-6 sm:p-8 border border-emerald-500/40 shadow-sm relative overflow-hidden mb-8 animate-fade-in">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-300 mb-3 border border-emerald-400/30">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -245,7 +245,7 @@ CIN: U74140DL2024PTC998822 | GSTIN: 07AAACB2291Q1ZP
         </div>
       ) : (
         /* Pending Verification Banner */
-        <div className="bg-[#0B1528] text-white rounded-2xl p-6 sm:p-8 border border-amber-500/40 shadow-sm relative overflow-hidden mb-8">
+        <div className="bg-[#0F2744] text-white rounded-2xl p-6 sm:p-8 border border-amber-500/40 shadow-sm relative overflow-hidden mb-8">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-xs font-bold text-amber-300 mb-3 border border-amber-400/30 animate-pulse">
               <Clock className="w-3.5 h-3.5 text-amber-400" />

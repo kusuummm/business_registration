@@ -578,7 +578,7 @@ export default function AdminDashboardPage() {
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Minimal Institutional Header */}
-        <div className="border-b border-slate-800/90 bg-[#0B1528] px-4 sm:px-6 py-2.5 sm:py-3 shrink-0 shadow-md relative z-10">
+        <div className="border-b border-slate-800/90 bg-[#0F2744] px-4 sm:px-6 py-2.5 sm:py-3 shrink-0 shadow-md relative z-10">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <Link href="/" className="flex items-center cursor-pointer min-w-[100px] h-7" aria-label="Home">
               {/* Empty space reserved for future logo */}
@@ -711,7 +711,7 @@ export default function AdminDashboardPage() {
                   <button
                     type="submit"
                     disabled={isLoggingIn}
-                    className="w-full py-2.5 bg-gradient-to-r from-[#0B1528] via-[#11244A] to-[#1E3A8A] hover:from-[#11244A] hover:to-[#2563EB] text-white font-black rounded-xl text-xs transition cursor-pointer shadow-md flex items-center justify-center gap-1.5"
+                    className="w-full py-2.5 bg-gradient-to-r from-[#0F2744] via-[#11244A] to-[#1E3A8A] hover:from-[#11244A] hover:to-[#2563EB] text-white font-black rounded-xl text-xs transition cursor-pointer shadow-md flex items-center justify-center gap-1.5"
                   >
                     {isLoggingIn ? (
                       <>
@@ -2269,7 +2269,7 @@ export default function AdminDashboardPage() {
                 </div>
 
                 {/* Calculated Transparency Breakdown Preview */}
-                <div className="p-3.5 bg-gradient-to-br from-slate-900 to-[#0B1528] text-white rounded-xl space-y-1.5 font-mono text-[11px] border border-slate-800 shadow-inner">
+                <div className="p-3.5 bg-gradient-to-br from-slate-900 to-[#0F2744] text-white rounded-xl space-y-1.5 font-mono text-[11px] border border-slate-800 shadow-inner">
                   <p className="text-amber-400 font-sans font-bold uppercase text-[10px] tracking-wider">Real-time Customer Price Preview:</p>
                   <div className="flex justify-between">
                     <span className="text-slate-300">Taxable Subtotal (Base + DSC):</span>
@@ -2299,7 +2299,7 @@ export default function AdminDashboardPage() {
                   </button>
                   <button
                     type="submit"
-                    className="w-2/3 py-2.5 bg-gradient-to-r from-[#0B1528] via-[#11244A] to-[#1E3A8A] hover:from-[#11244A] hover:to-[#2563EB] text-white rounded-xl font-black shadow-md cursor-pointer transition flex items-center justify-center gap-1.5"
+                    className="w-2/3 py-2.5 bg-gradient-to-r from-[#0F2744] via-[#11244A] to-[#1E3A8A] hover:from-[#11244A] hover:to-[#2563EB] text-white rounded-xl font-black shadow-md cursor-pointer transition flex items-center justify-center gap-1.5"
                   >
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                     <span>Save & Apply Changes Instantly</span>

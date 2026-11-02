@@ -96,7 +96,7 @@ export default function Header({ currentStep }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0B1528] border-b border-slate-800 relative">
+    <header className="sticky top-0 z-50 bg-[#0F2744] border-b border-slate-800 relative">
       {/* Instant Navigation Indicator Stripe */}
       {isNavigating && (
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-blue-500 to-indigo-500 animate-pulse z-50 shadow-sm shadow-blue-500/50" />

@@ -316,7 +316,7 @@ export default function ServicesDirectoryPage() {
         )}
 
         {/* Free Secretarial Advisory Consultation Banner */}
-        <div className="mt-14 p-8 bg-gradient-to-r from-slate-900 via-[#0B1528] to-slate-900 rounded-2xl text-white flex flex-col md:flex-row md:items-center justify-between gap-6 border border-slate-800 shadow-xl">
+        <div className="mt-14 p-8 bg-gradient-to-r from-slate-900 via-[#0F2744] to-slate-900 rounded-2xl text-white flex flex-col md:flex-row md:items-center justify-between gap-6 border border-slate-800 shadow-xl">
           <div className="space-y-1.5 max-w-xl">
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/20 px-2.5 py-0.5 rounded-full border border-amber-400/30">
               Free Secretarial Consultation

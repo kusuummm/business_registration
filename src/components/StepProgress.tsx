@@ -40,7 +40,7 @@ export default function StepProgress({
         <div className="sm:hidden">
           <div className="flex items-center justify-between text-xs font-semibold text-slate-700 mb-1.5">
             <span className="flex items-center gap-1.5 text-slate-900 font-bold">
-              <span className="w-5 h-5 rounded-full bg-[#0B1528] text-white flex items-center justify-center text-[10px] font-bold">
+              <span className="w-5 h-5 rounded-full bg-[#0F2744] text-white flex items-center justify-center text-[10px] font-bold">
                 {currentStep}
               </span>
               <span>Step {currentStep} of 7: {STEPS[currentStep - 1]?.label}</span>
@@ -51,7 +51,7 @@ export default function StepProgress({
           </div>
           <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
             <div
-              className="bg-[#0B1528] h-full rounded-full transition-all duration-300 ease-out"
+              className="bg-[#0F2744] h-full rounded-full transition-all duration-300 ease-out"
               style={{ width: `${((currentStep - 1) / 6) * 100}%` }}
             />
           </div>
@@ -82,7 +82,7 @@ export default function StepProgress({
                           isCompleted
                             ? 'bg-emerald-700 text-white'
                             : isCurrent
-                            ? 'bg-[#0B1528] text-white ring-4 ring-slate-200'
+                            ? 'bg-[#0F2744] text-white ring-4 ring-slate-200'
                             : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
                         }`}
                       >
@@ -96,7 +96,7 @@ export default function StepProgress({
                         <p
                           className={`text-[10px] font-bold uppercase tracking-wider ${
                             isCurrent
-                              ? 'text-[#0B1528]'
+                              ? 'text-[#0F2744]'
                               : isCompleted
                               ? 'text-emerald-800'
                               : 'text-slate-400'

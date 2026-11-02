@@ -376,7 +376,7 @@ export default function Step5OfficeDocs({
             <button
               type="button"
               onClick={handleNext}
-              className="flex-1 py-3 px-4 rounded-xl bg-[#0B1528] hover:bg-[#1E293B] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
+              className="flex-1 py-3 px-4 rounded-xl bg-[#0F2744] hover:bg-[#1E3A8A] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition cursor-pointer"
             >
               <span>Review Complete Dossier & Pay</span>
               <ArrowRight className="w-4 h-4" />
@@ -386,7 +386,7 @@ export default function Step5OfficeDocs({
 
         {/* Right Info Box: Why 60 Days is Critical */}
         <div className="lg:col-span-5 space-y-5">
-          <div className="bg-[#0B1528] text-white rounded-2xl p-6 border border-slate-800 shadow-sm space-y-4">
+          <div className="bg-[#0F2744] text-white rounded-2xl p-6 border border-slate-800 shadow-sm space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400">
                 MCA Rule 25 Breakdown

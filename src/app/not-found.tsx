@@ -45,7 +45,7 @@ export default function NotFound() {
           <div className="mt-5 flex items-center justify-center gap-2.5">
             <Link
               href="/"
-              className="flex-1 py-2.5 px-4 bg-[#0B1528] hover:bg-[#1E293B] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition cursor-pointer"
+              className="flex-1 py-2.5 px-4 bg-[#0F2744] hover:bg-[#1E3A8A] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition cursor-pointer"
             >
               <Home className="w-3.5 h-3.5" />
               <span>Go to Homepage</span>

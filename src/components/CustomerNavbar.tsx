@@ -203,7 +203,7 @@ export default function CustomerNavbar({
             {isInboxOpen && (
               <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-50 animate-fade-in text-xs">
                 {/* Header */}
-                <div className="p-3 bg-gradient-to-r from-slate-900 to-[#0B1528] text-white flex items-center justify-between">
+                <div className="p-3 bg-gradient-to-r from-slate-900 to-[#0F2744] text-white flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-amber-400" />
                     <div>

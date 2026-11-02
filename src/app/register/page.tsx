@@ -266,7 +266,7 @@ export default function RegisterPage() {
       <Header currentStep={currentStep} />
 
       {/* Package Notification Bar */}
-      <div className="bg-[#0B1528] text-white py-2 px-4 border-b border-slate-800 text-center text-xs flex items-center justify-center gap-2 shadow-xs">
+      <div className="bg-[#0F2744] text-white py-2 px-4 border-b border-slate-800 text-center text-xs flex items-center justify-center gap-2 shadow-xs">
         <span className="w-2 h-2 rounded-full bg-emerald-400" />
         <span>Selected Package Tier: <strong className="text-amber-300 font-bold">{selectedPackageTitle}</strong></span>
         <span className="text-slate-400 hidden sm:inline">• 100% Sovereign Stamp Duty Guaranteed</span>
@@ -342,7 +342,7 @@ export default function RegisterPage() {
       </main>
 
       {/* Universal Footer */}
-      <footer className="bg-[#0B1528] text-slate-300 border-t border-slate-800 py-10 px-4 sm:px-6">
+      <footer className="bg-[#0F2744] text-slate-300 border-t border-slate-800 py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800 text-xs">
             <div className="space-y-3">
