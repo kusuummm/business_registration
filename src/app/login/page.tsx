@@ -208,86 +208,95 @@ export default function LoginPage() {
 
       {/* Main Container: Exact-fit, perfectly centered in remaining viewport */}
       <main className="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4 min-h-0 overflow-hidden relative z-10">
-        <div className="w-full max-w-sm sm:max-w-md md:max-w-4xl lg:max-w-[940px] rounded-2xl border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-full">
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-4xl lg:max-w-[940px] rounded-2xl border border-slate-200/90 shadow-xl shadow-blue-900/5 bg-white overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-full relative">
           
-          {/* Left Column: Authentic Executive Secretarial & Filing Showcase (Royal Blue & Deep Navy) */}
-          <div className="md:col-span-5 bg-gradient-to-br from-[#0A192F] via-[#0F2744] to-[#16335C] p-5 lg:p-6 text-white flex flex-col justify-between border-r border-[#1E3A8A]/30 relative hidden md:flex">
+          {/* Top Colorful Accent Stripe (Matches Website Theme) */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-teal-400 z-20" />
+
+          {/* Left Column: Authentic Executive Secretarial & Filing Showcase (Matches Website Light Theme) */}
+          <div className="md:col-span-5 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-5 lg:p-6 text-slate-800 flex flex-col justify-between border-r border-blue-100 relative hidden md:flex">
             
             {/* Top Header & Official Context */}
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#132B4F] border border-[#234B80] text-blue-200 text-[10px] font-semibold tracking-wide">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>MCA21 Direct Statutory Desk</span>
+            <div className="space-y-2 pt-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 text-blue-900 text-[10px] font-semibold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+                <span>MCA V3 Certified Portal</span>
               </div>
 
-              <h2 className="text-lg lg:text-xl font-extrabold text-white tracking-tight leading-snug">
-                Corporate Secretarial & Compliance Platform
+              <h2 className="text-lg lg:text-xl font-black text-slate-900 tracking-tight leading-snug">
+                Company Incorporation & Statutory Filings
               </h2>
 
-              <p className="text-[11px] text-blue-100/70 leading-relaxed">
-                Centralized dashboard for Private Limited, LLP, and OPC statutory filings, DIN/DSC issuance, and annual ROC governance.
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                Centralized secretarial desk for Private Limited, LLP, and OPC statutory dockets with certified Company Secretaries.
               </p>
             </div>
 
-            {/* Middle: Filing Lifecycle Tracker (Authentic Product UI Preview) */}
+            {/* Middle: Filing Lifecycle Tracker (Matches Website Consultation Card) */}
             <div className="my-auto py-3">
-              <div className="rounded-xl border border-[#1E3A8A]/50 bg-[#0A1D36]/90 p-3.5 space-y-3 shadow-inner">
-                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-[#1E3A8A]/40">
-                  <div className="flex items-center gap-1.5 font-mono text-slate-200 font-semibold">
+              <div className="rounded-xl border border-blue-100 bg-white p-3.5 space-y-3 shadow-md shadow-blue-900/5">
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-slate-100">
+                  <div className="flex items-center gap-1.5 font-mono text-slate-700 font-bold">
                     <span>SRN:</span>
-                    <span className="text-sky-400 font-bold">AA92841029</span>
+                    <span className="text-blue-600 font-bold">AA92841029</span>
                   </div>
-                  <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-700/50 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
                     Active Filing
                   </span>
                 </div>
 
                 <div className="space-y-2.5 text-[11px]">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-700 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       <span>SPICe+ Part A Name Approval</span>
                     </span>
-                    <span className="text-[10px] text-blue-200/80 font-medium">Approved</span>
+                    <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+                      Approved
+                    </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-700 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                       <span>DSC Tokens & Director DINs</span>
                     </span>
-                    <span className="text-[10px] text-blue-200/80 font-medium">Completed</span>
+                    <span className="text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">
+                      Completed
+                    </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-200">
-                      <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <span className="flex items-center gap-2 text-slate-700 font-medium">
+                      <Clock className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                       <span>ROC Scrutiny & Certificate</span>
                     </span>
-                    <span className="text-[10px] text-amber-300 font-medium">In Scrutiny</span>
+                    <span className="text-[10px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">
+                      In Scrutiny
+                    </span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-[#1E3A8A]/40 flex items-center justify-between text-[10px] text-slate-300">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
                   <span>Assigned Professional:</span>
-                  <span className="font-semibold text-blue-200">CS Advisory Desk</span>
+                  <span className="font-bold text-slate-800">CS Advisory Desk</span>
                 </div>
               </div>
             </div>
 
             {/* Bottom Institutional Trust Notes */}
-            <div className="pt-3 border-t border-[#1E3A8A]/40 space-y-1.5 text-[10px] text-blue-200/70">
+            <div className="pt-3 border-t border-slate-200/80 space-y-1.5 text-[10px] text-slate-600">
               <div className="flex items-center justify-between">
                 <span>Governing Authority:</span>
-                <span className="text-white font-medium">Ministry of Corporate Affairs</span>
+                <span className="text-slate-900 font-semibold">Ministry of Corporate Affairs</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Security Standard:</span>
-                <span className="text-white font-medium">TLS 1.3 End-to-End Encryption</span>
+                <span className="text-slate-900 font-semibold">256-Bit SSL • UIDAI Privacy Masking</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Assistance Line:</span>
-                <span className="text-white font-mono">1800-889-2244 (Toll-Free)</span>
+                <span className="text-blue-700 font-bold font-mono">1800-889-2244 (Toll-Free)</span>
               </div>
             </div>
           </div>
@@ -417,11 +426,11 @@ export default function LoginPage() {
                 </span>
               </div>
 
-              {/* Clean Professional Solid Button */}
+              {/* Primary Action Button (Matches Website Theme) */}
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-2.5 px-4 bg-[#1E40AF] hover:bg-[#1D4ED8] active:bg-[#172554] text-white rounded-lg font-bold text-xs shadow-md shadow-blue-600/20 transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-[0.99] text-white rounded-lg font-bold text-xs shadow-md shadow-blue-500/20 transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
               >
                 {isLoading ? (
                   <span>Authenticating...</span>
